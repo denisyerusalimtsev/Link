@@ -9,45 +9,59 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Link.EventManagement", "Lin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Link.ReportManagement", "Link.ReportManagement", "{A9347401-1493-478C-820D-2803CCD876D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ExpertManagement.Domain.Services", "Link.ExpertManagement.Domain.Services\Link.ExpertManagement.Domain.Services.csproj", "{73440C3F-9DD0-49FF-A6EA-F202BA959B0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ExpertManagement.Domain.Services", "Link.ExpertManagement.Domain.Services\Link.ExpertManagement.Domain.Services.csproj", "{73440C3F-9DD0-49FF-A6EA-F202BA959B0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ExpertManagement.Infrastructure.Services", "Link.ExpertManagement.Infrastructure.Services\Link.ExpertManagement.Infrastructure.Services.csproj", "{394924AF-8390-4E1F-B66B-7FC87B487BA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ExpertManagement.Infrastructure.Services", "Link.ExpertManagement.Infrastructure.Services\Link.ExpertManagement.Infrastructure.Services.csproj", "{394924AF-8390-4E1F-B66B-7FC87B487BA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ExpertManagement.Infrastructure.DataAccess.MongoDb", "Link.ExpertManagement.Infrastructure.DataAccess.MongoDb\Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.csproj", "{0CCDBF17-052A-4BEF-B081-3DACF1061E2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ExpertManagement.Infrastructure.DataAccess.MongoDb", "Link.ExpertManagement.Infrastructure.DataAccess.MongoDb\Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.csproj", "{0CCDBF17-052A-4BEF-B081-3DACF1061E2A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Link.Common", "Link.Common", "{CC1F4EC8-FC72-4FAB-9FD6-ED040200F4E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.Common.Domain.Framework", "Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj", "{DBB80405-5887-4698-B0FF-BCEA3F2D310B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.Common.Domain.Framework", "Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj", "{DBB80405-5887-4698-B0FF-BCEA3F2D310B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ExpertManagement.Application", "Link.ExpertManagement.Application\Link.ExpertManagement.Application.csproj", "{CB49BFD0-055A-4F71-BA96-753B7D1D6CF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ExpertManagement.Application", "Link.ExpertManagement.Application\Link.ExpertManagement.Application.csproj", "{CB49BFD0-055A-4F71-BA96-753B7D1D6CF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ExpertManagement.Infrastructure.Web", "Link.ExpertManagement.Infrastructure.Web\Link.ExpertManagement.Infrastructure.Web.csproj", "{09C8384F-6AC5-4CCE-A1CE-C5F17C5ECD60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ExpertManagement.Infrastructure.Web", "Link.ExpertManagement.Infrastructure.Web\Link.ExpertManagement.Infrastructure.Web.csproj", "{09C8384F-6AC5-4CCE-A1CE-C5F17C5ECD60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EventManagement.Application", "Link.EventManagement.Application\Link.EventManagement.Application.csproj", "{F56DE2B5-AB93-4CB4-A5BC-25B5D03E2167}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EventManagement.Application", "Link.EventManagement.Application\Link.EventManagement.Application.csproj", "{F56DE2B5-AB93-4CB4-A5BC-25B5D03E2167}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EventManagement.Domain.Model", "Link.EventManagement.Domain.Model\Link.EventManagement.Domain.Model.csproj", "{DB30DDB5-98E9-4244-93B5-960E83484CB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EventManagement.Domain.Model", "Link.EventManagement.Domain.Model\Link.EventManagement.Domain.Model.csproj", "{DB30DDB5-98E9-4244-93B5-960E83484CB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EventManagement.Domain.Services", "Link.EventManagement.Domain.Services\Link.EventManagement.Domain.Services.csproj", "{C1D268FA-A6D0-4488-8FEE-29139BAA1530}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EventManagement.Domain.Services", "Link.EventManagement.Domain.Services\Link.EventManagement.Domain.Services.csproj", "{C1D268FA-A6D0-4488-8FEE-29139BAA1530}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EventManagement.Infrastructure.Services", "Link.EventManagement.Infrastructure.Services\Link.EventManagement.Infrastructure.Services.csproj", "{155D1E79-6764-4839-B540-EFD45AC74E6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EventManagement.Infrastructure.Services", "Link.EventManagement.Infrastructure.Services\Link.EventManagement.Infrastructure.Services.csproj", "{155D1E79-6764-4839-B540-EFD45AC74E6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EventManagement.Infrastructure.Web", "Link.EventManagement.Infrastructure.Web\Link.EventManagement.Infrastructure.Web.csproj", "{F56FA110-31AC-40A0-A8B4-CDF54678A414}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EventManagement.Infrastructure.Web", "Link.EventManagement.Infrastructure.Web\Link.EventManagement.Infrastructure.Web.csproj", "{F56FA110-31AC-40A0-A8B4-CDF54678A414}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ReportManagement.Infrastructure.Web", "Link.ReportManagement.Infrastructure.Web\Link.ReportManagement.Infrastructure.Web.csproj", "{85028DDB-4177-40A9-AFA6-426A96AAAE39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Infrastructure.Web", "Link.ReportManagement.Infrastructure.Web\Link.ReportManagement.Infrastructure.Web.csproj", "{85028DDB-4177-40A9-AFA6-426A96AAAE39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ReportManagement.Infrastructure.Services", "Link.ReportManagement.Infrastructure.Services\Link.ReportManagement.Infrastructure.Services.csproj", "{EA25BF35-CB19-4550-B8F7-E07D984966B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Infrastructure.Services", "Link.ReportManagement.Infrastructure.Services\Link.ReportManagement.Infrastructure.Services.csproj", "{EA25BF35-CB19-4550-B8F7-E07D984966B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ReportManagement.Infrastructure.DataAccess.MongoDb", "Link.ReportManagement.Infrastructure.DataAccess.MongoDb\Link.ReportManagement.Infrastructure.DataAccess.MongoDb.csproj", "{ABD139BB-999B-41FB-9BE4-4192FC13C45A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Infrastructure.DataAccess.MongoDb", "Link.ReportManagement.Infrastructure.DataAccess.MongoDb\Link.ReportManagement.Infrastructure.DataAccess.MongoDb.csproj", "{ABD139BB-999B-41FB-9BE4-4192FC13C45A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ReportManagement.Domain.Services", "Link.ReportManagement.Domain.Services\Link.ReportManagement.Domain.Services.csproj", "{38BD0B6C-77F4-4E98-A9E0-D4E75C901D39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Domain.Services", "Link.ReportManagement.Domain.Services\Link.ReportManagement.Domain.Services.csproj", "{38BD0B6C-77F4-4E98-A9E0-D4E75C901D39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ReportManagement.Domain.Model", "Link.ReportManagement.Domain.Model\Link.ReportManagement.Domain.Model.csproj", "{13179ECB-5605-4B28-993D-A339AFEF4D1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Domain.Model", "Link.ReportManagement.Domain.Model\Link.ReportManagement.Domain.Model.csproj", "{13179ECB-5605-4B28-993D-A339AFEF4D1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ReportManagement.Application", "Link.ReportManagement.Application\Link.ReportManagement.Application.csproj", "{C157DA81-8736-49C6-8833-70AD70823324}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Application", "Link.ReportManagement.Application\Link.ReportManagement.Application.csproj", "{C157DA81-8736-49C6-8833-70AD70823324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EventManagement.Infrastructure.DataAccess.MongoDb", "Link.EventManagement.Infrastructure.DataAccess.MongoDb\Link.EventManagement.Infrastructure.DataAccess.MongoDb.csproj", "{74D4D9F0-78E5-4912-9EDC-6B39CD761648}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EventManagement.Infrastructure.DataAccess.MongoDb", "Link.EventManagement.Infrastructure.DataAccess.MongoDb\Link.EventManagement.Infrastructure.DataAccess.MongoDb.csproj", "{74D4D9F0-78E5-4912-9EDC-6B39CD761648}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ExpertManagement.Domain.Model", "Link.ExpertManagement.Domain.Model\Link.ExpertManagement.Domain.Model.csproj", "{8CBF9F64-F1E0-46DA-9C36-EB86F1E2F5A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ExpertManagement.Domain.Model", "Link.ExpertManagement.Domain.Model\Link.ExpertManagement.Domain.Model.csproj", "{8CBF9F64-F1E0-46DA-9C36-EB86F1E2F5A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Link.UserManagement", "Link.UserManagement", "{AC40D676-BF21-4BE9-8D5C-BA5286F8AB81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Application", "Link.UserManagement.Application\Link.UserManagement.Application.csproj", "{F414E8AE-F3C5-43E1-A32F-A9B635919866}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Domain.Model", "Link.UserManagement.Domain.Model\Link.UserManagement.Domain.Model.csproj", "{CBEBAA7D-7C94-4459-8110-59BA5643E406}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Domain.Services", "Link.UserManagement.Domain.Services\Link.UserManagement.Domain.Services.csproj", "{24990666-1A12-4157-BE1C-C3B1B33100F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Infrastrusture.DataAccess.MongoDb", "Link.UserManagement.Infrastrusture.DataAccess.MongoDb\Link.UserManagement.Infrastrusture.DataAccess.MongoDb.csproj", "{2F5E6705-2454-40F3-BDE8-90BB61600B5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Infrastructure.Services", "Link.UserManagement.Infrastructure.Services\Link.UserManagement.Infrastructure.Services.csproj", "{91E8664B-F5F6-4074-833C-B3A7977D4592}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Infrastructure.Web", "Link.UserManagement.Infrastructure.Web\Link.UserManagement.Infrastructure.Web.csproj", "{1E33F573-D79F-498B-9F51-84A1904E4E73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +145,30 @@ Global
 		{8CBF9F64-F1E0-46DA-9C36-EB86F1E2F5A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CBF9F64-F1E0-46DA-9C36-EB86F1E2F5A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CBF9F64-F1E0-46DA-9C36-EB86F1E2F5A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F414E8AE-F3C5-43E1-A32F-A9B635919866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F414E8AE-F3C5-43E1-A32F-A9B635919866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F414E8AE-F3C5-43E1-A32F-A9B635919866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F414E8AE-F3C5-43E1-A32F-A9B635919866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBEBAA7D-7C94-4459-8110-59BA5643E406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBEBAA7D-7C94-4459-8110-59BA5643E406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBEBAA7D-7C94-4459-8110-59BA5643E406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBEBAA7D-7C94-4459-8110-59BA5643E406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24990666-1A12-4157-BE1C-C3B1B33100F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24990666-1A12-4157-BE1C-C3B1B33100F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24990666-1A12-4157-BE1C-C3B1B33100F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24990666-1A12-4157-BE1C-C3B1B33100F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F5E6705-2454-40F3-BDE8-90BB61600B5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5E6705-2454-40F3-BDE8-90BB61600B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5E6705-2454-40F3-BDE8-90BB61600B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5E6705-2454-40F3-BDE8-90BB61600B5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91E8664B-F5F6-4074-833C-B3A7977D4592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E8664B-F5F6-4074-833C-B3A7977D4592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E8664B-F5F6-4074-833C-B3A7977D4592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E8664B-F5F6-4074-833C-B3A7977D4592}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E33F573-D79F-498B-9F51-84A1904E4E73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E33F573-D79F-498B-9F51-84A1904E4E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E33F573-D79F-498B-9F51-84A1904E4E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E33F573-D79F-498B-9F51-84A1904E4E73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,6 +193,12 @@ Global
 		{C157DA81-8736-49C6-8833-70AD70823324} = {A9347401-1493-478C-820D-2803CCD876D5}
 		{74D4D9F0-78E5-4912-9EDC-6B39CD761648} = {E4598CFB-409F-4475-B4A7-9875DD7EE5BC}
 		{8CBF9F64-F1E0-46DA-9C36-EB86F1E2F5A3} = {BEC5BF1A-A478-4B5B-983A-B4FDA81BC470}
+		{F414E8AE-F3C5-43E1-A32F-A9B635919866} = {AC40D676-BF21-4BE9-8D5C-BA5286F8AB81}
+		{CBEBAA7D-7C94-4459-8110-59BA5643E406} = {AC40D676-BF21-4BE9-8D5C-BA5286F8AB81}
+		{24990666-1A12-4157-BE1C-C3B1B33100F3} = {AC40D676-BF21-4BE9-8D5C-BA5286F8AB81}
+		{2F5E6705-2454-40F3-BDE8-90BB61600B5A} = {AC40D676-BF21-4BE9-8D5C-BA5286F8AB81}
+		{91E8664B-F5F6-4074-833C-B3A7977D4592} = {AC40D676-BF21-4BE9-8D5C-BA5286F8AB81}
+		{1E33F573-D79F-498B-9F51-84A1904E4E73} = {AC40D676-BF21-4BE9-8D5C-BA5286F8AB81}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {124537DD-B23A-4EAA-9504-3948783294CC}

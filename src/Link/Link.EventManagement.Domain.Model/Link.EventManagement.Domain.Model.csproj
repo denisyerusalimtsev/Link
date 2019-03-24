@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
     <Folder Include="Enums\" />
-    <Folder Include="Messages\" />
-    <Folder Include="Events\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="StateObjects\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
   </ItemGroup>
 
 </Project>
