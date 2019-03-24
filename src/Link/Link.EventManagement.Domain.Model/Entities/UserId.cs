@@ -2,11 +2,11 @@
 
 namespace Link.EventManagement.Domain.Model.Entities
 {
-    public class EventId : ValueObject<EventId>
+    public class UserId : ValueObject<EventId>
     {
-        public static EventId NewEventId => new EventId(0);
+        public static EventId NewUserId => new EventId(0);
 
-        public EventId(int id)
+        public UserId(int id)
         {
             Id = id;
         }

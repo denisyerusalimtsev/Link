@@ -9,6 +9,8 @@ namespace Link.EventManagement.Domain.Model.Entities
     {
         public EventId Id { get; set; }
 
+        public UserId UserId { get; set; }
+
         public string Name { get; set; }
 
         public Type Type { get; set; }
