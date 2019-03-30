@@ -4,16 +4,16 @@ namespace Link.EventManagement.Domain.Model.Entities
 {
     public class EventId : ValueObject<EventId>
     {
-        public static EventId NewEventId => new EventId(0);
+        public static EventId NewEventId => new EventId(null);
 
-        public EventId(int id)
+        public EventId(string id)
         {
             Id = id;
         }
 
-        public int Id { get; }
+        public string Id { get; }
 
-        public bool IsValid => Id > 0;
+        public bool IsValid => !string.IsNullOrWhiteSpace(Id);
 
         protected override bool EqualsCore(EventId other)
         {
@@ -27,7 +27,7 @@ namespace Link.EventManagement.Domain.Model.Entities
 
         public override string ToString()
         {
-            return Id.ToString();
+            return Id;
         }
     }
 }

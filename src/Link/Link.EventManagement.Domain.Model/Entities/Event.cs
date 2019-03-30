@@ -1,24 +1,40 @@
-﻿using System.Collections.Generic;
-using Link.Common.Domain.Framework.Models;
+﻿using Link.Common.Domain.Framework.Models;
 using Link.EventManagement.Domain.Model.Enums;
+using System.Collections.Generic;
 using Type = Link.EventManagement.Domain.Model.Enums.Type;
 
 namespace Link.EventManagement.Domain.Model.Entities
 {
-    public class Event : AggregateRoot<EventId>
+    public sealed class Event : AggregateRoot<EventId>
     {
-        public EventId Id { get; set; }
+        public Event(
+            EventId id, 
+            UserId userId,
+            string name, 
+            Type type,
+            Status status, 
+            int countOfNeededExperts, 
+            List<Expert> experts)
+        {
+            Id = id;
+            UserId = userId;
+            Name = name;
+            Type = type;
+            Status = status;
+            CountOfNeededExperts = countOfNeededExperts;
+            Experts = experts;
+        }
 
-        public UserId UserId { get; set; }
+        public UserId UserId { get; }
 
-        public string Name { get; set; }
+        public string Name { get; }
 
-        public Type Type { get; set; }
+        public Type Type { get; }
 
-        public Status Status { get; set; }
+        public Status Status { get; }
 
-        public int CountOfNeededExperts { get; set; }
+        public int CountOfNeededExperts { get; }
 
-        public List<Expert> Experts { get; set; }
+        public List<Expert> Experts { get; }
     }
 }

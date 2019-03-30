@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Model.Interfaces;
 using Microsoft.Extensions.Configuration;
@@ -24,12 +25,12 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
 
         public Event Get(EventId id)
         {
-            return _events.Find<Event>(ev => ev.Id == id).FirstOrDefault();
+            return _events.Find(ev => ev.Id == id).FirstOrDefault();
         }
 
-        public Event Create(Event ev)
+        public async Task<Event> Create(Event ev)
         {
-            _events.InsertOne(ev);
+            await _events.InsertOneAsync(ev);
             return ev;
         }
 

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Link.EventManagement.Application;
+using Link.EventManagement.Application.Frameworks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +29,21 @@ namespace Link.EventManagement.Infrastructure.Web
             });
 
             services.AddCors();
+
+            services.Scan(scan => scan
+                .FromAssemblyOf<IApplication>()
+                .AddClasses(classes => classes.AssignableTo<ICommandHandler>())
+                .AsImplementedInterfaces()
+                .AddClasses(classes => classes.AssignableTo(typeof(ICommandValidator<,>)))
+                .AsImplementedInterfaces()
+                .AddClasses(classes => classes.AssignableTo(typeof(IQueryRunner<>)))
+                .AsImplementedInterfaces());
+            
+            services.Scan(scan => scan
+                .FromAssemblyOf<IApplication>()
+                .AddClasses(classes => classes.AssignableTo<IApplication>())
+                .AsSelfWithInterfaces()
+                .WithSingletonLifetime());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
