@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Link.EventManagement.Domain.Model.Entities;
-using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Interfaces;
+using Link.EventManagement.Domain.Model.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 
@@ -27,15 +27,15 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
             return _events.Find<Event>(ev => ev.Id == id).FirstOrDefault();
         }
 
-        public Event Create(Event book)
+        public Event Create(Event ev)
         {
-            _events.InsertOne(book);
-            return book;
+            _events.InsertOne(ev);
+            return ev;
         }
 
         public void Update(EventId id, Event ev)
         {
-            _events.ReplaceOne(book => book.Id == id, ev);
+            _events.ReplaceOne(even => even.Id == id, ev);
         }
 
         public void Remove(EventId eventId)

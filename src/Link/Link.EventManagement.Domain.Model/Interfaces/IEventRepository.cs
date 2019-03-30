@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Link.EventManagement.Domain.Model.Entities;
 
-namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Interfaces
+namespace Link.EventManagement.Domain.Model.Interfaces
 {
     public interface IEventRepository
     {
