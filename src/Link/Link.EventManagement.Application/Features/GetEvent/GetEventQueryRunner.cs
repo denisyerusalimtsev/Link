@@ -1,7 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using Link.Common.Domain.Framework.Frameworks;
+﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Domain.Model.Interfaces;
+using System;
+using System.Threading.Tasks;
 
 namespace Link.EventManagement.Application.Features.GetEvent
 {

@@ -1,8 +1,8 @@
-﻿using Link.EventManagement.Domain.Model.Entities;
+﻿using Link.Common.Domain.Framework.Frameworks;
+using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Model.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Link.Common.Domain.Framework.Frameworks;
 
 namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
 {
@@ -32,6 +32,14 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
                 countOfNeededExperts: command.CountOfNeededExperts,
                 experts: new List<Expert>()
             );
+
+            var existedEvent = await _events.Get(command.Id);
+            if (existedEvent != null)
+            {
+                _events.Update(command.Id, ev);
+
+                return new AddOrUpdateEventCommand.Reply(command.Id);
+            }
 
             Event newEvent = await _events.Create(ev);
 

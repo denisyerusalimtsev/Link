@@ -73,6 +73,26 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
             });
         }
 
+        [HttpPost]
+        [Route("{id}")]
+        public async Task<IActionResult> Update(string id, [FromBody] CreateOrUpdateEventDto dto)
+        {
+            var command = new AddOrUpdateEventCommand(
+                id: new EventId(dto.Id),
+                userId: new UserId(dto.UserId),
+                name: dto.Name,
+                type: dto.Type,
+                status: dto.Status,
+                countOfNeededExperts: dto.CountOfNeededExperts);
+
+            AddOrUpdateEventCommand.Reply reply = await _app.HandleCommand(command);
+
+            return Ok(new CreateOrUpdateEventResponseDto
+            {
+                EventId = reply.Id.Id
+            });
+        }
+
         [HttpDelete]
         public async Task<IActionResult> Delete(string id)
         {

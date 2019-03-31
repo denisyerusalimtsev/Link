@@ -1,46 +1,51 @@
-﻿using System.Collections.Generic;
-using Link.ExpertManagement.Domain.Model.Entities;
+﻿using Link.ExpertManagement.Domain.Model.Entities;
 using Link.ExpertManagement.Domain.Model.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
 {
     public class ExpertRepository : IExpertRepository
     {
-        private readonly IMongoCollection<Expert> _events;
+        private readonly IMongoCollection<Expert> _experts;
 
         public ExpertRepository(IConfiguration config)
         {
             var client = new MongoClient(config.GetConnectionString("DefaultConnection"));
             var database = client.GetDatabase("LinkDb");
-            _events = database.GetCollection<Expert>("Experts");
+            _experts = database.GetCollection<Expert>("Experts");
         }
 
-        public List<Expert> Get()
+        public async Task<List<Expert>> Get()
         {
-            return _events.Find(expert => true).ToList();
+            var experts = await _experts.FindAsync(expert => true);
+
+            return experts.ToList();
         }
 
-        public Expert Get(ExpertId id)
+        public async Task<Expert> Get(ExpertId id)
         {
-            return _events.Find<Expert>(expert => expert.Id == id).FirstOrDefault();
+            var exp = await _experts.FindAsync(expert => expert.Id == id);
+
+            return await exp.SingleAsync();
         }
 
-        public Expert Create(Expert expert)
+        public async Task<Expert> Create(Expert expert)
         {
-            _events.InsertOne(expert);
+            await _experts.InsertOneAsync(expert);
             return expert;
         }
 
         public void Update(ExpertId id, Expert expert)
         {
-            _events.ReplaceOne(exp => exp.Id == id, expert);
+            _experts.ReplaceOneAsync(exp => exp.Id == id, expert);
         }
 
         public void Remove(ExpertId expertId)
         {
-            _events.DeleteOne(exp => exp.Id == expertId);
+            _experts.DeleteOneAsync(exp => exp.Id == expertId);
         }
     }
 }

@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
-using Link.ExpertManagement.Domain.Model.Entities;
+﻿using Link.ExpertManagement.Domain.Model.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Link.ExpertManagement.Domain.Model.Interfaces
 {
     public interface IExpertRepository
     {
-        List<Expert> Get();
+        Task<List<Expert>> Get();
 
-        Expert Get(ExpertId id);
+        Task<Expert> Get(ExpertId id);
 
-        Expert Create(Expert expert);
+        Task<Expert> Create(Expert expert);
 
         void Update(ExpertId id, Expert expert);
 
