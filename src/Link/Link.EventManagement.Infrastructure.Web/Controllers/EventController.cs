@@ -5,6 +5,7 @@ using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Infrastructure.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Link.EventManagement.Application.Features.DeleteEvent;
 using Link.EventManagement.Application.Features.GetEvent;
 using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 
@@ -40,6 +41,7 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
         }
 
         [HttpGet]
+        [Route("{id}")]
         public async Task<IActionResult> Get(string id)
         {
             var query = new GetEventByIdQuery(new EventId(id));
@@ -64,6 +66,19 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
                 countOfNeededExperts: dto.CountOfNeededExperts);
 
             AddOrUpdateEventCommand.Reply reply = await _app.HandleCommand(command);
+
+            return Ok(new CreateOrUpdateEventResponseDto
+            {
+                EventId = reply.Id.Id
+            });
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var command = new DeleteEventCommand(id: new EventId(id));
+
+            DeleteEventCommand.Reply reply = await _app.HandleCommand(command);
 
             return Ok(new CreateOrUpdateEventResponseDto
             {

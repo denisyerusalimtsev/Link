@@ -38,12 +38,12 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
 
         public void Update(EventId id, Event ev)
         {
-            _events.ReplaceOne(even => even.Id == id, ev);
+            _events.ReplaceOneAsync(even => even.Id == id, ev);
         }
 
         public void Remove(EventId eventId)
         {
-            _events.DeleteOne(ev => ev.Id == eventId);
+            _events.DeleteOneAsync(ev => ev.Id == eventId);
         }
     }
 }

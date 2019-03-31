@@ -1,4 +1,5 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
+using Link.EventManagement.Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -31,18 +32,18 @@ namespace Link.EventManagement.Infrastructure.Web
 
             services.Scan(scan => scan
                 .FromAssemblyOf<IApplication>()
+                .AddClasses(classes => classes.AssignableTo<IApplication>())
+                .AsSelfWithInterfaces()
+                .WithSingletonLifetime());
+
+            services.Scan(scan => scan
+                .FromAssemblyOf<IApplication>()
                 .AddClasses(classes => classes.AssignableTo<ICommandHandler>())
                 .AsImplementedInterfaces()
                 .AddClasses(classes => classes.AssignableTo(typeof(ICommandValidator<,>)))
                 .AsImplementedInterfaces()
                 .AddClasses(classes => classes.AssignableTo(typeof(IQueryRunner<>)))
-                .AsImplementedInterfaces());
-            
-            services.Scan(scan => scan
-                .FromAssemblyOf<IApplication>()
-                .AddClasses(classes => classes.AssignableTo<IApplication>())
-                .AsSelfWithInterfaces()
-                .WithSingletonLifetime());
+                .AsImplementedInterfaces()); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
