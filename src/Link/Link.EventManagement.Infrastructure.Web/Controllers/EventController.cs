@@ -1,9 +1,12 @@
-﻿using Link.EventManagement.Application;
+﻿using System.Collections.Generic;
+using Link.EventManagement.Application;
 using Link.EventManagement.Application.Features.AddOrUpdateEvent;
 using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Infrastructure.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Link.EventManagement.Application.Features.GetEvent;
+using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 
 namespace Link.EventManagement.Infrastructure.Web.Controllers
 {
@@ -16,6 +19,37 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
         public EventController(LinkApplication app)
         {
             _app = app;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var query = new GetEventQuery();
+            GetEventQueryResult result = await _app.RunQuery(query);
+            var events = new List<EventStorageDto>();
+
+            foreach (var ev in result.Events)
+            {
+                events.Add(EventStorageDto.FromDomain(ev));
+            }
+
+            return Ok(new GetEventDto
+            {
+                Events = events
+            });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get(string id)
+        {
+            var query = new GetEventByIdQuery(new EventId(id));
+            GetEventByIdQueryResult result = await _app.RunQuery(query);
+            var ev = EventStorageDto.FromDomain(result.Event);
+
+            return Ok(new GetEventByIdDto
+            {
+                Event = ev
+            });
         }
 
         [HttpPost]

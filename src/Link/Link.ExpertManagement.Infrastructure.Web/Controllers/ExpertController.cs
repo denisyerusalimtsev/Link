@@ -1,7 +1,4 @@
-﻿using Link.ExpertManagement.Domain.Model.Interfaces;
-using Link.ExpertManagement.Infrastructure.Web.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Link.ExpertManagement.Infrastructure.Web.Controllers
 {

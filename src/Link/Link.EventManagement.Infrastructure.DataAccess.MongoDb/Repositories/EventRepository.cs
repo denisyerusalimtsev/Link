@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Link.EventManagement.Domain.Model.Entities;
+﻿using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Model.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
 {
@@ -18,14 +18,16 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
             _events = database.GetCollection<Event>("Events");
         }
 
-        public List<Event> Get()
+        public async Task<List<Event>> Get()
         {
-            return _events.Find(ev => true).ToList();
+            var events = await _events.FindAsync(ev => true);
+            return await events.ToListAsync();
         }
 
-        public Event Get(EventId id)
+        public async Task<Event> Get(EventId id)
         {
-            return _events.Find(ev => ev.Id == id).FirstOrDefault();
+            var ev = await _events.FindAsync(e => e.Id == id);
+            return await ev.SingleAsync();
         }
 
         public async Task<Event> Create(Event ev)

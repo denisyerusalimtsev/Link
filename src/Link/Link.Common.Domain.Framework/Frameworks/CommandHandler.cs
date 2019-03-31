@@ -1,8 +1,8 @@
-﻿using Link.Common.Domain.Framework.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Link.Common.Domain.Framework.Interfaces;
 
-namespace Link.EventManagement.Application.Frameworks
+namespace Link.Common.Domain.Framework.Frameworks
 {
     public abstract class CommandHandler<T, TReply> : ICommandHandler
         where T : class, ICommand<TReply>

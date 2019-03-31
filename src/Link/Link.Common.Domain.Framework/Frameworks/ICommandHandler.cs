@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Link.EventManagement.Application.Frameworks
+namespace Link.Common.Domain.Framework.Frameworks
 {
     public interface ICommandHandler
     {

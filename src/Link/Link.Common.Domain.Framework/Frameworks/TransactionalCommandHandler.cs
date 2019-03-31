@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Transactions;
-using Link.EventManagement.Application.Frameworks.Events;
+using Link.Common.Domain.Framework.Frameworks.Events;
 
-namespace Link.EventManagement.Application.Frameworks
+namespace Link.Common.Domain.Framework.Frameworks
 {
     public abstract class TransactionalCommandHandler<T, TReply> : CommandHandler<T, TReply>
         where T : class, ICommand<TReply>

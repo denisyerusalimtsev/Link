@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Link.EventManagement.Application.Frameworks
+namespace Link.Common.Domain.Framework.Frameworks
 {
     public sealed class ValidationError : Exception
     {

@@ -1,8 +1,8 @@
-﻿using Link.EventManagement.Application.Frameworks;
-using Link.EventManagement.Domain.Model.Entities;
+﻿using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Model.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Link.Common.Domain.Framework.Frameworks;
 
 namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
 {

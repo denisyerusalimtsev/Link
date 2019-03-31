@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Link.Common.Domain.Framework.Interfaces;
 
-namespace Link.EventManagement.Application.Frameworks.Events
+namespace Link.Common.Domain.Framework.Frameworks.Events
 {
     public interface IEventHandler
     {

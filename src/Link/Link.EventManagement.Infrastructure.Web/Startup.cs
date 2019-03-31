@@ -1,5 +1,4 @@
-﻿using Link.EventManagement.Application;
-using Link.EventManagement.Application.Frameworks;
+﻿using Link.Common.Domain.Framework.Frameworks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;

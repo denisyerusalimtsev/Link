@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Link.EventManagement.Application.Frameworks;
-using Link.EventManagement.Application.Frameworks.ColemanRG.ProjectsModule.Application.Framework;
+using Link.Common.Domain.Framework.Frameworks;
 
 namespace Link.EventManagement.Application
 {

@@ -11,7 +11,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
     {
         public string Id { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         public string Name { get; set; }
 
@@ -43,5 +43,22 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
         }
 
         // ToDomain
+
+        public static Event ToDomain(EventStorageDto ev)
+        {
+            if (ev == null)
+            {
+                throw new ArgumentException("Event is null.");
+            }
+
+            return new Event(
+                id: new EventId(ev.Id), 
+                userId: new UserId(ev.UserId), 
+                name: ev.Name, 
+                type: ev.Type, 
+                status: ev.Status, 
+                countOfNeededExperts: ev.CountOfNeededExperts,
+                experts: ev.Experts.Select(ExpertStorageDto.ToDomain).ToList());
+        }
     }
 }

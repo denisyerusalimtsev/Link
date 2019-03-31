@@ -1,4 +1,4 @@
-﻿namespace Link.EventManagement.Application.Frameworks
+﻿namespace Link.Common.Domain.Framework.Frameworks
 {
     public interface ICommandValidator<in T, TR>
         where T : ICommand<TR>

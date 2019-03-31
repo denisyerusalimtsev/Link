@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Link.EventManagement.Application.Frameworks.Events
+namespace Link.Common.Domain.Framework.Frameworks.Events
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public class HandleAttribute : Attribute

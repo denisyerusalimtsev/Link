@@ -1,4 +1,4 @@
-﻿using Link.EventManagement.Application.Frameworks;
+﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Model.Enums;
 

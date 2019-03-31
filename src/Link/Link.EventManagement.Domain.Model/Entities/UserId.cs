@@ -4,16 +4,16 @@ namespace Link.EventManagement.Domain.Model.Entities
 {
     public class UserId : ValueObject<EventId>
     {
-        public static EventId NewUserId => new EventId(0);
+        public static EventId NewUserId => new EventId(string.Empty);
 
-        public UserId(int id)
+        public UserId(string id)
         {
             Id = id;
         }
 
-        public int Id { get; }
+        public string Id { get; }
 
-        public bool IsValid => Id > 0;
+        public bool IsValid => !string.IsNullOrWhiteSpace(Id);
 
         protected override bool EqualsCore(EventId other)
         {
@@ -23,11 +23,6 @@ namespace Link.EventManagement.Domain.Model.Entities
         protected override int GetHashCodeCore()
         {
             return Id.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return Id.ToString();
         }
     }
 }

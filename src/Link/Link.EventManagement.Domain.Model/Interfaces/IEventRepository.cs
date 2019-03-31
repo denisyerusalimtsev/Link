@@ -6,9 +6,9 @@ namespace Link.EventManagement.Domain.Model.Interfaces
 {
     public interface IEventRepository
     {
-        List<Event> Get();
+        Task<List<Event>> Get();
 
-        Event Get(EventId id);
+        Task<Event> Get(EventId id);
 
         Task<Event> Create(Event ev);
 

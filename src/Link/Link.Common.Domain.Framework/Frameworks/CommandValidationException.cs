@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Link.EventManagement.Application.Frameworks
+namespace Link.Common.Domain.Framework.Frameworks
 {
     public sealed class CommandValidationException : Exception
     {
