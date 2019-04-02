@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Link.EventManagement.Application;
 using Link.EventManagement.Application.Features.AddOrUpdateEvent;
 using Link.EventManagement.Domain.Model.Entities;
@@ -25,18 +26,11 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var query = new GetEventQuery();
-            GetEventQueryResult result = await _app.RunQuery(query);
-            var events = new List<EventStorageDto>();
-
-            foreach (var ev in result.Events)
-            {
-                events.Add(EventStorageDto.FromDomain(ev));
-            }
+            GetEventQueryResult result = await _app.RunQuery(new GetEventQuery());
 
             return Ok(new GetEventDto
             {
-                Events = events
+                Events = result.Events.Select(EventStorageDto.FromDomain).ToList()
             });
         }
 

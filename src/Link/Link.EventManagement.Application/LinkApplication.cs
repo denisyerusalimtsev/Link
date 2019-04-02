@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Link.Common.Domain.Framework.Frameworks;
 
@@ -32,7 +33,7 @@ namespace Link.EventManagement.Application
         public async Task<TResult> RunQuery<TResult>(IQuery<TResult> query)
             where TResult : IQueryResult
         {
-            var type = typeof(QueryRunner<,>).MakeGenericType(query.GetType(), typeof(TResult));
+            var type = typeof(QueryRunner<,>).MakeGenericType(query.GetType(), typeof(TResult)).GetInterfaces().First();
 
             dynamic queryRunner = _provider.GetService(type);
             return await queryRunner.Run(query);

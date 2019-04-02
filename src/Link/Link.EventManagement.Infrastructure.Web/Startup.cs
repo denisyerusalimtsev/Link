@@ -1,5 +1,7 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Application;
+using Link.EventManagement.Domain.Model.Interfaces;
+using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -30,20 +32,22 @@ namespace Link.EventManagement.Infrastructure.Web
 
             services.AddCors();
 
+            services.AddTransient<IEventRepository, EventRepository>();
+
             services.Scan(scan => scan
-                .FromAssemblyOf<IApplication>()
+                .FromAssemblyOf<LinkApplication>()
                 .AddClasses(classes => classes.AssignableTo<IApplication>())
                 .AsSelfWithInterfaces()
                 .WithSingletonLifetime());
 
             services.Scan(scan => scan
-                .FromAssemblyOf<IApplication>()
+                .FromAssemblyOf<LinkApplication>()
                 .AddClasses(classes => classes.AssignableTo<ICommandHandler>())
-                .AsImplementedInterfaces()
+                .AsSelfWithInterfaces()
                 .AddClasses(classes => classes.AssignableTo(typeof(ICommandValidator<,>)))
-                .AsImplementedInterfaces()
+                .AsSelfWithInterfaces()
                 .AddClasses(classes => classes.AssignableTo(typeof(IQueryRunner<>)))
-                .AsImplementedInterfaces()); 
+                .AsSelfWithInterfaces());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
