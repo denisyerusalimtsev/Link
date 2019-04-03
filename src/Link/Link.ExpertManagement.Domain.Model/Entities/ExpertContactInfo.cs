@@ -4,6 +4,13 @@ namespace Link.ExpertManagement.Domain.Model.Entities
 {
     public class ExpertContactInfo : ValueObject<ExpertContactInfo>
     {
+        public ExpertContactInfo(string email, string phoneNumber, string linkedInUrl)
+        {
+            Email = email;
+            PhoneNumber = phoneNumber;
+            LinkedInUrl = linkedInUrl;
+        }
+
         public string Email { get; }
 
         public string PhoneNumber { get; }

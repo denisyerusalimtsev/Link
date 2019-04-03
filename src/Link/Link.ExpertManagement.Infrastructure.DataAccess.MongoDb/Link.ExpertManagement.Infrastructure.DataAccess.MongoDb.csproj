@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Link.EventManagement.Domain.Model\Link.EventManagement.Domain.Model.csproj" />
     <ProjectReference Include="..\Link.ExpertManagement.Domain.Model\Link.ExpertManagement.Domain.Model.csproj" />
   </ItemGroup>
 

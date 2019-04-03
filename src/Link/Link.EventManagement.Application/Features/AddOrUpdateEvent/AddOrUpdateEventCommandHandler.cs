@@ -27,7 +27,7 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
                     : command.Id,
                 userId: command.UserId,
                 name: command.Name,
-                type: command.Type,
+                expertType: command.ExpertType,
                 status: command.Status,
                 countOfNeededExperts: command.CountOfNeededExperts,
                 experts: new List<Expert>()

@@ -3,7 +3,6 @@ using Link.EventManagement.Domain.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Type = Link.EventManagement.Domain.Model.Enums.Type;
 
 namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
 {
@@ -15,9 +14,9 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
 
         public string Name { get; set; }
 
-        public Type Type { get; set; }
+        public ExpertType ExpertType { get; set; }
 
-        public Status Status { get; set; }
+        public ExpertStatus Status { get; set; }
 
         public int CountOfNeededExperts { get; set; }
 
@@ -35,7 +34,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
                 Id = ev.Id.Id,
                 UserId = ev.UserId.Id,
                 Name = ev.Name,
-                Type = ev.Type,
+                ExpertType = ev.ExpertType,
                 Status = ev.Status,
                 CountOfNeededExperts = ev.CountOfNeededExperts,
                 Experts = ev.Experts.Select(ExpertStorageDto.FromDomain).ToList()
@@ -55,7 +54,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
                 id: new EventId(ev.Id), 
                 userId: new UserId(ev.UserId), 
                 name: ev.Name, 
-                type: ev.Type, 
+                expertType: ev.ExpertType, 
                 status: ev.Status, 
                 countOfNeededExperts: ev.CountOfNeededExperts,
                 experts: ev.Experts.Select(ExpertStorageDto.ToDomain).ToList());

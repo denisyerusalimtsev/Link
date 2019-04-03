@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Link.Common.Domain.Framework.Frameworks;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Link.Common.Domain.Framework.Frameworks;
 
 namespace Link.ExpertManagement.Application
 {

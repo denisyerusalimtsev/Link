@@ -1,7 +1,6 @@
 ﻿using System;
 using Link.Common.Domain.Framework.Models;
 using Link.EventManagement.Domain.Model.Enums;
-using Type = Link.EventManagement.Domain.Model.Enums.Type;
 
 namespace Link.EventManagement.Domain.Model.Entities
 {
@@ -12,7 +11,7 @@ namespace Link.EventManagement.Domain.Model.Entities
             Id = id;
             FirstName = firstName;
             LastName = lastName;
-            Type = Enum.Parse<Type>(type);
+            ExpertType = Enum.Parse<ExpertType>(type);
             Status = Enum.Parse<ExpertStatus>(status);
         }
 
@@ -22,7 +21,7 @@ namespace Link.EventManagement.Domain.Model.Entities
 
         public string LastName { get; set; }
 
-        public Type Type { get; set; }
+        public ExpertType ExpertType { get; set; }
 
         public ExpertStatus Status { get; set; }
     }

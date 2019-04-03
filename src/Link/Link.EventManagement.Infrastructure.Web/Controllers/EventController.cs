@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Link.EventManagement.Application;
+﻿using Link.EventManagement.Application;
 using Link.EventManagement.Application.Features.AddOrUpdateEvent;
-using Link.EventManagement.Domain.Model.Entities;
-using Link.EventManagement.Infrastructure.Web.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using Link.EventManagement.Application.Features.DeleteEvent;
 using Link.EventManagement.Application.Features.GetEvent;
+using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
+using Link.EventManagement.Infrastructure.Web.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Link.EventManagement.Infrastructure.Web.Controllers
 {
@@ -55,7 +54,7 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
                 id: new EventId(dto.Id),
                 userId: new UserId(dto.UserId),
                 name: dto.Name,
-                type: dto.Type,
+                expertType: dto.ExpertType,
                 status: dto.Status,
                 countOfNeededExperts: dto.CountOfNeededExperts);
 
@@ -75,7 +74,7 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
                 id: new EventId(dto.Id),
                 userId: new UserId(dto.UserId),
                 name: dto.Name,
-                type: dto.Type,
+                expertType: dto.ExpertType,
                 status: dto.Status,
                 countOfNeededExperts: dto.CountOfNeededExperts);
 

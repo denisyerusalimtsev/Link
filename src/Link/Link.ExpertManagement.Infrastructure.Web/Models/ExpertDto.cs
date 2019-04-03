@@ -16,7 +16,7 @@ namespace Link.ExpertManagement.Infrastructure.Web.Models
         /// <summary>
         /// Expert id
         /// </summary>
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Firstname

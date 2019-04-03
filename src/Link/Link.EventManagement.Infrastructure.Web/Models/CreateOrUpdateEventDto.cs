@@ -1,5 +1,4 @@
 ﻿using Link.EventManagement.Domain.Model.Enums;
-using Type = Link.EventManagement.Domain.Model.Enums.Type;
 
 namespace Link.EventManagement.Infrastructure.Web.Models
 {
@@ -11,9 +10,9 @@ namespace Link.EventManagement.Infrastructure.Web.Models
 
         public string Name { get; set; }
 
-        public Type Type { get; set; }
+        public ExpertType ExpertType { get; set; }
 
-        public Status Status { get; set; }
+        public ExpertStatus Status { get; set; }
 
         public int CountOfNeededExperts { get; set; }
     }

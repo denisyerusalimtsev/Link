@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Link.Common.Domain.Framework.Frameworks;
+using Link.ExpertManagement.Application;
+using Link.ExpertManagement.Domain.Model.Interfaces;
+using Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +31,23 @@ namespace Link.ExpertManagement.Infrastructure.Web
             });
 
             services.AddCors();
+
+            services.AddTransient<IExpertRepository, ExpertRepository>();
+
+            services.Scan(scan => scan
+                .FromAssemblyOf<LinkApplication>()
+                .AddClasses(classes => classes.AssignableTo<IApplication>())
+                .AsSelfWithInterfaces()
+                .WithSingletonLifetime());
+
+            services.Scan(scan => scan
+                .FromAssemblyOf<LinkApplication>()
+                .AddClasses(classes => classes.AssignableTo<ICommandHandler>())
+                .AsSelfWithInterfaces()
+                .AddClasses(classes => classes.AssignableTo(typeof(ICommandValidator<,>)))
+                .AsSelfWithInterfaces()
+                .AddClasses(classes => classes.AssignableTo(typeof(IQueryRunner<>)))
+                .AsSelfWithInterfaces());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

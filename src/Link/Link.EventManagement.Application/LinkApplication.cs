@@ -26,7 +26,7 @@ namespace Link.EventManagement.Application
             }
             catch (Exception ex)
             {
-                throw new InvalidOperationException($"Command handler is not registered for given command. Command Type: [{command.GetType()}] ", ex);
+                throw new InvalidOperationException($"Command handler is not registered for given command. Command ExpertType: [{command.GetType()}] ", ex);
             }
         }
 

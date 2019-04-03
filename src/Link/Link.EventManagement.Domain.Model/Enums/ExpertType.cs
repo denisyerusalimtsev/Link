@@ -1,6 +1,6 @@
 ﻿namespace Link.EventManagement.Domain.Model.Enums
 {
-    public enum Type
+    public enum ExpertType
     {
         Medical = 0,
         Natural = 1,

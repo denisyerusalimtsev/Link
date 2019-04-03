@@ -4,16 +4,16 @@ namespace Link.ExpertManagement.Domain.Model.Entities
 {
     public class ExpertId : ValueObject<ExpertId>
     {
-        public static ExpertId NewEventId => new ExpertId(0);
+        public static ExpertId NewEventId => new ExpertId(string.Empty);
 
-        public ExpertId(int id)
+        public ExpertId(string id)
         {
             Id = id;
         }
 
-        public int Id { get; }
+        public string Id { get; }
 
-        public bool IsValid => Id > 0;
+        public bool IsValid => !string.IsNullOrWhiteSpace(Id);
 
         protected override bool EqualsCore(ExpertId other)
         {
@@ -23,11 +23,6 @@ namespace Link.ExpertManagement.Domain.Model.Entities
         protected override int GetHashCodeCore()
         {
             return Id.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return Id.ToString();
         }
     }
 }

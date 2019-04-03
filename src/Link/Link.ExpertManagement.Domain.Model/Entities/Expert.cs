@@ -3,9 +3,25 @@ using Link.ExpertManagement.Domain.Model.Enums;
 
 namespace Link.ExpertManagement.Domain.Model.Entities
 {
-    public class Expert : AggregateRoot<ExpertId>
+    public sealed class Expert : AggregateRoot<ExpertId>
     {
-        public override ExpertId Id { get; protected set; }
+        public Expert(
+            ExpertId id,
+            string firstName, 
+            string lastName,
+            ExpertProfile expertProfile, 
+            ExpertStatus status,
+            ExpertType type, 
+            ExpertContactInfo contactInfo)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            ExpertProfile = expertProfile;
+            Status = status;
+            Type = type;
+            ContactInfo = contactInfo;
+        }
 
         public string FirstName { get; }
 
@@ -14,6 +30,8 @@ namespace Link.ExpertManagement.Domain.Model.Entities
         public ExpertProfile ExpertProfile { get; }
 
         public ExpertStatus Status { get; }
+
+        public ExpertType Type { get; }
 
         public ExpertContactInfo ContactInfo { get; }
 

@@ -21,18 +21,21 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
         public async Task<List<Event>> Get()
         {
             var events = await _events.FindAsync(ev => true);
+
             return await events.ToListAsync();
         }
 
         public async Task<Event> Get(EventId id)
         {
             var ev = await _events.FindAsync(e => e.Id == id);
+
             return await ev.SingleAsync();
         }
 
         public async Task<Event> Create(Event ev)
         {
             await _events.InsertOneAsync(ev);
+
             return ev;
         }
 

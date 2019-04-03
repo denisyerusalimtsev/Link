@@ -17,7 +17,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
                 Id = expert.Id,
                 FirstName = expert.FirstName,
                 LastName = expert.LastName,
-                Type = expert.Type.ToString(),
+                Type = expert.ExpertType.ToString(),
                 Status = expert.Status.ToString()
             };
         }

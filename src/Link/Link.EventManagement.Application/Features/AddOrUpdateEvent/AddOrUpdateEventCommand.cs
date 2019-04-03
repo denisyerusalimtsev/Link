@@ -10,14 +10,14 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
             EventId id, 
             UserId userId,
             string name, 
-            Type type, 
-            Status status, 
+            ExpertType expertType, 
+            ExpertStatus status, 
             int countOfNeededExperts)
         {
             Id = id;
             UserId = userId;
             Name = name;
-            Type = type;
+            ExpertType = expertType;
             Status = status;
             CountOfNeededExperts = countOfNeededExperts;
         }
@@ -38,9 +38,9 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
 
         public string Name { get; }
 
-        public Type Type { get; }
+        public ExpertType ExpertType { get; }
 
-        public Status Status { get; }
+        public ExpertStatus Status { get; }
 
         public int CountOfNeededExperts { get; }
     }
