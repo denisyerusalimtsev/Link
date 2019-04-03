@@ -1,5 +1,6 @@
 ﻿using Link.ExpertManagement.Application;
 using Link.ExpertManagement.Application.Features.AddOrUpdateExpert;
+using Link.ExpertManagement.Application.Features.DeleteExpert;
 using Link.ExpertManagement.Application.Features.GetExpert;
 using Link.ExpertManagement.Domain.Model.Entities;
 using Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Models;
@@ -7,7 +8,6 @@ using Link.ExpertManagement.Infrastructure.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
-using Link.ExpertManagement.Application.Features.DeleteExpert;
 
 namespace Link.ExpertManagement.Infrastructure.Web.Controllers
 {
@@ -36,13 +36,15 @@ namespace Link.ExpertManagement.Infrastructure.Web.Controllers
         public async Task<IActionResult> Create([FromBody] AddOrUpdateExpertDto dto)
         {
             AddOrUpdateExpertCommand command = new AddOrUpdateExpertCommand(
-                id: new ExpertId(dto.Id),
+                id: null,
                 firstName: dto.FirstName,
                 lastName: dto.LastName,
                 expertProfile: dto.ExpertProfile,
                 status: dto.Status,
                 type: dto.Type,
-                contactInfo: dto.ContactInfo);
+                email: dto.Email,
+                phoneNumber: dto.PhoneNumber,
+                linkedInUrl: dto.LinkedInUrl);
 
             AddOrUpdateExpertCommand.Reply reply = await _app.HandleCommand(command);
 
@@ -63,7 +65,9 @@ namespace Link.ExpertManagement.Infrastructure.Web.Controllers
                 expertProfile: dto.ExpertProfile,
                 status: dto.Status,
                 type: dto.Type,
-                contactInfo: dto.ContactInfo);
+                email: dto.Email,
+                phoneNumber: dto.PhoneNumber,
+                linkedInUrl: dto.LinkedInUrl);
 
             AddOrUpdateExpertCommand.Reply reply = await _app.HandleCommand(command);
 

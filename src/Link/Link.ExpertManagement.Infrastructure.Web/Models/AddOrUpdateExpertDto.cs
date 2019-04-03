@@ -17,7 +17,11 @@ namespace Link.ExpertManagement.Infrastructure.Web.Models
 
         public ExpertType Type { get; set; }
 
-        public ExpertContactInfo ContactInfo { get; set; }
+        public string Email { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public string LinkedInUrl { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";
     }

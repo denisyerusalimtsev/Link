@@ -17,7 +17,7 @@ namespace Link.EventManagement.Application
         public async Task<TResult> HandleCommand<TResult>(ICommand<TResult> command)
             where TResult : class, ICommandReply
         {
-            var type = typeof(CommandHandler<,>).MakeGenericType(command.GetType(), typeof(TResult));
+            var type = typeof(CommandHandler<,>).MakeGenericType(command.GetType(), typeof(TResult)).GetInterfaces().First();
 
             try
             {

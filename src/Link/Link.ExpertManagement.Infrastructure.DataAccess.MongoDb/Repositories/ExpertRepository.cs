@@ -28,6 +28,10 @@ namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
         public async Task<Expert> Get(ExpertId id)
         {
             var exp = await _experts.FindAsync(expert => expert.Id == id);
+            if (exp.Current == null)
+            {
+                return null;
+            }
 
             return await exp.SingleAsync();
         }

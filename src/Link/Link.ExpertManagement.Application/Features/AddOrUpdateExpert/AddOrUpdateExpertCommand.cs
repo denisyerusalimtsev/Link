@@ -13,7 +13,9 @@ namespace Link.ExpertManagement.Application.Features.AddOrUpdateExpert
             ExpertProfile expertProfile,
             ExpertStatus status, 
             ExpertType type, 
-            ExpertContactInfo contactInfo)
+            string email,
+            string phoneNumber,
+            string linkedInUrl)
         {
             Id = id;
             FirstName = firstName;
@@ -21,7 +23,7 @@ namespace Link.ExpertManagement.Application.Features.AddOrUpdateExpert
             ExpertProfile = expertProfile;
             Status = status;
             Type = type;
-            ContactInfo = contactInfo;
+            ContactInfo = new ExpertContactInfo(email, phoneNumber, linkedInUrl);
         }
 
         public sealed class Reply : ICommandReply

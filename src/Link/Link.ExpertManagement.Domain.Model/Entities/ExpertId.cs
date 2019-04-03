@@ -1,10 +1,11 @@
-﻿using Link.Common.Domain.Framework.Models;
+﻿using System;
+using Link.Common.Domain.Framework.Models;
 
 namespace Link.ExpertManagement.Domain.Model.Entities
 {
     public class ExpertId : ValueObject<ExpertId>
     {
-        public static ExpertId NewExpertId => new ExpertId(string.Empty);
+        public static ExpertId NewExpertId => new ExpertId(Guid.NewGuid().ToString());
 
         public ExpertId(string id)
         {

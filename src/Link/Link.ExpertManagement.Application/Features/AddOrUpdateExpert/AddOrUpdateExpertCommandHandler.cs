@@ -21,13 +21,15 @@ namespace Link.ExpertManagement.Application.Features.AddOrUpdateExpert
         protected override async Task<AddOrUpdateExpertCommand.Reply> Handle(AddOrUpdateExpertCommand command)
         {
             Expert expert = new Expert(
-                command.Id,
-                command.FirstName,
-                command.LastName,
-                command.ExpertProfile,
-                command.Status,
-                command.Type,
-                command.ContactInfo
+                id: command.Id == null
+                    ? ExpertId.NewExpertId
+                    : command.Id,
+                firstName: command.FirstName,
+                lastName: command.LastName,
+                expertProfile: command.ExpertProfile,
+                status: command.Status,
+                type: command.Type,
+                contactInfo: command.ContactInfo
             );
 
             Expert existedExpert = await _experts.Get(command.Id);

@@ -1,10 +1,11 @@
-﻿using Link.Common.Domain.Framework.Models;
+﻿using System;
+using Link.Common.Domain.Framework.Models;
 
 namespace Link.EventManagement.Domain.Model.Entities
 {
     public class EventId : ValueObject<EventId>
     {
-        public static EventId NewEventId => new EventId(null);
+        public static EventId NewEventId => new EventId(Guid.NewGuid().ToString());
 
         public EventId(string id)
         {
