@@ -66,7 +66,7 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
             });
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] CreateOrUpdateEventDto dto)
         {
@@ -87,15 +87,16 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
         }
 
         [HttpDelete]
+        [Route("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
             var command = new DeleteEventCommand(id: new EventId(id));
 
             DeleteEventCommand.Reply reply = await _app.HandleCommand(command);
 
-            return Ok(new CreateOrUpdateEventResponseDto
+            return Ok(new DeleteEventDto
             {
-                EventId = reply.Id.Id
+                Id = reply.Id.Id
             });
         }
     }

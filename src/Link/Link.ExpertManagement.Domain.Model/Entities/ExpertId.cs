@@ -4,7 +4,7 @@ namespace Link.ExpertManagement.Domain.Model.Entities
 {
     public class ExpertId : ValueObject<ExpertId>
     {
-        public static ExpertId NewEventId => new ExpertId(string.Empty);
+        public static ExpertId NewExpertId => new ExpertId(string.Empty);
 
         public ExpertId(string id)
         {
