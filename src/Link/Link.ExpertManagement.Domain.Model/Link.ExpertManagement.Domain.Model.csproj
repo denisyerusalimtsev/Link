@@ -5,13 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
+    <PackageReference Include="MongoDB.Bson" Version="2.8.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="MongoDB.Bson">
-      <HintPath>C:\Users\Denis.Yerusalimtsev\.nuget\packages\mongodb.bson\2.8.0\lib\netstandard1.5\MongoDB.Bson.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
   </ItemGroup>
 
 </Project>
