@@ -1,4 +1,5 @@
 ﻿using Link.Common.Domain.Framework.Models;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Link.ExpertManagement.Domain.Model.Entities
 {
@@ -11,10 +12,14 @@ namespace Link.ExpertManagement.Domain.Model.Entities
             LinkedInUrl = linkedInUrl;
         }
 
+        [BsonElement("email")]
         public string Email { get; }
+
+        [BsonElement("phoneNumber")]
 
         public string PhoneNumber { get; }
 
+        [BsonElement("linkedInUrl")]
         public string LinkedInUrl { get; }
 
         protected override bool EqualsCore(ExpertContactInfo other)

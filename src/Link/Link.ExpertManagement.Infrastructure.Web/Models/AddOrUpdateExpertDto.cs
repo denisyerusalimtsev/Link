@@ -1,5 +1,6 @@
-﻿using Link.ExpertManagement.Domain.Model.Entities;
-using Link.ExpertManagement.Domain.Model.Enums;
+﻿using Link.ExpertManagement.Domain.Model.Enums;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Link.ExpertManagement.Infrastructure.Web.Models
 {

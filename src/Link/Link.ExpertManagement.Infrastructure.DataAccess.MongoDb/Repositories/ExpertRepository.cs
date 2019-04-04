@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
 {
