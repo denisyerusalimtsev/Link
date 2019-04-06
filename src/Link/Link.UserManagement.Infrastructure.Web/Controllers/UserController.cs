@@ -1,11 +1,15 @@
 ﻿using Link.UserManagement.Application;
+using Link.UserManagement.Application.Features.AddOrUpdateUser;
+using Link.UserManagement.Application.Features.GetUser;
+using Link.UserManagement.Application.Features.GetUserById;
+using Link.UserManagement.Domain.Model.Entities;
+using Link.UserManagement.Infrastructure.Web.Models;
+using Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Link.UserManagement.Application.Features.GetUser;
-using Link.UserManagement.Infrastructure.Web.Models;
-using Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Models;
+using Link.UserManagement.Application.Features.DeleteUser;
 
 namespace Link.UserManagement.Infrastructure.Web.Controllers
 {
@@ -32,9 +36,16 @@ namespace Link.UserManagement.Infrastructure.Web.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<ActionResult<string>> Get(string id)
         {
-            return "value";
+            var query = new GetUserByIdQuery(new UserId(id));
+            GetUserByIdQueryResult result = await _app.RunQuery(query);
+            var user = UserStorageDto.FromDomain(result.User);
+
+            return Ok(new GetUserByIdDto
+            {
+                User = user
+            });
         }
 
         [HttpPost]
@@ -43,13 +54,35 @@ namespace Link.UserManagement.Infrastructure.Web.Controllers
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(string id, [FromBody] AddOrUpdateUserDto dto)
         {
+            AddOrUpdateUserCommand command = new AddOrUpdateUserCommand(
+                id: new UserId(dto.Id), 
+                firstName: dto.FirstName,
+                lastName: dto.LastName,
+                phoneNumber: dto.PhoneNumber,
+                email: dto.Email,
+                password: dto.Password);
+
+            AddOrUpdateUserCommand.Reply reply = await _app.HandleCommand(command);
+
+            return Ok(new AddOrUpdateUserDto
+            {
+                Id = reply.Id.Id
+            });
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
+            var command = new DeleteUserCommand(id: new UserId(id));
+
+            DeleteUserCommand.Reply reply = await _app.HandleCommand(command);
+
+            return Ok(new DeleteUserDto
+            {
+                Id = reply.Id.Id
+            });
         }
     }
 }

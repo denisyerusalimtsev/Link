@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Link.Common.Domain.Framework.Frameworks;
+using Link.UserManagement.Application;
+using Link.UserManagement.Domain.Model.Interfaces;
+using Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Repositories;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +31,23 @@ namespace Link.UserManagement.Infrastructure.Web
             });
 
             services.AddCors();
+
+            services.AddTransient<IUserRepository, UserRepository>();
+
+            services.Scan(scan => scan
+                .FromAssemblyOf<LinkApplication>()
+                .AddClasses(classes => classes.AssignableTo<IApplication>())
+                .AsSelfWithInterfaces()
+                .WithSingletonLifetime());
+
+            services.Scan(scan => scan
+                .FromAssemblyOf<LinkApplication>()
+                .AddClasses(classes => classes.AssignableTo<ICommandHandler>())
+                .AsSelfWithInterfaces()
+                .AddClasses(classes => classes.AssignableTo(typeof(ICommandValidator<,>)))
+                .AsSelfWithInterfaces()
+                .AddClasses(classes => classes.AssignableTo(typeof(IQueryRunner<>)))
+                .AsSelfWithInterfaces());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
