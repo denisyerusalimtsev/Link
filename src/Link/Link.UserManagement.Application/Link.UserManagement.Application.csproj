@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
+    <ProjectReference Include="..\Link.UserManagement.Domain.Model\Link.UserManagement.Domain.Model.csproj" />
+  </ItemGroup>
+
 </Project>

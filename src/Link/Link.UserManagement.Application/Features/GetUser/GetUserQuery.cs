@@ -1,8 +1,8 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
 
-namespace Link.EventManagement.Application.Features.GetEvent
+namespace Link.UserManagement.Application.Features.GetUser
 {
-    public sealed class GetEventQuery : IQuery<GetEventQueryResult>
+    public sealed class GetUserQuery : IQuery<GetUserQueryResult>
     {
     }
 }

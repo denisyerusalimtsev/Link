@@ -1,5 +1,4 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
-using Link.EventManagement.Application.Features.GetEvent;
 using System;
 using System.Threading.Tasks;
 using Link.UserManagement.Domain.Model.Interfaces;

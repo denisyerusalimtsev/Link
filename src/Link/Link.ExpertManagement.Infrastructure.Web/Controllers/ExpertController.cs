@@ -8,6 +8,7 @@ using Link.ExpertManagement.Infrastructure.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
+using Link.ExpertManagement.Application.Features.GetExpertById;
 
 namespace Link.ExpertManagement.Infrastructure.Web.Controllers
 {
@@ -29,6 +30,20 @@ namespace Link.ExpertManagement.Infrastructure.Web.Controllers
             return Ok(new GetExpertDto
             {
                 Experts = result.Experts.Select(ExpertStorageDto.FromDomain).ToList()
+            });
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<IActionResult> Get([FromQuery] string id)
+        {
+            var query = new GetExpertByIdQuery(id);
+            GetExpertByIdQueryResult result = await _app.RunQuery(query);
+            var expert = ExpertStorageDto.FromDomain(result.Expert);
+
+            return Ok(new GetExpertByIdDto
+            {
+                Expert = expert
             });
         }
 
