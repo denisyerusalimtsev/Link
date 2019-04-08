@@ -2,7 +2,7 @@
 
 namespace Link.UserManagement.Domain.Model.Entities
 {
-    public class User : AggregateRoot<User>
+    public class User : AggregateRoot<UserId>
     {
         public User(UserId id, string firstName, string lastName, string phoneNumber, string email)
         {
@@ -12,8 +12,6 @@ namespace Link.UserManagement.Domain.Model.Entities
             PhoneNumber = phoneNumber;
             Email = email;
         }
-
-        public UserId Id { get; }
 
         public string FirstName { get; }
 

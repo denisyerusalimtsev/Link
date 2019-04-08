@@ -3,7 +3,7 @@ using Link.Common.Domain.Framework.Models;
 
 namespace Link.UserManagement.Domain.Model.Entities
 {
-    public sealed class UserId : ValueObject<UserId>
+    public class UserId : ValueObject<UserId>
     {
         public static UserId NewEventId => new UserId(Guid.NewGuid().ToString());
 
