@@ -15,14 +15,14 @@ namespace Link.EventManagement.Domain.Model.Entities
             Status = Enum.Parse<ExpertStatus>(status);
         }
 
-        public string Id { get; set; }
+        public string Id { get; }
 
-        public string FirstName { get; set; }
+        public string FirstName { get; }
 
-        public string LastName { get; set; }
+        public string LastName { get; }
 
-        public ExpertType ExpertType { get; set; }
+        public ExpertType ExpertType { get; }
 
-        public ExpertStatus Status { get; set; }
+        public ExpertStatus Status { get; }
     }
 }
