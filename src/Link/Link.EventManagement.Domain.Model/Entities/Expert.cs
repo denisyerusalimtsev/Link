@@ -1,6 +1,6 @@
-﻿using System;
-using Link.Common.Domain.Framework.Models;
+﻿using Link.Common.Domain.Framework.Models;
 using Link.EventManagement.Domain.Model.Enums;
+using System;
 
 namespace Link.EventManagement.Domain.Model.Entities
 {

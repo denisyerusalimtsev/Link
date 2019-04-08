@@ -1,5 +1,6 @@
 ﻿using Link.Common.Domain.Framework.Models;
 using Link.EventManagement.Domain.Model.Enums;
+using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 
 namespace Link.EventManagement.Domain.Model.Entities
@@ -24,16 +25,22 @@ namespace Link.EventManagement.Domain.Model.Entities
             Experts = experts;
         }
 
+        [BsonElement("userId")]
         public UserId UserId { get; }
 
+        [BsonElement("name")]
         public string Name { get; }
 
+        [BsonElement("expertType")]
         public ExpertType ExpertType { get; }
 
+        [BsonElement("status")]
         public ExpertStatus Status { get; }
 
+        [BsonElement("countOfNeededExperts")]
         public int CountOfNeededExperts { get; }
 
+        [BsonElement("experts")]
         public List<Expert> Experts { get; }
     }
 }
