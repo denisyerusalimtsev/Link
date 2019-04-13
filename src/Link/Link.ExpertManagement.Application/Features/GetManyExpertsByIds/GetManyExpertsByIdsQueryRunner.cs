@@ -18,7 +18,7 @@ namespace Link.ExpertManagement.Application.Features.GetManyExpertsByIds
         {
             try
             {
-                var experts = _experts.Get(query.Ids);
+                var experts = await Task.Run(() => _experts.Get(query.Ids));
                 return new GetManyExpertsByIdsQueryResult(experts);
             }
             catch (Exception message)
