@@ -1,4 +1,5 @@
-﻿using Link.ExpertManagement.Application;
+﻿using System.Collections.Generic;
+using Link.ExpertManagement.Application;
 using Link.ExpertManagement.Application.Features.AddOrUpdateExpert;
 using Link.ExpertManagement.Application.Features.DeleteExpert;
 using Link.ExpertManagement.Application.Features.GetExpert;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
 using Link.ExpertManagement.Application.Features.GetExpertById;
+using Link.ExpertManagement.Application.Features.GetManyExpertsByIds;
 
 namespace Link.ExpertManagement.Infrastructure.Web.Controllers
 {
@@ -44,6 +46,19 @@ namespace Link.ExpertManagement.Infrastructure.Web.Controllers
             return Ok(new GetExpertByIdDto
             {
                 Expert = expert
+            });
+        }
+
+        [HttpGet]
+        [Route("experts")]
+        public async Task<IActionResult> Get([FromBody] List<ExpertId> expertIds)
+        {
+            var query = new GetManyExpertsByIdsQuery(expertIds);
+            GetManyExpertsByIdsQueryResult result = await _app.RunQuery(query);
+
+            return Ok(new GetExpertDto
+            {
+                Experts = result.Experts.Select(ExpertStorageDto.FromDomain).ToList()
             });
         }
 

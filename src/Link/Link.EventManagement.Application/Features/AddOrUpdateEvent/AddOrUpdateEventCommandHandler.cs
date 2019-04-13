@@ -30,7 +30,7 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
                 expertType: command.ExpertType,
                 status: command.Status,
                 countOfNeededExperts: command.CountOfNeededExperts,
-                experts: new List<Expert>()
+                experts: new List<ExpertId>()
             );
 
             var existedEvent = await _events.Get(command.Id);

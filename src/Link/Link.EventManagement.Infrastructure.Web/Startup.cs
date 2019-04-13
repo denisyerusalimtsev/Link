@@ -1,5 +1,6 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Application;
+using Link.EventManagement.Application.Services.Services;
 using Link.EventManagement.Domain.Model.Interfaces;
 using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -33,6 +34,7 @@ namespace Link.EventManagement.Infrastructure.Web
             services.AddCors();
 
             services.AddTransient<IEventRepository, EventRepository>();
+            services.AddTransient<IExpertService, ExpertService>();
 
             services.Scan(scan => scan
                 .FromAssemblyOf<LinkApplication>()

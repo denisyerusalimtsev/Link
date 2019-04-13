@@ -8,6 +8,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
 {
     public class EventStorageDto
     {
+        //TO Do Add getting experts from Link.ExpertManagement by using HTTP calls
         public string Id { get; set; }
 
         public string UserId { get; set; }
@@ -37,7 +38,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
                 ExpertType = ev.ExpertType,
                 Status = ev.Status,
                 CountOfNeededExperts = ev.CountOfNeededExperts,
-                Experts = ev.Experts.Select(ExpertStorageDto.FromDomain).ToList()
+                Experts = new List<ExpertStorageDto>()
             };
         }
 
@@ -51,13 +52,13 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
             }
 
             return new Event(
-                id: new EventId(ev.Id), 
-                userId: new UserId(ev.UserId), 
-                name: ev.Name, 
-                expertType: ev.ExpertType, 
-                status: ev.Status, 
+                id: new EventId(ev.Id),
+                userId: new UserId(ev.UserId),
+                name: ev.Name,
+                expertType: ev.ExpertType,
+                status: ev.Status,
                 countOfNeededExperts: ev.CountOfNeededExperts,
-                experts: ev.Experts.Select(ExpertStorageDto.ToDomain).ToList());
+                experts: new List<ExpertId>());
         }
     }
 }

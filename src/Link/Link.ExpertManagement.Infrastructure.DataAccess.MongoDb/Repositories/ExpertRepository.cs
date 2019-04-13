@@ -3,8 +3,8 @@ using Link.ExpertManagement.Domain.Model.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using MongoDB.Bson;
 
 namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
 {
@@ -35,6 +35,14 @@ namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
             }
 
             return await exp.SingleAsync();
+        }
+
+        public List<Expert> Get(List<ExpertId> ids)
+        {
+            var experts = new List<Expert>();
+            ids.ForEach(async id => experts.Add(await Get(id)));
+
+            return experts;
         }
 
         public async Task<Expert> Create(Expert expert)

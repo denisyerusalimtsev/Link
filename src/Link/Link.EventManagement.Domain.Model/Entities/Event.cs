@@ -14,7 +14,8 @@ namespace Link.EventManagement.Domain.Model.Entities
             ExpertType expertType,
             ExpertStatus status, 
             int countOfNeededExperts, 
-            List<Expert> experts)
+            List<ExpertId> experts,
+            List<Expert> expertsInfo)
         {
             Id = id;
             UserId = userId;
@@ -22,7 +23,7 @@ namespace Link.EventManagement.Domain.Model.Entities
             ExpertType = expertType;
             Status = status;
             CountOfNeededExperts = countOfNeededExperts;
-            Experts = experts;
+            Experts = new HashSet<ExpertId>(experts);
         }
 
         [BsonElement("userId")]
@@ -37,10 +38,16 @@ namespace Link.EventManagement.Domain.Model.Entities
         [BsonElement("status")]
         public ExpertStatus Status { get; }
 
+        [BsonElement("latitude")]
+        public double Latitude { get; set; }
+
+        [BsonElement("longitude")]
+        public double Longitude { get; set; }
+
         [BsonElement("countOfNeededExperts")]
         public int CountOfNeededExperts { get; }
 
         [BsonElement("experts")]
-        public List<Expert> Experts { get; }
+        public HashSet<ExpertId> Experts { get; }
     }
 }

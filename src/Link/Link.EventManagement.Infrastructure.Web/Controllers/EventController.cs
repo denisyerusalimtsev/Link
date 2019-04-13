@@ -8,6 +8,7 @@ using Link.EventManagement.Infrastructure.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
+using Link.EventManagement.Application.Features.GetEventById;
 
 namespace Link.EventManagement.Infrastructure.Web.Controllers
 {
@@ -35,7 +36,7 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<IActionResult> Get(string id)
+        public async Task<IActionResult> Get([FromQuery] string id)
         {
             var query = new GetEventByIdQuery(new EventId(id));
             GetEventByIdQueryResult result = await _app.RunQuery(query);

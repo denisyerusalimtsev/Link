@@ -51,17 +51,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ExpertManagement.Domai
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Link.UserManagement", "Link.UserManagement", "{AC40D676-BF21-4BE9-8D5C-BA5286F8AB81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Application", "Link.UserManagement.Application\Link.UserManagement.Application.csproj", "{F414E8AE-F3C5-43E1-A32F-A9B635919866}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.UserManagement.Application", "Link.UserManagement.Application\Link.UserManagement.Application.csproj", "{F414E8AE-F3C5-43E1-A32F-A9B635919866}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Domain.Model", "Link.UserManagement.Domain.Model\Link.UserManagement.Domain.Model.csproj", "{CBEBAA7D-7C94-4459-8110-59BA5643E406}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.UserManagement.Domain.Model", "Link.UserManagement.Domain.Model\Link.UserManagement.Domain.Model.csproj", "{CBEBAA7D-7C94-4459-8110-59BA5643E406}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Domain.Services", "Link.UserManagement.Domain.Services\Link.UserManagement.Domain.Services.csproj", "{24990666-1A12-4157-BE1C-C3B1B33100F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.UserManagement.Domain.Services", "Link.UserManagement.Domain.Services\Link.UserManagement.Domain.Services.csproj", "{24990666-1A12-4157-BE1C-C3B1B33100F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Infrastrusture.DataAccess.MongoDb", "Link.UserManagement.Infrastrusture.DataAccess.MongoDb\Link.UserManagement.Infrastrusture.DataAccess.MongoDb.csproj", "{2F5E6705-2454-40F3-BDE8-90BB61600B5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.UserManagement.Infrastrusture.DataAccess.MongoDb", "Link.UserManagement.Infrastrusture.DataAccess.MongoDb\Link.UserManagement.Infrastrusture.DataAccess.MongoDb.csproj", "{2F5E6705-2454-40F3-BDE8-90BB61600B5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Infrastructure.Services", "Link.UserManagement.Infrastructure.Services\Link.UserManagement.Infrastructure.Services.csproj", "{91E8664B-F5F6-4074-833C-B3A7977D4592}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.UserManagement.Infrastructure.Services", "Link.UserManagement.Infrastructure.Services\Link.UserManagement.Infrastructure.Services.csproj", "{91E8664B-F5F6-4074-833C-B3A7977D4592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.UserManagement.Infrastructure.Web", "Link.UserManagement.Infrastructure.Web\Link.UserManagement.Infrastructure.Web.csproj", "{00C90C84-D00D-4475-9D04-79D09A1A5C41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.UserManagement.Infrastructure.Web", "Link.UserManagement.Infrastructure.Web\Link.UserManagement.Infrastructure.Web.csproj", "{00C90C84-D00D-4475-9D04-79D09A1A5C41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EventManagement.Application.Services", "Link.EventManagement.Application.Services\Link.EventManagement.Application.Services.csproj", "{B08EEA86-C0CC-48D8-86FA-44067AB883A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -169,6 +171,10 @@ Global
 		{00C90C84-D00D-4475-9D04-79D09A1A5C41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00C90C84-D00D-4475-9D04-79D09A1A5C41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00C90C84-D00D-4475-9D04-79D09A1A5C41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B08EEA86-C0CC-48D8-86FA-44067AB883A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B08EEA86-C0CC-48D8-86FA-44067AB883A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B08EEA86-C0CC-48D8-86FA-44067AB883A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B08EEA86-C0CC-48D8-86FA-44067AB883A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -199,6 +205,7 @@ Global
 		{2F5E6705-2454-40F3-BDE8-90BB61600B5A} = {AC40D676-BF21-4BE9-8D5C-BA5286F8AB81}
 		{91E8664B-F5F6-4074-833C-B3A7977D4592} = {AC40D676-BF21-4BE9-8D5C-BA5286F8AB81}
 		{00C90C84-D00D-4475-9D04-79D09A1A5C41} = {AC40D676-BF21-4BE9-8D5C-BA5286F8AB81}
+		{B08EEA86-C0CC-48D8-86FA-44067AB883A8} = {E4598CFB-409F-4475-B4A7-9875DD7EE5BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {124537DD-B23A-4EAA-9504-3948783294CC}

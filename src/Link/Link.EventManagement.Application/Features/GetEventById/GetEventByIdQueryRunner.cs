@@ -1,17 +1,19 @@
-﻿using System;
-using System.Threading.Tasks;
-using Link.Common.Domain.Framework.Frameworks;
+﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Domain.Model.Interfaces;
+using System;
+using System.Threading.Tasks;
 
-namespace Link.EventManagement.Application.Features.GetEvent
+namespace Link.EventManagement.Application.Features.GetEventById
 {
     public sealed class GetEventByIdQueryRunner : QueryRunner<GetEventByIdQuery, GetEventByIdQueryResult>
     {
         private readonly IEventRepository _eventRepository;
+        private readonly IExpertService _expertService;
 
-        public GetEventByIdQueryRunner(IEventRepository eventRepository)
+        public GetEventByIdQueryRunner(IEventRepository eventRepository, IExpertService expertService)
         {
             _eventRepository = eventRepository;
+            _expertService = expertService;
         }
 
         public override async Task<GetEventByIdQueryResult> Run(GetEventByIdQuery query)

@@ -1,7 +1,7 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Domain.Model.Entities;
 
-namespace Link.EventManagement.Application.Features.GetEvent
+namespace Link.EventManagement.Application.Features.GetEventById
 {
     public sealed class GetEventByIdQueryResult : IQueryResult
     {
