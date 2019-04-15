@@ -16,9 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Link.EventManagement.Application.Services\Link.EventManagement.Application.Services.csproj" />
     <ProjectReference Include="..\Link.EventManagement.Application\Link.EventManagement.Application.csproj" />
     <ProjectReference Include="..\Link.EventManagement.Infrastructure.DataAccess.MongoDb\Link.EventManagement.Infrastructure.DataAccess.MongoDb.csproj" />
+    <ProjectReference Include="..\Link.EventManagement.Infrastructure.Messaging\Link.EventManagement.Infrastructure.Messaging.csproj" />
   </ItemGroup>
 
 </Project>

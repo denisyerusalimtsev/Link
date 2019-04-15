@@ -5,6 +5,7 @@ using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
 {
@@ -21,9 +22,10 @@ namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
 
         public async Task<List<Expert>> Get()
         {
-            var experts = await _experts.FindAsync(expert => true);
+            var e = _experts;
+            var experts = await _experts.Find(expert => true).ToListAsync();
 
-            return experts.ToList();
+            return experts;
         }
 
         public async Task<Expert> Get(ExpertId id)

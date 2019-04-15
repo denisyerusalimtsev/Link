@@ -1,8 +1,9 @@
-﻿using Link.Common.Domain.Framework.Frameworks;
+﻿using Link.Common.Domain.Framework.Communication;
+using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Application;
-using Link.EventManagement.Application.Services.Services;
 using Link.EventManagement.Domain.Model.Interfaces;
 using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories;
+using Link.EventManagement.Infrastructure.Messaging.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -45,6 +46,9 @@ namespace Link.EventManagement.Infrastructure.Web
             services.Scan(scan => scan
                 .FromAssemblyOf<LinkApplication>()
                 .AddClasses(classes => classes.AssignableTo<ICommandHandler>())
+                .AsSelfWithInterfaces()
+                .FromAssemblyOf<LinkApplication>()
+                .AddClasses(classes => classes.AssignableTo<ICommunicationChannel>())
                 .AsSelfWithInterfaces()
                 .AddClasses(classes => classes.AssignableTo(typeof(ICommandValidator<,>)))
                 .AsSelfWithInterfaces()

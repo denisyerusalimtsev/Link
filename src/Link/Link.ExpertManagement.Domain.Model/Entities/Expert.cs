@@ -39,6 +39,7 @@ namespace Link.ExpertManagement.Domain.Model.Entities
         [BsonElement("type")]
         public ExpertType Type { get; }
 
+        [BsonElement("contactInfo")]
         public ExpertContactInfo ContactInfo { get; }
 
         public string FullName => $"{FirstName} {LastName}";

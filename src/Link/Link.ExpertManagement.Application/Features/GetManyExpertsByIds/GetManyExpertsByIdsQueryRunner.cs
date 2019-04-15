@@ -1,7 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using Link.Common.Domain.Framework.Frameworks;
+﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.ExpertManagement.Domain.Model.Interfaces;
+using System;
+using System.Threading.Tasks;
 
 namespace Link.ExpertManagement.Application.Features.GetManyExpertsByIds
 {
