@@ -14,8 +14,7 @@ namespace Link.EventManagement.Domain.Model.Entities
             ExpertType expertType,
             ExpertStatus status, 
             int countOfNeededExperts, 
-            List<ExpertId> experts,
-            List<Expert> expertsInfo)
+            List<ExpertId> experts)
         {
             Id = id;
             UserId = userId;

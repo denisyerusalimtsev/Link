@@ -21,9 +21,7 @@ namespace Link.ExpertManagement.Application.Features.AddOrUpdateExpert
         protected override async Task<AddOrUpdateExpertCommand.Reply> Handle(AddOrUpdateExpertCommand command)
         {
             Expert expert = new Expert(
-                id: command.Id == null
-                    ? ExpertId.NewExpertId
-                    : command.Id,
+                id: command.Id,
                 firstName: command.FirstName,
                 lastName: command.LastName,
                 expertProfile: command.ExpertProfile,
@@ -32,17 +30,20 @@ namespace Link.ExpertManagement.Application.Features.AddOrUpdateExpert
                 contactInfo: command.ContactInfo
             );
 
+            if (expert.Id == null)
+            {
+                Expert newExpert = await _experts.Create(expert);
+
+                return new AddOrUpdateExpertCommand.Reply(newExpert.Id);
+            }
+
             Expert existedExpert = await _experts.Get(command.Id);
             if (existedExpert != null)
             {
                 _experts.Update(command.Id, expert);
-
-                return new AddOrUpdateExpertCommand.Reply(command.Id);
             }
-
-            Expert newExpert = await _experts.Create(expert);
-
-            return new AddOrUpdateExpertCommand.Reply(newExpert.Id);
+            
+            return new AddOrUpdateExpertCommand.Reply(command.Id);
         }
     }
 }

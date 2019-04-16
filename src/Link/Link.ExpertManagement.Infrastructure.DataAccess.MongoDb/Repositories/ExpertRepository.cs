@@ -1,47 +1,44 @@
 ﻿using Link.ExpertManagement.Domain.Model.Entities;
 using Link.ExpertManagement.Domain.Model.Interfaces;
+using Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MongoDB.Bson;
 
 namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
 {
     public class ExpertRepository : IExpertRepository
     {
-        private readonly IMongoCollection<Expert> _experts;
+        private readonly IMongoCollection<ExpertStorageDto> _experts;
 
         public ExpertRepository(IConfiguration config)
         {
-            var client = new MongoClient(config.GetConnectionString("DefaultConnection"));
-            var database = client.GetDatabase("LinkDb");
-            _experts = database.GetCollection<Expert>("Experts");
+            MongoClient client = new MongoClient(config.GetConnectionString("DefaultConnection"));
+            IMongoDatabase database = client.GetDatabase("LinkDb");
+            _experts = database.GetCollection<ExpertStorageDto>("Experts");
         }
 
         public async Task<List<Expert>> Get()
         {
-            var e = _experts;
-            var experts = await _experts.Find(expert => true).ToListAsync();
-
-            return experts;
+            List<ExpertStorageDto> experts = await _experts.Find(expert => true).ToListAsync();
+            var converted = experts.Select(e => e.ToDomain()).ToList();
+            return converted;
         }
 
         public async Task<Expert> Get(ExpertId id)
         {
-            var exp = await _experts.FindAsync(expert => expert.Id == id);
-            if (exp.Current == null)
-            {
-                return null;
-            }
+            IAsyncCursor<ExpertStorageDto> expertCursor = await _experts.FindAsync(e => e.Id.ToString() == id.Id);
 
-            return await exp.SingleAsync();
+            ExpertStorageDto dto = expertCursor.SingleOrDefault();
+
+            return dto?.ToDomain();
         }
 
         public List<Expert> Get(List<ExpertId> ids)
         {
-            var experts = new List<Expert>();
+            List<Expert> experts = new List<Expert>();
             ids.ForEach(async id => experts.Add(await Get(id)));
 
             return experts;
@@ -49,18 +46,20 @@ namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
 
         public async Task<Expert> Create(Expert expert)
         {
-            await _experts.InsertOneAsync(expert);
-            return expert;
+            ExpertStorageDto dto = ExpertStorageDto.FromDomain(expert);
+            await _experts.InsertOneAsync(dto);
+            return dto.ToDomain();
         }
 
         public void Update(ExpertId id, Expert expert)
         {
-            _experts.ReplaceOneAsync(exp => exp.Id == id, expert);
+            ExpertStorageDto dto = ExpertStorageDto.FromDomain(expert);
+            _experts.ReplaceOneAsync(exp => exp.Id.ToString() == id.Id, dto);
         }
 
         public void Remove(ExpertId expertId)
         {
-            _experts.DeleteOneAsync(exp => exp.Id == expertId);
+            _experts.DeleteOneAsync(exp => exp.Id.ToString() == expertId.Id);
         }
     }
 }

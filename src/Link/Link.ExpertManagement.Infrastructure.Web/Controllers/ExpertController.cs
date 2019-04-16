@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
-using Link.ExpertManagement.Application;
+﻿using Link.ExpertManagement.Application;
 using Link.ExpertManagement.Application.Features.AddOrUpdateExpert;
 using Link.ExpertManagement.Application.Features.DeleteExpert;
 using Link.ExpertManagement.Application.Features.GetExpert;
+using Link.ExpertManagement.Application.Features.GetExpertById;
+using Link.ExpertManagement.Application.Features.GetManyExpertsByIds;
 using Link.ExpertManagement.Domain.Model.Entities;
 using Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Link.ExpertManagement.Infrastructure.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Link.ExpertManagement.Application.Features.GetExpertById;
-using Link.ExpertManagement.Application.Features.GetManyExpertsByIds;
 
 namespace Link.ExpertManagement.Infrastructure.Web.Controllers
 {
@@ -39,9 +39,9 @@ namespace Link.ExpertManagement.Infrastructure.Web.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Get([FromQuery] string id)
         {
-            var query = new GetExpertByIdQuery(id);
+            GetExpertByIdQuery query = new GetExpertByIdQuery(id);
             GetExpertByIdQueryResult result = await _app.RunQuery(query);
-            var expert = ExpertStorageDto.FromDomain(result.Expert);
+            ExpertStorageDto expert = ExpertStorageDto.FromDomain(result.Expert);
 
             return Ok(new GetExpertByIdDto
             {
@@ -53,7 +53,7 @@ namespace Link.ExpertManagement.Infrastructure.Web.Controllers
         [Route("experts")]
         public async Task<IActionResult> Get([FromBody] List<ExpertId> expertIds)
         {
-            var query = new GetManyExpertsByIdsQuery(expertIds);
+            GetManyExpertsByIdsQuery query = new GetManyExpertsByIdsQuery(expertIds);
             GetManyExpertsByIdsQueryResult result = await _app.RunQuery(query);
 
             return Ok(new GetExpertDto
@@ -77,11 +77,11 @@ namespace Link.ExpertManagement.Infrastructure.Web.Controllers
                 linkedInUrl: dto.LinkedInUrl);
 
             AddOrUpdateExpertCommand.Reply reply = await _app.HandleCommand(command);
-
             return Ok(new AddOrUpdateExpertDto
             {
                 Id = reply.Id.Id
             });
+
         }
 
         [HttpPut]
@@ -111,7 +111,7 @@ namespace Link.ExpertManagement.Infrastructure.Web.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            var command = new DeleteExpertCommand(id: new ExpertId(id));
+            DeleteExpertCommand command = new DeleteExpertCommand(id: new ExpertId(id));
 
             DeleteExpertCommand.Reply reply = await _app.HandleCommand(command);
 

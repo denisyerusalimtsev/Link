@@ -1,6 +1,7 @@
 ﻿using Link.ExpertManagement.Domain.Model.Entities;
 using Link.ExpertManagement.Domain.Model.Enums;
 using System;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using ExpertStatus = Link.ExpertManagement.Domain.Model.Enums.ExpertStatus;
 
@@ -17,36 +18,39 @@ namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Models
 
             return new ExpertStorageDto
             {
-                Id = expert.Id.Id,
+                Id = expert.Id == null
+                    ? new ObjectId()
+                    : new ObjectId(expert.Id.Id),
                 FirstName = expert.FirstName,
                 LastName = expert.LastName,
+                ExpertProfile = expert.ExpertProfile.ToString(),
                 Type = expert.Type.ToString(),
-                Status = expert.Status.ToString()
+                Status = expert.Status.ToString(),
+                Email = expert.ContactInfo.Email,
+                PhoneNumber = expert.ContactInfo.PhoneNumber,
+                LinkedInUrl = expert.ContactInfo.LinkedInUrl
             };
         }
-        public static Expert ToDomain(ExpertStorageDto expertDto)
-        {
-            if (expertDto == null)
-            {
-                throw new ArgumentException("Expert is null.");
-            }
 
+        public Expert ToDomain()
+        {
             return new Expert(
-                id: new ExpertId(expertDto.Id), 
-                firstName: expertDto.FirstName,
-                lastName: expertDto.LastName,
-                expertProfile: Enum.Parse<ExpertProfile>(expertDto.ExpertProfile),
-                status: Enum.Parse<ExpertStatus>(expertDto.Status),
-                type: Enum.Parse<ExpertType>(expertDto.Type),
+                id: new ExpertId(Id.ToString()),
+                firstName: FirstName,
+                lastName: LastName,
+                expertProfile: Enum.Parse<ExpertProfile>(ExpertProfile),
+                status: Enum.Parse<ExpertStatus>(Status),
+                type: Enum.Parse<ExpertType>(Type),
                 contactInfo: new ExpertContactInfo(
-                    expertDto.Email,
-                    expertDto.PhoneNumber,
-                    expertDto.LinkedInUrl)
+                    email: Email,
+                    phoneNumber: PhoneNumber,
+                    linkedInUrl: LinkedInUrl)
             );
         }
 
         [BsonElement("id")]
-        public string Id { get; set; }
+        [BsonId]
+        public ObjectId Id { get; set; }
 
         [BsonElement("firstName")]
         public string FirstName { get; set; }

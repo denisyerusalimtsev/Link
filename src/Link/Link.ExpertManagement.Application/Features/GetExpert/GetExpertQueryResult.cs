@@ -6,7 +6,7 @@ namespace Link.ExpertManagement.Application.Features.GetExpert
 {
     public sealed class GetExpertQueryResult : IQueryResult
     {
-        public GetExpertQueryResult(List<Expert> experts)
+        public GetExpertQueryResult(IEnumerable<Expert> experts)
         {
             Success = true;
             Experts = experts;
@@ -20,7 +20,7 @@ namespace Link.ExpertManagement.Application.Features.GetExpert
 
         public bool Success { get; }
 
-        public List<Expert> Experts { get; }
+        public IEnumerable<Expert> Experts { get; }
 
         public string ErrorMessage { get; }
     }

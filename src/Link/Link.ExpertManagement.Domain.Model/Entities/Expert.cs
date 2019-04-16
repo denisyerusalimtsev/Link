@@ -1,6 +1,5 @@
 ﻿using Link.Common.Domain.Framework.Models;
 using Link.ExpertManagement.Domain.Model.Enums;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace Link.ExpertManagement.Domain.Model.Entities
 {
@@ -24,22 +23,16 @@ namespace Link.ExpertManagement.Domain.Model.Entities
             ContactInfo = contactInfo;
         }
 
-        [BsonElement("firstName")]
         public string FirstName { get; }
 
-        [BsonElement("lastName")]
         public string LastName { get; }
 
-        [BsonElement("expertProfile")]
         public ExpertProfile ExpertProfile { get; }
 
-        [BsonElement("status")]
         public ExpertStatus Status { get; }
 
-        [BsonElement("type")]
         public ExpertType Type { get; }
 
-        [BsonElement("contactInfo")]
         public ExpertContactInfo ContactInfo { get; }
 
         public string FullName => $"{FirstName} {LastName}";
