@@ -23,14 +23,13 @@ namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
         public async Task<List<Expert>> Get()
         {
             List<ExpertStorageDto> experts = await _experts.Find(expert => true).ToListAsync();
-            var converted = experts.Select(e => e.ToDomain()).ToList();
-            return converted;
+
+            return experts.Select(e => e.ToDomain()).ToList();
         }
 
         public async Task<Expert> Get(ExpertId id)
         {
             IAsyncCursor<ExpertStorageDto> expertCursor = await _experts.FindAsync(e => e.Id.ToString() == id.Id);
-
             ExpertStorageDto dto = expertCursor.SingleOrDefault();
 
             return dto?.ToDomain();

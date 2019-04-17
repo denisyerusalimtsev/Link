@@ -1,52 +1,57 @@
 ﻿using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Model.Interfaces;
+using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
 {
     public class EventRepository : IEventRepository
     {
-        private readonly IMongoCollection<Event> _events;
+        private readonly IMongoCollection<EventStorageDto> _events;
 
         public EventRepository(IConfiguration config)
         {
             var client = new MongoClient(config.GetConnectionString("DefaultConnection"));
             var database = client.GetDatabase("LinkDb");
-            _events = database.GetCollection<Event>("Events");
+            _events = database.GetCollection<EventStorageDto>("Events");
         }
 
         public async Task<List<Event>> Get()
         {
-            var events = await _events.FindAsync(ev => true);
+            List<EventStorageDto> events = await _events.Find(ev => true).ToListAsync();
 
-            return await events.ToListAsync();
+            return events.Select(e => e.ToDomain()).ToList();
         }
 
         public async Task<Event> Get(EventId id)
         {
-            var ev = await _events.FindAsync(e => e.Id == id);
+            IAsyncCursor<EventStorageDto> eventCursor = await _events.FindAsync(e => e.Id.ToString() == id.Id);
+            EventStorageDto dto = eventCursor.SingleOrDefault();
 
-            return await ev.SingleAsync();
+            return dto?.ToDomain();
         }
 
         public async Task<Event> Create(Event ev)
         {
-            await _events.InsertOneAsync(ev);
+            EventStorageDto dto = EventStorageDto.FromDomain(ev);
+            await _events.InsertOneAsync(dto);
 
-            return ev;
+            return dto.ToDomain();
         }
 
         public void Update(EventId id, Event ev)
         {
-            _events.ReplaceOneAsync(even => even.Id == id, ev);
+            EventStorageDto dto = EventStorageDto.FromDomain(ev);
+            _events.ReplaceOneAsync(even => even.Id == id.Id, dto);
         }
 
         public void Remove(EventId eventId)
         {
-            _events.DeleteOneAsync(ev => ev.Id == eventId);
+            _events.DeleteOneAsync(ev => ev.Id.ToString() == eventId.Id);
         }
     }
 }

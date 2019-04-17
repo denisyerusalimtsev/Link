@@ -1,26 +1,34 @@
 ﻿using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Model.Enums;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
 {
     public class EventStorageDto
     {
         //TO Do Add getting experts from Link.ExpertManagement by using HTTP calls
+        [BsonElement("id")]
+        [BsonId]
         public string Id { get; set; }
 
+        [BsonElement("userId")]
         public string UserId { get; set; }
 
+        [BsonElement("name")]
         public string Name { get; set; }
 
+        [BsonElement("expertType")]
         public ExpertType ExpertType { get; set; }
 
+        [BsonElement("status")]
         public ExpertStatus Status { get; set; }
 
+        [BsonElement("countOfNeededExperts")]
         public int CountOfNeededExperts { get; set; }
 
+        [BsonElement("id")]
         public List<ExpertStorageDto> Experts { get; set; }
 
         public static EventStorageDto FromDomain(Event ev)
@@ -42,22 +50,15 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
             };
         }
 
-        // ToDomain
-
-        public static Event ToDomain(EventStorageDto ev)
+        public Event ToDomain()
         {
-            if (ev == null)
-            {
-                throw new ArgumentException("Event is null.");
-            }
-
             return new Event(
-                id: new EventId(ev.Id),
-                userId: new UserId(ev.UserId),
-                name: ev.Name,
-                expertType: ev.ExpertType,
-                status: ev.Status,
-                countOfNeededExperts: ev.CountOfNeededExperts,
+                id: new EventId(Id),
+                userId: new UserId(UserId),
+                name: Name,
+                expertType: ExpertType,
+                status: Status,
+                countOfNeededExperts: CountOfNeededExperts,
                 experts: new List<ExpertId>());
         }
     }

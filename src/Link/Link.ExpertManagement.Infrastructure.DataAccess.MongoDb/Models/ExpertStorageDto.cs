@@ -1,8 +1,8 @@
 ﻿using Link.ExpertManagement.Domain.Model.Entities;
 using Link.ExpertManagement.Domain.Model.Enums;
-using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System;
 using ExpertStatus = Link.ExpertManagement.Domain.Model.Enums.ExpertStatus;
 
 namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Models
