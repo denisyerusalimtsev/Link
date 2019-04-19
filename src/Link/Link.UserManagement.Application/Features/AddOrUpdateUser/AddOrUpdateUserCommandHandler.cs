@@ -36,7 +36,7 @@ namespace Link.UserManagement.Application.Features.AddOrUpdateUser
                 return new AddOrUpdateUserCommand.Reply(command.Id);
             }
 
-            User newUser = await _users.Create(user);
+            User newUser = await _users.CreateAsync(user);
 
             return new AddOrUpdateUserCommand.Reply(newUser.Id);
         }

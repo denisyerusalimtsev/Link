@@ -14,22 +14,16 @@ namespace Link.UserManagement.Domain.Model.Entities
             Email = email;
         }
 
-        [BsonElement("firstName")]
         public string FirstName { get; }
 
-        [BsonElement("lastName")]
         public string LastName { get; }
 
-        [BsonElement("phoneNumber")]
         public string PhoneNumber { get; }
 
-        [BsonElement("email")]
         public string Email { get; }
 
-        [BsonElement("passwordHash")]
         public byte[] PasswordHash { get; }
 
-        [BsonElement("passwordSalt")]
         public byte[] PasswordSalt { get; }
     }
 }

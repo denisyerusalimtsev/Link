@@ -1,49 +1,56 @@
 ﻿using Link.UserManagement.Domain.Model.Entities;
 using Link.UserManagement.Domain.Model.Interfaces;
+using Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Models;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Repositories
 {
     public class UserRepository: IUserRepository
     {
-        private readonly IMongoCollection<User> _users;
+        private readonly IMongoCollection<UserStorageDto> _users;
 
         public UserRepository(IConfiguration config)
         {
             var client = new MongoClient(config.GetConnectionString("DefaultConnection"));
             var database = client.GetDatabase("LinkDb");
-            _users = database.GetCollection<User>("Users");
+            _users = database.GetCollection<UserStorageDto>("Users");
         }
         public async Task<List<User>> Get()
         {
-            var events = await _users.FindAsync(user => true);
+            List<UserStorageDto> users = await _users.Find(user => true).ToListAsync();
 
-            return await events.ToListAsync();
+            return users.Select(u => u.ToDomain()).ToList();
         }
 
         public async Task<User> Get(UserId id)
         {
-            var expert = await _users.FindAsync(e => e.Id == id);
+            IAsyncCursor<UserStorageDto> userCursor = await _users.FindAsync(u => u.Id.ToString() == id.Id);
+            UserStorageDto dto = userCursor.SingleOrDefault();
 
-            return await expert.SingleAsync();
+            return dto?.ToDomain();
         }
 
-        public Task<User> Create(User ev)
+        public async Task<User> CreateAsync(User user)
         {
-            throw new System.NotImplementedException();
+            UserStorageDto dto = UserStorageDto.FromDomain(user);
+            await _users.InsertOneAsync(dto);
+
+            return dto?.ToDomain();
         }
 
         public void Update(UserId id, User newUser)
         {
-            _users.ReplaceOneAsync(user => user.Id == id, newUser);
+            UserStorageDto dto = UserStorageDto.FromDomain(newUser);
+            _users.ReplaceOneAsync(user => user.Id.ToString() == id.Id, dto);
         }
 
         public void Remove(UserId userId)
         {
-            _users.DeleteOneAsync(user => user.Id == userId);
+            _users.DeleteOneAsync(user => user.Id.ToString() == userId.Id);
         }
     }
 }
