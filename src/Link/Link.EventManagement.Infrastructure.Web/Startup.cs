@@ -36,6 +36,7 @@ namespace Link.EventManagement.Infrastructure.Web
 
             services.AddTransient<IEventRepository, EventRepository>();
             services.AddTransient<IExpertService, ExpertService>();
+            services.AddTransient<IUserService, UserService>();
 
             services.Scan(scan => scan
                 .FromAssemblyOf<LinkApplication>()

@@ -10,5 +10,7 @@ namespace Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions
         }
 
         public string ExpertManagementUrl { get; set; }
+
+        public string UserManagementUrl { get; set; }
     }
 }

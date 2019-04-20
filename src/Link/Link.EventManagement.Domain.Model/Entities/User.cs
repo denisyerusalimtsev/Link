@@ -1,10 +1,10 @@
 ﻿using Link.Common.Domain.Framework.Models;
 
-namespace Link.UserManagement.Domain.Model.Entities
+namespace Link.EventManagement.Domain.Model.Entities
 {
-    public class User : AggregateRoot<UserId>
+    public sealed class User : Entity<User>
     {
-        public User(UserId id, string firstName, string lastName, string phoneNumber, string email)
+        public User(string id, string firstName, string lastName, string phoneNumber, string email)
         {
             Id = id;
             FirstName = firstName;
@@ -13,6 +13,8 @@ namespace Link.UserManagement.Domain.Model.Entities
             Email = email;
         }
 
+        public string Id { get; set; }
+
         public string FirstName { get; }
 
         public string LastName { get; }
@@ -20,9 +22,5 @@ namespace Link.UserManagement.Domain.Model.Entities
         public string PhoneNumber { get; }
 
         public string Email { get; }
-
-        public byte[] PasswordHash { get; }
-
-        public byte[] PasswordSalt { get; }
     }
 }
