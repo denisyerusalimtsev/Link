@@ -6,6 +6,8 @@ namespace Link.EventManagement.Domain.Services.Interfaces
 {
     public interface IUserService
     {
-        Task<List<User>> GetUsers(IEnumerable<UserId> expertsId);
+        Task<User> GetUser(UserId userId);
+
+        Task<List<User>> GetUsers(IEnumerable<UserId> usersId);
     }
 }

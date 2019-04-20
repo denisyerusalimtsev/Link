@@ -19,6 +19,13 @@ namespace Link.EventManagement.Infrastructure.Messaging.Services
             _configurations = new Configurations(config);
         }
 
+        public async Task<Expert> GetExpert(ExpertId expertId)
+        {
+            return await _communicationChannel
+                .SynchronousRequest<ExpertId, Expert>(
+                    _configurations.ExpertManagementUrl, expertId);
+        }
+
         public async Task<List<Expert>> GetExperts(IEnumerable<ExpertId> expertsId)
         {
             return await _communicationChannel
