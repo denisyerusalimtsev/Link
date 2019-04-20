@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
     <ProjectReference Include="..\Link.EventManagement.Domain.Model\Link.EventManagement.Domain.Model.csproj" />
+    <ProjectReference Include="..\Link.EventManagement.Domain.Services\Link.EventManagement.Domain.Services.csproj" />
   </ItemGroup>
 
 </Project>

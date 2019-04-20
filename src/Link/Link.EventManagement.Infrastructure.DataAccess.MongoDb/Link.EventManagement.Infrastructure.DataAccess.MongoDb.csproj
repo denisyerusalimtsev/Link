@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Link.EventManagement.Domain.Model\Link.EventManagement.Domain.Model.csproj" />
+    <ProjectReference Include="..\Link.EventManagement.Domain.Services\Link.EventManagement.Domain.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>

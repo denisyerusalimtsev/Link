@@ -1,7 +1,7 @@
 ﻿using Link.Common.Domain.Framework.Communication;
 using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Application;
-using Link.EventManagement.Domain.Model.Interfaces;
+using Link.EventManagement.Domain.Services.Interfaces;
 using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories;
 using Link.EventManagement.Infrastructure.Messaging.Services;
 using Microsoft.AspNetCore.Builder;

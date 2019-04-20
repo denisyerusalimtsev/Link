@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Link.EventManagement.Domain.Model.Entities;
 
-namespace Link.EventManagement.Domain.Model.Interfaces
+namespace Link.EventManagement.Domain.Services.Interfaces
 {
     public interface IExpertService
     {

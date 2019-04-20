@@ -1,5 +1,5 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
-using Link.EventManagement.Domain.Model.Interfaces;
+using Link.EventManagement.Domain.Services.Interfaces;
 using System.Threading.Tasks;
 
 namespace Link.EventManagement.Application.Features.AssignExpertToEvent

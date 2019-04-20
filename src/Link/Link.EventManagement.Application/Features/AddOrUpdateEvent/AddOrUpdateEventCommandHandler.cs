@@ -1,6 +1,6 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Domain.Model.Entities;
-using Link.EventManagement.Domain.Model.Interfaces;
+using Link.EventManagement.Domain.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

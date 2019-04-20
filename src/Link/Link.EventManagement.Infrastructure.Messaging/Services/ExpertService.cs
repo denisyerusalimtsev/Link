@@ -1,6 +1,6 @@
 ﻿using Link.Common.Domain.Framework.Communication;
 using Link.EventManagement.Domain.Model.Entities;
-using Link.EventManagement.Domain.Model.Interfaces;
+using Link.EventManagement.Domain.Services.Interfaces;
 using Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;

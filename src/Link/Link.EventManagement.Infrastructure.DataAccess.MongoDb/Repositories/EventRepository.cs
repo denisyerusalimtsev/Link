@@ -1,5 +1,5 @@
 ﻿using Link.EventManagement.Domain.Model.Entities;
-using Link.EventManagement.Domain.Model.Interfaces;
+using Link.EventManagement.Domain.Services.Interfaces;
 using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;

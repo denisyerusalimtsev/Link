@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Link.EventManagement.Domain.Model.Entities;
 
 namespace Link.EventManagement.Domain.Services.Interfaces
 {
     public interface IEventRepository
     {
-        List<Event> Get();
+        Task<List<Event>> Get();
 
-        Event Get(EventId id);
+        Task<Event> Get(EventId id);
 
-        Event Create(Event ev);
+        Task<Event> Create(Event ev);
 
         void Update(EventId id, Event ev);
 

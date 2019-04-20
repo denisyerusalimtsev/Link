@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Link.Common.Domain.Framework.Frameworks;
-using Link.EventManagement.Domain.Model.Interfaces;
+using Link.EventManagement.Domain.Services.Interfaces;
 
 namespace Link.EventManagement.Application.Features.DeleteEvent
 {
