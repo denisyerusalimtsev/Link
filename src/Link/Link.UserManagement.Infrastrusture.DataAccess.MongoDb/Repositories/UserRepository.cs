@@ -34,7 +34,7 @@ namespace Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Repositories
             return dto?.ToDomain();
         }
 
-        public async Task<User> CreateAsync(User user)
+        public async Task<User> Create(User user)
         {
             UserStorageDto dto = UserStorageDto.FromDomain(user);
             await _users.InsertOneAsync(dto);

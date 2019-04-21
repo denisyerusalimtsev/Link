@@ -9,7 +9,7 @@ namespace Link.UserManagement.Application.Features.AddOrUpdateUser
     {
         public void Validate(AddOrUpdateUserCommand command)
         {
-            var validationResults = new List<ValidationError>();
+            /*var validationResults = new List<ValidationError>();
 
             if (command.Id == null || !command.Id.IsValid)
             {
@@ -19,7 +19,7 @@ namespace Link.UserManagement.Application.Features.AddOrUpdateUser
             if (validationResults.Any())
             {
                 throw new CommandValidationException(typeof(AddOrUpdateUserCommand).Name, validationResults);
-            }
+            }*/
         }
     }
 }

@@ -28,17 +28,20 @@ namespace Link.UserManagement.Application.Features.AddOrUpdateUser
                 command.Email
             );
 
-            var existedEvent = await _users.Get(command.Id);
-            if (existedEvent != null)
+            if (user.Id.Id == null)
             {
-                _users.Update(command.Id, user);
+                User newUser = await _users.Create(user);
 
-                return new AddOrUpdateUserCommand.Reply(command.Id);
+                return new AddOrUpdateUserCommand.Reply(newUser.Id);
             }
 
-            User newUser = await _users.CreateAsync(user);
+            User existedUser = await _users.Get(command.Id);
+            if (existedUser != null)
+            {
+                _users.Update(command.Id, user);
+            }
 
-            return new AddOrUpdateUserCommand.Reply(newUser.Id);
+            return new AddOrUpdateUserCommand.Reply(command.Id);
         }
     }
 }

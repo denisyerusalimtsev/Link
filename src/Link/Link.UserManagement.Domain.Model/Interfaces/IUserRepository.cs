@@ -10,7 +10,7 @@ namespace Link.UserManagement.Domain.Model.Interfaces
 
         Task<User> Get(UserId id);
 
-        Task<User> CreateAsync(User ev);
+        Task<User> Create(User ev);
 
         void Update(UserId id, User user);
 
