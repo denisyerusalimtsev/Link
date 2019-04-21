@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Link.EventManagement.Domain.Services\Link.EventManagement.Domain.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\GetUser\" />
+  </ItemGroup>
+
 </Project>

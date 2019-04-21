@@ -10,7 +10,7 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
         public void Validate(AddOrUpdateEventCommand command)
         {
             var validationResults = new List<ValidationError>();
-
+            /*
             if (command.Id == null || !command.Id.IsValid)
             {
                 validationResults.Add(new ValidationError("id", "Event id is invalid"));
@@ -19,7 +19,7 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
             if (validationResults.Any())
             {
                 throw new CommandValidationException(typeof(AddOrUpdateEventCommand).Name, validationResults);
-            }
+            }*/
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
 
             return Ok(new GetEventDto
             {
-                Events = result.Events.Select(EventStorageDto.FromDomain).ToList()
+                Events = result.Events
             });
         }
 
@@ -57,7 +57,10 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
                 name: dto.Name,
                 expertType: dto.ExpertType,
                 status: dto.Status,
-                countOfNeededExperts: dto.CountOfNeededExperts);
+                latitude: dto.Latitude,
+                longitude: dto.Longitude,
+                countOfNeededExperts: dto.CountOfNeededExperts,
+                experts: dto.Experts);
 
             AddOrUpdateEventCommand.Reply reply = await _app.HandleCommand(command);
 
@@ -77,7 +80,10 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
                 name: dto.Name,
                 expertType: dto.ExpertType,
                 status: dto.Status,
-                countOfNeededExperts: dto.CountOfNeededExperts);
+                latitude: dto.Latitude,
+                longitude: dto.Longitude,
+                countOfNeededExperts: dto.CountOfNeededExperts,
+                experts: dto.Experts);
 
             AddOrUpdateEventCommand.Reply reply = await _app.HandleCommand(command);
 

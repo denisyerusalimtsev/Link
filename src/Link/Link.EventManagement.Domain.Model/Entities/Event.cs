@@ -13,14 +13,16 @@ namespace Link.EventManagement.Domain.Model.Entities
             ExpertType expertType,
             ExpertStatus status, 
             int countOfNeededExperts, 
-            List<ExpertId> experts)
+            List<ExpertId> experts, double latitude, double longitude)
         {
             Id = id;
             UserId = userId;
             Name = name;
             ExpertType = expertType;
             Status = status;
-            CountOfNeededExperts = countOfNeededExperts;
+            Latitude = latitude;
+            Longitude = longitude;
+            CountOfNeededExperts = countOfNeededExperts;          
             Experts = new HashSet<ExpertId>(experts);
         }
 
@@ -32,9 +34,9 @@ namespace Link.EventManagement.Domain.Model.Entities
 
         public ExpertStatus Status { get; }
 
-        public double Latitude { get; set; }
+        public double Latitude { get; }
 
-        public double Longitude { get; set; }
+        public double Longitude { get; }
 
         public int CountOfNeededExperts { get; }
 

@@ -9,11 +9,16 @@ namespace Link.EventManagement.Application.Features.GetEventById
     {
         private readonly IEventRepository _eventRepository;
         private readonly IExpertService _expertService;
+        private readonly IUserService _userService;
 
-        public GetEventByIdQueryRunner(IEventRepository eventRepository, IExpertService expertService)
+        public GetEventByIdQueryRunner(
+            IEventRepository eventRepository, 
+            IExpertService expertService, 
+            IUserService userService)
         {
             _eventRepository = eventRepository;
             _expertService = expertService;
+            _userService = userService;
         }
 
         public override async Task<GetEventByIdQueryResult> Run(GetEventByIdQuery query)
@@ -21,7 +26,9 @@ namespace Link.EventManagement.Application.Features.GetEventById
             try
             {
                 var ev = await _eventRepository.Get(query.Id);
-                return new GetEventByIdQueryResult(ev);
+                var experts = await _expertService.GetExperts(ev.Experts);
+                var user = await _userService.GetUser(ev.UserId);
+                return new GetEventByIdQueryResult(ev, experts, user);
             }
             catch (Exception message)
             {

@@ -6,7 +6,7 @@ namespace Link.EventManagement.Application.Features.GetEvent
 {
     public sealed class GetEventQueryResult : IQueryResult
     {
-        public GetEventQueryResult(List<Event> events)
+        public GetEventQueryResult(List<EventInfo> events)
         {
             Success = true;
             Events = events;
@@ -20,7 +20,7 @@ namespace Link.EventManagement.Application.Features.GetEvent
 
         public bool Success { get; }
 
-        public List<Event> Events { get; }
+        public List<EventInfo> Events { get; }
 
         public string ErrorMessage { get; }
     }

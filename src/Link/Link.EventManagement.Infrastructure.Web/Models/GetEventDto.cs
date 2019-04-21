@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
+using Link.EventManagement.Domain.Model.Entities;
 
 namespace Link.EventManagement.Infrastructure.Web.Models
 {
     public class GetEventDto
     {
-        public List<EventStorageDto> Events { get; set; }
+        public List<EventInfo> Events { get; set; }
     }
 }
