@@ -1,22 +1,22 @@
 ﻿using Link.EmailManagement.Domain.Services.Interfaces;
 using System;
-using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Link.EmailManagement.Domain.Model.Entities;
 
 namespace Link.EmailManagement.Infrastructure.Services.Services
 {
     public class MailBox : IMailBox
     {
-        public async Task Send(string subject, string body, Stream attachment)
+        public async Task Send(Email mail)
         {
             var smtpClient = Build();
-            using (var message = new MailMessage("ontouragetest@gmail.com", "denis.yerusalimtsev@gmail.com"))
+            using (var message = new MailMessage("ontouragetest@gmail.com", mail.EmailTo))
             {
-                message.Subject = "Copter rent";
-                message.Body = "Thank you for using Around system, here is your cheque. Have a nice day. Regards, Around Team";
-                message.Attachments.Add(new Attachment(attachment, "AroundCheque", "application/pdf"));
+                message.Subject = mail.Subject;
+                message.Body = mail.Body;
+                message.Attachments.Add(mail.Attachment);
                 try
                 {
                     await smtpClient.SendMailAsync(message);

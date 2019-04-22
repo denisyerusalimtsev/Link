@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Link.Common.Domain.Framework.Communication;
+using Link.Common.Domain.Framework.Frameworks;
+using Link.EmailManagement.Application;
+using Link.EmailManagement.Domain.Services.Interfaces;
+using Link.EmailManagement.Infrastructure.Services.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Link.EmailManagement.Infrastructure.Web
 {
@@ -26,6 +25,34 @@ namespace Link.EmailManagement.Infrastructure.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Link.EmailManagement.API", Version = "v1" });
+            });
+
+            services.AddCors();
+
+            services.AddTransient<IMailBox, MailBox>();
+            services.AddTransient<IMailCreator, MailCreator>();
+
+            services.Scan(scan => scan
+                .FromAssemblyOf<LinkApplication>()
+                .AddClasses(classes => classes.AssignableTo<IApplication>())
+                .AsSelfWithInterfaces()
+                .WithSingletonLifetime());
+
+            services.Scan(scan => scan
+                .FromAssemblyOf<LinkApplication>()
+                .AddClasses(classes => classes.AssignableTo<ICommandHandler>())
+                .AsSelfWithInterfaces()
+                .FromAssemblyOf<LinkApplication>()
+                .AddClasses(classes => classes.AssignableTo<ICommunicationChannel>())
+                .AsSelfWithInterfaces()
+                .AddClasses(classes => classes.AssignableTo(typeof(ICommandValidator<,>)))
+                .AsSelfWithInterfaces()
+                .AddClasses(classes => classes.AssignableTo(typeof(IQueryRunner<>)))
+                .AsSelfWithInterfaces());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

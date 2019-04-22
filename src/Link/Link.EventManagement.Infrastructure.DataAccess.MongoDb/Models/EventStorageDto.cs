@@ -34,7 +34,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
         [BsonElement("countOfNeededExperts")]
         public int CountOfNeededExperts { get; set; }
 
-        [BsonElement("id")]
+        [BsonElement("experts")]
         public List<ExpertStorageDto> Experts { get; set; }
 
         public static EventStorageDto FromDomain(Event ev)

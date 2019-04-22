@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Link.EmailManagement.Domain.Model\Link.EmailManagement.Domain.Model.csproj" />
     <ProjectReference Include="..\Link.EmailManagement.Domain.Services\Link.EmailManagement.Domain.Services.csproj" />
   </ItemGroup>
 

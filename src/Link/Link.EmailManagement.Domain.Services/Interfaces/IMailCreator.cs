@@ -1,4 +1,6 @@
-﻿using System.Net.Mail;
+﻿using Link.EmailManagement.Domain.Model.Entities;
+using System.IO;
+using System.Net.Mail;
 
 namespace Link.EmailManagement.Domain.Services.Interfaces
 {
@@ -6,8 +8,10 @@ namespace Link.EmailManagement.Domain.Services.Interfaces
     {
         string AddBody();
 
+        string AddBody(Event ev, Expert expert);
+
         string AddSubject();
 
-        Attachment AddAttachment();
+        Attachment AddAttachment(Stream attachment);
     }
 }
