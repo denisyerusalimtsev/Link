@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Link.EmailManagement.Application
+namespace Link.ReportManagement.Application
 {
     public sealed class LinkApplication : IApplication
     {

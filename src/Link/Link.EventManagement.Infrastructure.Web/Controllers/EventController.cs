@@ -59,6 +59,8 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
                 status: dto.Status,
                 latitude: dto.Latitude,
                 longitude: dto.Longitude,
+                startTime: dto.StartTime,
+                endTime: dto.EndTime,
                 countOfNeededExperts: dto.CountOfNeededExperts,
                 experts: dto.Experts);
 
@@ -82,6 +84,8 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
                 status: dto.Status,
                 latitude: dto.Latitude,
                 longitude: dto.Longitude,
+                startTime: dto.StartTime,
+                endTime: dto.EndTime,
                 countOfNeededExperts: dto.CountOfNeededExperts,
                 experts: dto.Experts);
 

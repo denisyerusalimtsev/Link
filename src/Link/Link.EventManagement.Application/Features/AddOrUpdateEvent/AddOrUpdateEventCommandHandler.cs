@@ -29,6 +29,8 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
                 status: command.Status,
                 latitude:command.Latitude,
                 longitude: command.Longitude,
+                startTime: command.StartTime,
+                endTime:command.EndTime,
                 countOfNeededExperts: command.CountOfNeededExperts,
                 experts: new List<ExpertId>()
             );

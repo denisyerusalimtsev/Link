@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Model.Enums;
 
@@ -19,6 +20,10 @@ namespace Link.EventManagement.Infrastructure.Web.Models
         public double Latitude { get; set; }
 
         public double Longitude { get; set; }
+
+        public DateTime StartTime { get; set; }
+
+        public DateTime EndTime { get; set; }
 
         public int CountOfNeededExperts { get; set; }
 

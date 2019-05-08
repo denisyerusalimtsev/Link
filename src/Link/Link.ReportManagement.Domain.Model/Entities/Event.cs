@@ -1,20 +1,24 @@
 ﻿using System;
 using Link.Common.Domain.Framework.Models;
-using Link.EventManagement.Domain.Model.Enums;
+using Link.ReportManagement.Domain.Model.Enums;
 using System.Collections.Generic;
 
-namespace Link.EventManagement.Domain.Model.Entities
+namespace Link.ReportManagement.Domain.Model.Entities
 {
-    public sealed class Event : AggregateRoot<EventId>
+    public class Event : Entity<Event>
     {
         public Event(
-            EventId id, 
+            string id,
             UserId userId,
-            string name, 
+            string name,
             ExpertType expertType,
-            ExpertStatus status, 
-            int countOfNeededExperts, 
-            List<ExpertId> experts, double latitude, double longitude, DateTime startTime, DateTime endTime)
+            ExpertStatus status,
+            int countOfNeededExperts,
+            List<ExpertId> experts, 
+            double latitude,
+            double longitude,
+            DateTime startTime, 
+            DateTime endTime)
         {
             Id = id;
             UserId = userId;
@@ -25,9 +29,11 @@ namespace Link.EventManagement.Domain.Model.Entities
             Longitude = longitude;
             StartTime = startTime;
             EndTime = endTime;
-            CountOfNeededExperts = countOfNeededExperts;          
+            CountOfNeededExperts = countOfNeededExperts;
             Experts = new HashSet<ExpertId>(experts);
         }
+
+        public string Id { get; }
 
         public UserId UserId { get; }
 
@@ -37,13 +43,13 @@ namespace Link.EventManagement.Domain.Model.Entities
 
         public ExpertStatus Status { get; }
 
-        public double Latitude { get; }
-
-        public double Longitude { get; }
-
         public DateTime StartTime { get; }
 
         public DateTime EndTime { get; }
+
+        public double Latitude { get; }
+
+        public double Longitude { get; }
 
         public int CountOfNeededExperts { get; }
 

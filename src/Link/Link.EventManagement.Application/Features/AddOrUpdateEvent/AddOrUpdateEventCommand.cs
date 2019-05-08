@@ -1,4 +1,5 @@
-﻿using Link.Common.Domain.Framework.Frameworks;
+﻿using System;
+using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Model.Enums;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
             ExpertStatus status,
             double latitude,
             double longitude,
+            DateTime startTime, 
+            DateTime endTime,
             int countOfNeededExperts, 
             List<ExpertId> experts)
         {
@@ -25,8 +28,10 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
             Status = status;
             Latitude = latitude;
             Longitude = longitude;
+            StartTime = startTime;
+            EndTime = endTime;
             CountOfNeededExperts = countOfNeededExperts;
-            Experts = experts;
+            Experts = experts;      
         }
 
         public sealed class Reply : ICommandReply
@@ -52,6 +57,10 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
         public double Longitude { get; }
 
         public double Latitude { get; }
+
+        public DateTime StartTime { get; }
+
+        public DateTime EndTime { get; }
 
         public int CountOfNeededExperts { get; }
 

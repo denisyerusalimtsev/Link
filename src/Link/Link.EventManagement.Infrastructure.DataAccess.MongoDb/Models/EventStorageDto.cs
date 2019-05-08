@@ -31,6 +31,12 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
         [BsonElement("longitude")]
         public double Longitude { get; set; }
 
+        [BsonElement("startTime")]
+        public DateTime StartTime { get; set; }
+
+        [BsonElement("endTime")]
+        public DateTime EndTime { get; set; }
+
         [BsonElement("countOfNeededExperts")]
         public int CountOfNeededExperts { get; set; }
 
@@ -66,6 +72,8 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
                 status: Status,
                 latitude: Latitude,
                 longitude: Longitude,
+                startTime: StartTime,
+                endTime: EndTime,
                 countOfNeededExperts: CountOfNeededExperts,
                 experts: new List<ExpertId>());
         }
