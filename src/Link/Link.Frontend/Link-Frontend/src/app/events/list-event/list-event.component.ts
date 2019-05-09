@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatTableDataSource, MatDialog, MatPaginator, MatSort, MatDialogConfig } from '@angular/material';
 
 @Component({
-  selector: 'app-list-copter',
-  templateUrl: './list-copter.component.html',
-  styleUrls: ['./list-copter.component.css']
+  selector: 'app-list-event',
+  templateUrl: './list-event.component.html',
+  styleUrls: ['./list-event.component.css']
 })
 export class ListEventComponent implements OnInit {
 

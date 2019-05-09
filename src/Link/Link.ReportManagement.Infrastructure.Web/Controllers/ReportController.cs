@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using Link.ReportManagement.Application;
+﻿using Link.ReportManagement.Application;
 using Link.ReportManagement.Application.Features.GenerateReport;
 using Link.ReportManagement.Domain.Model.Entities;
 using Link.ReportManagement.Infrastructure.Web.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Link.ReportManagement.Infrastructure.Web.Controllers
 {
