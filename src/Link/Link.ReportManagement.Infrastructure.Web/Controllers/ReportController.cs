@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Link.ReportManagement.Application;
 using Link.ReportManagement.Application.Features.GenerateReport;
