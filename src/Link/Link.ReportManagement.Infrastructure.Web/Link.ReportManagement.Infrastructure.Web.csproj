@@ -15,4 +15,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Link.ReportManagement.Application\Link.ReportManagement.Application.csproj" />
+    <ProjectReference Include="..\Link.ReportManagement.Infrastructure.Services\Link.ReportManagement.Infrastructure.Services.csproj" />
+  </ItemGroup>
+
 </Project>

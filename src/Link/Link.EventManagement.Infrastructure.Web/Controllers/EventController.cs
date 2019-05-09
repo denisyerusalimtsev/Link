@@ -2,13 +2,12 @@
 using Link.EventManagement.Application.Features.AddOrUpdateEvent;
 using Link.EventManagement.Application.Features.DeleteEvent;
 using Link.EventManagement.Application.Features.GetEvent;
+using Link.EventManagement.Application.Features.GetEventById;
 using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Link.EventManagement.Infrastructure.Web.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using System.Threading.Tasks;
-using Link.EventManagement.Application.Features.GetEventById;
 
 namespace Link.EventManagement.Infrastructure.Web.Controllers
 {
