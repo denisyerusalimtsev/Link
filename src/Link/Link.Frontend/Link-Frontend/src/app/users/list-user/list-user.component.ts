@@ -1,5 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
-import { MatDialog, MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatDialog, MatTableDataSource, MatSort, MatPaginator, MatDialogConfig } from '@angular/material';
+import { UserService } from '../../services/user.service';
+import { UserDto } from 'src/app/interfaces/user-dto';
+import { User } from '../../models/user';
+import { DialogUserComponent } from '../dialog-user/dialog-user.component';
 
 @Component({
   selector: 'app-list-user',
@@ -8,12 +12,15 @@ import { MatDialog, MatTableDataSource, MatSort, MatPaginator } from '@angular/m
 })
 export class ListUserComponent implements OnInit {
 
-  constructor(private changeDetectorRefs: ChangeDetectorRef,
+  constructor(
+    private userService: UserService,
+    private changeDetectorRefs: ChangeDetectorRef,
     private dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
-  dataSource: MatTableDataSource<any>;
+  users: UserDto[];
+  dataSource: MatTableDataSource<User>;
   displayedColumns: string[] =
     ['id', 'firstName', 'lastName',
       'phoneNumber', 'email',
@@ -31,20 +38,32 @@ export class ListUserComponent implements OnInit {
     this.applyFilter();
   }
 
+  onCreate() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.height = '70%';
+    dialogConfig.width = '80%';
+    this.dialog.open(DialogUserComponent, dialogConfig)
+    .afterClosed().subscribe(result => {
+      this.refresh();
+  });
+  }
+
   applyFilter() {
     this.dataSource.filter = this.searchKey.trim().toLowerCase();
   }
 
   refresh() {
-    /*this.service.getCopters()
-      .subscribe((data: CopterDto[]) => {
-          this.copters = data.map(dto => Copter.Create(dto));
+    this.userService.getUsers()
+      .subscribe((data: UserDto[]) => {
+        this.users = data.map(dto => User.Create(dto));
 
-        console.log(this.copters);
-        this.dataSource.data = this.copters;
+        console.log(this.users);
+        this.dataSource.data = this.users;
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-      });*/
+      });
     this.changeDetectorRefs.detectChanges();
   }
 }
