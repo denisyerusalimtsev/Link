@@ -15,9 +15,9 @@ export class ListEventComponent implements OnInit {
 
     dataSource: MatTableDataSource<any>;
     displayedColumns: string[] =
-    ['id', 'name', 'status',
-    'brandName', 'costPerMinute', 'maxSpeed',
-    'maxFlightHeight', 'control', 'droneType',
+    ['id', 'name', 'type',
+    'status', 'latitude', 'longitude',
+    'startTime', 'endTime', 'countOfNeededExpert',
     'actions'];
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;

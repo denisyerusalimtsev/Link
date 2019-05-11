@@ -1,7 +1,7 @@
 export interface UserDto {
-    id: string,
-    firstName: string,
-    lastName: string,
-    phoneNumber: string,
-    email: string
+    id: string;
+    firstName: string;
+    lastName: string;
+    phoneNumber: string;
+    email: string;
 }
