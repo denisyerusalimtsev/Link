@@ -1,5 +1,6 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { ExpertDto } from '../interfaces/expert-dto';
+import { Expert } from '../models/expert';
 
 export class ExpertService {
     constructor(private http: HttpClient) { }
@@ -13,7 +14,7 @@ export class ExpertService {
         return this.http.get<ExpertDto>(this.baseUrl + '/' + id);
     }
 
-    createExpert(expert: ExpertDto) {
+    createExpert(expert: Expert) {
         return this.http.post(this.baseUrl, expert,
             {
                 headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

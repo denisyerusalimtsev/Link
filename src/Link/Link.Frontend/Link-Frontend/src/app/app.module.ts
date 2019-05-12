@@ -15,6 +15,7 @@ import { DialogEventComponent } from './events/dialog-event/dialog-event.compone
 import { EventService } from './services/event.service';
 import { ExpertService } from './services/expert.service';
 import { NotificationService } from './services/notification.service';
+import { DialogExpertComponent } from './experts/dialog-expert/dialog-expert.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { NotificationService } from './services/notification.service';
     ListExpertComponent,
     ListUserComponent,
     DialogUserComponent,
-    DialogEventComponent
+    DialogEventComponent,
+    DialogExpertComponent
   ],
   imports: [
     BrowserModule,

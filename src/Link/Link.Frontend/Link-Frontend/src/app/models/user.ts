@@ -5,11 +5,9 @@ export class User {
                 public firstName: string,
                 public lastName: string,
                 public phoneNumber: string,
-                public email: string) {
+                public email: string) { }
 
-    }
-
-   public static Create(dto: UserDto): User {
+    public static Create(dto: UserDto): User {
         return new User(dto.id, dto.firstName, dto.lastName, dto.phoneNumber, dto.email);
     }
 }

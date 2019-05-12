@@ -1,5 +1,6 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { EventDto } from '../interfaces/event-dto';
+import { Event } from '../models/event';
 
 export class EventService {
     constructor(private http: HttpClient) { }
@@ -13,7 +14,7 @@ export class EventService {
         return this.http.get<EventDto>(this.baseUrl + '/' + id);
     }
 
-    createEvent(event: EventDto) {
+    createEvent(event: Event) {
         return this.http.post(this.baseUrl, event,
             {
                 headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -22,7 +23,7 @@ export class EventService {
             .subscribe(data => console.log('Works!'));
     }
 
-    updateEvent(event: EventDto) {
+    updateEvent(event: Event) {
         return this.http.put(this.baseUrl + '/' + event.id, event);
     }
 
