@@ -11,6 +11,10 @@ import { ListExpertComponent } from './experts/list-expert/list-expert.component
 import { ListUserComponent } from './users/list-user/list-user.component';
 import { DialogUserComponent } from './users/dialog-user/dialog-user.component';
 import { UserService } from './services/user.service';
+import { DialogEventComponent } from './events/dialog-event/dialog-event.component';
+import { EventService } from './services/event.service';
+import { ExpertService } from './services/expert.service';
+import { NotificationService } from './services/notification.service';
 
 
 @NgModule({
@@ -19,7 +23,8 @@ import { UserService } from './services/user.service';
     ListEventComponent,
     ListExpertComponent,
     ListUserComponent,
-    DialogUserComponent
+    DialogUserComponent,
+    DialogEventComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,12 @@ import { UserService } from './services/user.service';
   entryComponents: [
     DialogUserComponent
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    EventService,
+    ExpertService,
+    NotificationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,8 +6,8 @@ export interface EventDto {
     name: string;
     expertType: string;
     status: string;
-    latitude: string;
-    longitude: string;
+    latitude: number;
+    longitude: number;
     startTime: Date;
     endTime: Date;
     countOfNeededExpert: number;
