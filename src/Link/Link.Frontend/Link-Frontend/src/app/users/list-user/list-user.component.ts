@@ -45,9 +45,9 @@ export class ListUserComponent implements OnInit {
     dialogConfig.height = '80%';
     dialogConfig.width = '50%';
     this.dialog.open(DialogUserComponent, dialogConfig)
-    .afterClosed().subscribe(result => {
-      this.refresh();
-  });
+      .afterClosed().subscribe(result => {
+        this.refresh();
+      });
   }
 
   applyFilter() {

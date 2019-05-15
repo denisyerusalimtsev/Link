@@ -1,5 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
-import { MatDialog, MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatDialog, MatTableDataSource, MatSort, MatPaginator, MatDialogConfig } from '@angular/material';
+import { DialogExpertComponent } from '../dialog-expert/dialog-expert.component';
+import { ExpertService } from '../../services/expert.service';
+import { ExpertDto } from '../../interfaces/expert-dto';
+import { Expert } from 'src/app/models/expert';
 
 @Component({
   selector: 'app-list-expert',
@@ -8,12 +12,15 @@ import { MatDialog, MatTableDataSource, MatSort, MatPaginator } from '@angular/m
 })
 export class ListExpertComponent implements OnInit {
 
-  constructor(private changeDetectorRefs: ChangeDetectorRef,
-              private dialog: MatDialog) {
+  constructor(
+    private expertService: ExpertService,
+    private changeDetectorRefs: ChangeDetectorRef,
+    private dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
-  dataSource: MatTableDataSource<any>;
+  experts: Expert[];
+  dataSource: MatTableDataSource<Expert>;
   displayedColumns: string[] =
     ['id', 'firstName', 'lastName',
       'expertType', 'expertStatus',
@@ -26,6 +33,18 @@ export class ListExpertComponent implements OnInit {
     this.refresh();
   }
 
+  onCreate() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.height = '80%';
+    dialogConfig.width = '50%';
+    this.dialog.open(DialogExpertComponent, dialogConfig)
+      .afterClosed().subscribe(result => {
+        this.refresh();
+      });
+  }
+
   onSearchClear() {
     this.searchKey = '';
     this.applyFilter();
@@ -36,15 +55,15 @@ export class ListExpertComponent implements OnInit {
   }
 
   refresh() {
-    /*this.service.getCopters()
-      .subscribe((data: CopterDto[]) => {
-          this.copters = data.map(dto => Copter.Create(dto));
+    this.expertService.getExperts()
+      .subscribe((data: ExpertDto[]) => {
+        this.experts = data.map(dto => Expert.Create(dto));
 
-        console.log(this.copters);
-        this.dataSource.data = this.copters;
+        console.log(this.experts);
+        this.dataSource.data = this.experts;
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-      });*/
+      });
     this.changeDetectorRefs.detectChanges();
   }
 }

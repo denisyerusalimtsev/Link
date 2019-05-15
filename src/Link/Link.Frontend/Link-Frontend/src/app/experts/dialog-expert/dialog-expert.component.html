@@ -1,12 +1,13 @@
 <mat-toolbar>
-  <span>New user</span>
+  <span>New expert</span>
   <span class="fill-remaining-space"></span>
   <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
     <mat-icon>clear</mat-icon>
   </button>
 </mat-toolbar>
-<form [formGroup]="userForm" class="normal-form" (submit)="onSubmit()">
-  <mat-grid-list cols="2" rowHeight="320px">
+
+<form [formGroup]="expertForm" class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list class="expert-list" cols="1" rowHeight="300px">
     <mat-grid-tile>
       <div class="controles-container">
         <input type="hidden" formControlName="id">
@@ -18,16 +19,22 @@
           <input formControlName="lastName" matInput placeholder="Last name*">
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <div class="controles-container">
         <mat-form-field>
-          <input formControlName="phoneNumber" matInput placeholder="Phone number*">
+          <mat-select formControlName="expertType" matInput placeholder="Please select expert type*">
+            <mat-option value="0">Medical</mat-option>
+            <mat-option value="1">Natural</mat-option>
+            <mat-option value="2">Police</mat-option>
+            <mat-option value="3">Fire</mat-option>
+            <mat-option value="4">Gas</mat-option>
+            <mat-option value="5">Utilities</mat-option>
+          </mat-select>
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input formControlName="email" matInput placeholder="Email*">
+          <mat-select formControlName="expertStatus" matInput placeholder="Please select expert status*">
+            <mat-option value="0">Available</mat-option>
+            <mat-option value="1">Unavailable</mat-option>
+          </mat-select>
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
       </div>
@@ -35,8 +42,9 @@
     <mat-grid-tile>
       <div class="controles-container">
         <div class="button-row">
-          <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Submit</button>
-          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+          <button mat-raised-button class="submit-btn" color="primary" type="submit"
+            [disabled]="expertForm.invalid">Submit</button>
+          <button mat-raised-button class="clear-btn" color="warn" (click)="onClear()">Clear</button>
         </div>
       </div>
     </mat-grid-tile>

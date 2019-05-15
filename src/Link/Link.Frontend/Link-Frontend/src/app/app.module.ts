@@ -38,7 +38,9 @@ import { EventService } from './services/event.service';
     HttpClientModule
   ],
   entryComponents: [
-    DialogUserComponent
+    DialogUserComponent,
+    DialogExpertComponent,
+    DialogEventComponent
   ],
   providers: [
     UserService,
