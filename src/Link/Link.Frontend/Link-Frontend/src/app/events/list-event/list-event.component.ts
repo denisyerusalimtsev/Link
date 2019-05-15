@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatTableDataSource, MatDialog, MatPaginator, MatSort, MatDialogConfig } from '@angular/material';
+import { DialogEventComponent } from '../dialog-event/dialog-event.component';
+import { EventService } from '../../services/event.service';
+import { NotificationService } from '../../services/notification.service';
+import { EventDto } from '../../interfaces/event-dto';
+import { Event } from '../../models/event';
 
 @Component({
   selector: 'app-list-event',
@@ -8,12 +13,16 @@ import { MatTableDataSource, MatDialog, MatPaginator, MatSort, MatDialogConfig }
 })
 export class ListEventComponent implements OnInit {
 
-  constructor(private changeDetectorRefs: ChangeDetectorRef,
-              private dialog: MatDialog) {
+  constructor(
+    private eventService: EventService,
+    private notificationService: NotificationService,
+    private changeDetectorRefs: ChangeDetectorRef,
+    private dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
-  dataSource: MatTableDataSource<any>;
+  events: Event[];
+  dataSource: MatTableDataSource<Event>;
   displayedColumns: string[] =
     ['id', 'name', 'type',
       'status', 'latitude', 'longitude',
@@ -26,6 +35,8 @@ export class ListEventComponent implements OnInit {
   ngOnInit() {
     this.refresh();
   }
+
+
 
   onSearchClear() {
     this.searchKey = '';
@@ -40,44 +51,44 @@ export class ListEventComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.height = '70%';
-    dialogConfig.width = '80%';
-    /*this.dialog.open(DialogCopterComponent, dialogConfig)
-    .afterClosed().subscribe(result => {
-      this.refresh();
-  });*/
+    dialogConfig.height = '80%';
+    dialogConfig.width = '50%';
+    this.dialog.open(DialogEventComponent, dialogConfig)
+      .afterClosed().subscribe(result => {
+        this.refresh();
+      });
   }
 
   onEdit(row) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.height = '70%';
-    dialogConfig.width = '80%';
-    /*this.dialog.open(DialogCopterComponent, dialogConfig)
-    .afterClosed().subscribe(result => {
-      this.refresh();
-    });*/
+    dialogConfig.height = '80%';
+    dialogConfig.width = '50%';
+    this.dialog.open(DialogEventComponent, dialogConfig)
+      .afterClosed().subscribe(result => {
+        this.refresh();
+      });
   }
 
   onDelete(id: number) {
     if (confirm('Are you sure to delete this record ?')) {
-      /*this.service.deleteCopter(id);
-      this.notificationService.warn('! Deleted successfully');*/
+      this.eventService.deleteEvent(id);
+      this.notificationService.warn('! Deleted successfully');
       this.refresh();
     }
   }
 
   refresh() {
-    /*this.service.getCopters()
-      .subscribe((data: CopterDto[]) => {
-          this.copters = data.map(dto => Copter.Create(dto));
+    this.eventService.getEvents()
+      .subscribe((data: EventDto[]) => {
+        this.events = data.map(dto => Event.Create(dto));
 
-        console.log(this.copters);
-        this.dataSource.data = this.copters;
+        console.log(this.events);
+        this.dataSource.data = this.events;
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-      });*/
+      });
     this.changeDetectorRefs.detectChanges();
   }
 }

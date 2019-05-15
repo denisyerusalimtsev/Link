@@ -45,7 +45,7 @@ export class DialogEventComponent implements OnInit {
       endTime: new FormControl('', {
         validators: [Validators.required]
       }),
-      countOfNeededExpert: new FormControl('', {
+      countOfNeededExperts: new FormControl('', {
         validators: [Validators.required]
       })
     });

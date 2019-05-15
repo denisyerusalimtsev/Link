@@ -1,30 +1,55 @@
 <mat-toolbar>
-  <span>New user</span>
+  <span>New event</span>
   <span class="fill-remaining-space"></span>
   <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
     <mat-icon>clear</mat-icon>
   </button>
 </mat-toolbar>
 
-<form [formGroup]="userForm" class="normal-form" (submit)="onSubmit()">
-  <mat-grid-list class="user-list" cols="1" rowHeight="300px">
+<form [formGroup]="eventForm" class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list class="event-list" cols="1" rowHeight="550px">
     <mat-grid-tile>
       <div class="controles-container">
         <input type="hidden" formControlName="id">
+        <input type="hidden" formControlName="userId">
         <mat-form-field>
-          <input formControlName="firstName" matInput placeholder="First name*">
+          <input formControlName="name" matInput placeholder="Name*">
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input formControlName="lastName" matInput placeholder="Last name*">
+          <mat-select formControlName="expertType" matInput placeholder="Please select event type*">
+            <mat-option value="0">Medical</mat-option>
+            <mat-option value="1">Natural</mat-option>
+            <mat-option value="2">Police</mat-option>
+            <mat-option value="3">Fire</mat-option>
+            <mat-option value="4">Gas</mat-option>
+            <mat-option value="5">Utilities</mat-option>
+          </mat-select>
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input formControlName="phoneNumber" matInput placeholder="Phone number*">
+          <mat-select formControlName="status" matInput placeholder="Please select event status*">
+            <mat-option value="0">Active</mat-option>
+            <mat-option value="1">OnHold</mat-option>
+            <mat-option value="2">Resolved</mat-option>
+          </mat-select>
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input formControlName="email" matInput placeholder="Email*">
+          <input formControlName="latitude" matInput placeholder="Latitude*">
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="longitude" matInput placeholder="Longitude*">
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="startDate" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+          <mat-datepicker #startDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="countOfNeededExperts" matInput placeholder="Count of needed experts*">
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
       </div>
@@ -32,7 +57,7 @@
     <mat-grid-tile>
       <div class="controles-container">
         <div class="button-row">
-          <button mat-raised-button class="submit-btn" color="primary" type="submit" [disabled]="userForm.invalid">Submit</button>
+          <button mat-raised-button class="submit-btn" color="primary" type="submit" [disabled]="eventForm.invalid">Submit</button>
           <button mat-raised-button class="clear-btn" color="warn" (click)="onClear()">Clear</button>
         </div>
       </div>
