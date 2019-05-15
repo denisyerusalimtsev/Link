@@ -12,10 +12,10 @@ import { ListUserComponent } from './users/list-user/list-user.component';
 import { DialogUserComponent } from './users/dialog-user/dialog-user.component';
 import { UserService } from './services/user.service';
 import { DialogEventComponent } from './events/dialog-event/dialog-event.component';
-import { EventService } from './services/event.service';
 import { ExpertService } from './services/expert.service';
 import { NotificationService } from './services/notification.service';
 import { DialogExpertComponent } from './experts/dialog-expert/dialog-expert.component';
+import { EventService } from './services/event.service';
 
 
 @NgModule({

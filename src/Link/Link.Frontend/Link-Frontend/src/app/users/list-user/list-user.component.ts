@@ -42,8 +42,8 @@ export class ListUserComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.height = '70%';
-    dialogConfig.width = '80%';
+    dialogConfig.height = '80%';
+    dialogConfig.width = '50%';
     this.dialog.open(DialogUserComponent, dialogConfig)
     .afterClosed().subscribe(result => {
       this.refresh();

@@ -1,7 +1,9 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { ExpertDto } from '../interfaces/expert-dto';
 import { Expert } from '../models/expert';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ExpertService {
     constructor(private http: HttpClient) { }
     baseUrl = 'http://localhost:50001/api/Expert/';

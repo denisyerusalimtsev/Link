@@ -22,9 +22,6 @@ export class DialogUserComponent implements OnInit {
   ngOnInit() {
     this.userForm = new FormGroup({
       id: new FormControl(null),
-      name: new FormControl('', {
-        validators: [Validators.required]
-      }),
       firstName: new FormControl('', {
         validators: [Validators.required]
       }),

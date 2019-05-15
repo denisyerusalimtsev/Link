@@ -1,7 +1,9 @@
+import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { EventDto } from '../interfaces/event-dto';
 import { Event } from '../models/event';
 
+@Injectable()
 export class EventService {
     constructor(private http: HttpClient) { }
     baseUrl = 'http://localhost:50001/api/Event/';

@@ -9,7 +9,7 @@ import { MatDialog, MatTableDataSource, MatSort, MatPaginator } from '@angular/m
 export class ListExpertComponent implements OnInit {
 
   constructor(private changeDetectorRefs: ChangeDetectorRef,
-    private dialog: MatDialog) {
+              private dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
