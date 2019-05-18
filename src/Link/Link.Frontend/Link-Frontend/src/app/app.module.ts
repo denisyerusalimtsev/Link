@@ -16,6 +16,10 @@ import { ExpertService } from './services/expert.service';
 import { NotificationService } from './services/notification.service';
 import { DialogExpertComponent } from './experts/dialog-expert/dialog-expert.component';
 import { EventService } from './services/event.service';
+import { GoogleMapComponent } from './map/google-map/google-map.component';
+import { TableEventComponent } from './map/table-event/table-event.component';
+import { MapEventComponent } from './map/map-event/map-event.component';
+import { StateService } from './services/state.service';
 
 
 @NgModule({
@@ -26,7 +30,10 @@ import { EventService } from './services/event.service';
     ListUserComponent,
     DialogUserComponent,
     DialogEventComponent,
-    DialogExpertComponent
+    DialogExpertComponent,
+    MapEventComponent,
+    GoogleMapComponent,
+    TableEventComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,8 @@ import { EventService } from './services/event.service';
     UserService,
     EventService,
     ExpertService,
-    NotificationService
+    NotificationService,
+    StateService
   ],
   bootstrap: [AppComponent]
 })

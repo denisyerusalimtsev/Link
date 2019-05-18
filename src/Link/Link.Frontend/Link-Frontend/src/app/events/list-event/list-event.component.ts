@@ -36,8 +36,6 @@ export class ListEventComponent implements OnInit {
     this.refresh();
   }
 
-
-
   onSearchClear() {
     this.searchKey = '';
     this.applyFilter();
