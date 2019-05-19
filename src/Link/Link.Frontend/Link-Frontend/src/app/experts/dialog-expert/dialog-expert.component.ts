@@ -14,7 +14,7 @@ import { Expert } from '../../models/expert';
 export class DialogExpertComponent implements OnInit {
 
   expertForm!: FormGroup;
-  events: ExpertDto[];
+  experts: ExpertDto[];
   constructor(private expertService: ExpertService,
               public notificationService: NotificationService,
               public dialogRef: MatDialogRef<DialogExpertComponent>) { }
@@ -38,8 +38,8 @@ export class DialogExpertComponent implements OnInit {
 
     this.expertService.getExperts()
       .subscribe(data => {
-        this.events = data;
-        console.log(this.events);
+        this.experts = data.experts;
+        console.log(this.experts);
       });
   }
 

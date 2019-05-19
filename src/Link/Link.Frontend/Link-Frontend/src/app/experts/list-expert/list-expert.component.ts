@@ -2,8 +2,8 @@ import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { MatDialog, MatTableDataSource, MatSort, MatPaginator, MatDialogConfig } from '@angular/material';
 import { DialogExpertComponent } from '../dialog-expert/dialog-expert.component';
 import { ExpertService } from '../../services/expert.service';
-import { ExpertDto } from '../../interfaces/expert-dto';
 import { Expert } from 'src/app/models/expert';
+import { GetExpertsDto } from 'src/app/dto/get-expert.dto';
 
 @Component({
   selector: 'app-list-expert',
@@ -56,8 +56,8 @@ export class ListExpertComponent implements OnInit {
 
   refresh() {
     this.expertService.getExperts()
-      .subscribe((data: ExpertDto[]) => {
-        this.experts = data.map(dto => Expert.Create(dto));
+      .subscribe((data: GetExpertsDto) => {
+        this.experts = data.experts.map(dto => Expert.Create(dto));
 
         console.log(this.experts);
         this.dataSource.data = this.experts;

@@ -1,6 +1,7 @@
-﻿using System;
-using Link.UserManagement.Domain.Model.Entities;
+﻿using Link.UserManagement.Domain.Model.Entities;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System;
 
 namespace Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Models
 {
@@ -15,7 +16,9 @@ namespace Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Models
 
             return new UserStorageDto
             {
-                Id = user.Id.Id,
+                Id = user.Id == null
+                    ? new ObjectId()
+                    : new ObjectId(user.Id.Id),
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 PhoneNumber = user.PhoneNumber,
@@ -25,7 +28,7 @@ namespace Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Models
         public User ToDomain()
         {
             return new User(
-                id: new UserId(Id),
+                id: new UserId(Id.ToString()), 
                 firstName: FirstName,
                 lastName: LastName,
                 phoneNumber: PhoneNumber,
@@ -35,7 +38,7 @@ namespace Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Models
 
         [BsonElement]
         [BsonId]
-        public string Id { get; set; }
+        public ObjectId Id { get; set; }
 
         [BsonElement("firstName")]
         public string FirstName { get; set; }
@@ -43,7 +46,7 @@ namespace Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Models
         [BsonElement("lastName")]
         public string LastName { get; set; }
 
-        [BsonElement("lhoneNumber")]
+        [BsonElement("phoneNumber")]
         public string PhoneNumber { get; set; }
 
         [BsonElement("email")]
@@ -52,7 +55,7 @@ namespace Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Models
         [BsonElement("passwordHash")]
         public byte[] PasswordHash { get; set; }
 
-        [BsonElement("asswordSalt")]
+        [BsonElement("passwordSalt")]
         public byte[] PasswordSalt { get; set; }
     }
 }

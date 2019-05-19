@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Link.ExpertManagement.Infrastructure.Web.Controllers
 {
-    [Route("experts")]
+    [Route("api/experts")]
     [ApiController]
     public class ExpertController : ControllerBase
     {

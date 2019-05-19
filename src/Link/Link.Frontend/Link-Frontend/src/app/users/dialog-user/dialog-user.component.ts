@@ -38,7 +38,7 @@ export class DialogUserComponent implements OnInit {
 
     this.userService.getUsers()
       .subscribe(data => {
-        this.users = data;
+        this.users = data.users;
         console.log(this.users);
       });
   }

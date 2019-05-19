@@ -6,8 +6,8 @@ export class Expert {
         public id: string,
         public firstName: string,
         public lastName: string,
-        public expertType: ExpertType,
-        public expertStatus: ExpertStatus
+        public expertType: string,
+        public expertStatus: string
     ) { }
 
     public static Create(dto: ExpertDto): Expert {
@@ -15,7 +15,7 @@ export class Expert {
             dto.id,
             dto.firstName,
             dto.lastName,
-            ExpertType[dto.expertType],
-            ExpertStatus[dto.expertStatus]);
+            dto.type,
+            dto.status);
     }
 }

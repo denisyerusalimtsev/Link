@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { UserDto } from 'src/app/interfaces/user-dto';
 import { User } from '../../models/user';
 import { DialogUserComponent } from '../dialog-user/dialog-user.component';
+import { GetUsersDto } from '../../dto/get-user.dto';
 
 @Component({
   selector: 'app-list-user',
@@ -56,8 +57,8 @@ export class ListUserComponent implements OnInit {
 
   refresh() {
     this.userService.getUsers()
-      .subscribe((data: UserDto[]) => {
-        this.users = data.map(dto => User.Create(dto));
+      .subscribe((data: GetUsersDto) => {
+        this.users = data.users.map(dto => User.Create(dto));
 
         console.log(this.users);
         this.dataSource.data = this.users;

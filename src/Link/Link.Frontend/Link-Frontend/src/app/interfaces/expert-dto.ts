@@ -2,6 +2,6 @@ export interface ExpertDto {
     id: string;
     firstName: string;
     lastName: string;
-    expertType: string;
-    expertStatus: string;
+    type: string;
+    status: string;
 }

@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserDto } from '../interfaces/user-dto';
+import { GetUsersDto } from '../dto/get-user.dto';
 
 @Injectable()
 export class UserService {
   constructor(private http: HttpClient) { }
-  baseUrl = 'http://localhost:50001/api/User/';
+  baseUrl = 'https://localhost:60001/api/users';
 
   getUsers() {
-    return this.http.get<UserDto[]>(this.baseUrl);
+    return this.http.get<GetUsersDto>(this.baseUrl);
 }
 
   getUserById(id: number) {

@@ -13,7 +13,7 @@ using Link.UserManagement.Application.Features.DeleteUser;
 
 namespace Link.UserManagement.Infrastructure.Web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/users")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -49,14 +49,28 @@ namespace Link.UserManagement.Infrastructure.Web.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Create([FromBody] AddOrUpdateUserDto dto)
         {
+            var command = new AddOrUpdateUserCommand(
+                id: null,
+                firstName: dto.FirstName,
+                lastName: dto.LastName,
+                phoneNumber: dto.PhoneNumber,
+                email: dto.Email,
+                password: dto.Password);
+
+            AddOrUpdateUserCommand.Reply reply = await _app.HandleCommand(command);
+
+            return Ok(new AddOrUpdateUserDto
+            {
+                Id = reply.Id.Id
+            });
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(string id, [FromBody] AddOrUpdateUserDto dto)
+        public async Task<IActionResult> Update(string id, [FromBody] AddOrUpdateUserDto dto)
         {
-            AddOrUpdateUserCommand command = new AddOrUpdateUserCommand(
+            var command = new AddOrUpdateUserCommand(
                 id: new UserId(dto.Id), 
                 firstName: dto.FirstName,
                 lastName: dto.LastName,

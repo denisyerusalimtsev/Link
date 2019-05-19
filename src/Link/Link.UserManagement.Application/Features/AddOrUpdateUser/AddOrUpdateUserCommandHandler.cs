@@ -28,7 +28,7 @@ namespace Link.UserManagement.Application.Features.AddOrUpdateUser
                 command.Email
             );
 
-            if (user.Id.Id == null)
+            if (user.Id == null)
             {
                 User newUser = await _users.Create(user);
 

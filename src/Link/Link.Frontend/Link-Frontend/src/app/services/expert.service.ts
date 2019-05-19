@@ -1,15 +1,16 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { ExpertDto } from '../interfaces/expert-dto';
 import { Expert } from '../models/expert';
-import { Injectable } from '@angular/core';
+import { GetExpertsDto } from '../dto/get-expert.dto';
 
 @Injectable()
 export class ExpertService {
     constructor(private http: HttpClient) { }
-    baseUrl = 'http://localhost:50001/api/Expert/';
+    baseUrl = 'https://localhost:60001/api/experts';
 
     getExperts() {
-        return this.http.get<ExpertDto[]>(this.baseUrl);
+        return this.http.get<GetExpertsDto>(this.baseUrl);
     }
 
     getExpertById(id: number) {
