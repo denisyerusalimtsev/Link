@@ -54,12 +54,12 @@ namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
         public void Update(ExpertId id, Expert expert)
         {
             ExpertStorageDto dto = ExpertStorageDto.FromDomain(expert);
-            _experts.ReplaceOneAsync(exp => exp.Id.ToString() == id.Id, dto);
+            _experts.ReplaceOneAsync(exp => exp.Id == ObjectId.Parse(id.Id), dto);
         }
 
         public void Remove(ExpertId expertId)
         {
-            _experts.DeleteOneAsync(exp => exp.Id.ToString() == expertId.Id);
+            _experts.DeleteOneAsync(exp => exp.Id == ObjectId.Parse(expertId.Id));
         }
     }
 }

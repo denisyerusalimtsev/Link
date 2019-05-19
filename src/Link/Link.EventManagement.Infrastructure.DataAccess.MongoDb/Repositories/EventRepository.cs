@@ -47,12 +47,12 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
         public void Update(EventId id, Event ev)
         {
             EventStorageDto dto = EventStorageDto.FromDomain(ev);
-            _events.ReplaceOneAsync(even => even.Id.ToString() == id.Id, dto);
+            _events.ReplaceOneAsync(even => even.Id == ObjectId.Parse(id.Id), dto);
         }
 
         public void Remove(EventId eventId)
         {
-            _events.DeleteOneAsync(ev => ev.Id.ToString() == eventId.Id);
+            _events.DeleteOneAsync(ev => ev.Id == ObjectId.Parse(eventId.Id));
         }
     }
 }
