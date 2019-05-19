@@ -10,6 +10,6 @@ export interface EventDto {
     longitude: number;
     startTime: Date;
     endTime: Date;
-    countOfNeededExpert: number;
+    countOfNeededExperts: number;
     experts: ExpertDto[];
 }

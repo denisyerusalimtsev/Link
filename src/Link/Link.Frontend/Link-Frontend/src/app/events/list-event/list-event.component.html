@@ -37,15 +37,15 @@
     </ng-container>
     <ng-container matColumnDef="startTime">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Start time</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.startTime}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.startTime | date }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="endTime">
       <mat-header-cell *matHeaderCellDef mat-sort-header>End time</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.endTime}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.endTime | date }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="countOfNeededExpert">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Count of experts</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.countofNeededExperts}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.countOfNeededExperts}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="actions">

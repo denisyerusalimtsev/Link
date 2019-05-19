@@ -12,7 +12,7 @@ export class Event {
         public longitude: number,
         public startTime: Date,
         public endTime: Date,
-        public countOfNeededExpert: number,
+        public countOfNeededExperts: number,
         public experts: Expert[]
     ) { }
 
@@ -36,7 +36,7 @@ export class Event {
             dto.longitude,
             dto.startTime,
             dto.endTime,
-            dto.countOfNeededExpert,
+            dto.countOfNeededExperts,
             parsedExperts);
     }
 }
