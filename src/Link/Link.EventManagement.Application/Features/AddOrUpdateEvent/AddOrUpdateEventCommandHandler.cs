@@ -35,7 +35,7 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
                 experts: new List<ExpertId>()
             );
 
-            if (ev.Id.Id == null)
+            if (ev.Id == null)
             {
                 Event newEvent = await _events.Create(ev);
 

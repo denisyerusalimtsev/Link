@@ -21,11 +21,11 @@ namespace Link.UserManagement.Application.Features.AddOrUpdateUser
         protected override async Task<AddOrUpdateUserCommand.Reply> Handle(AddOrUpdateUserCommand command)
         {
             var user = new User(
-                command.Id,
-                command.FirstName,
-                command.LastName,
-                command.PhoneNumber,
-                command.Email
+                id: command.Id,
+                firstName: command.FirstName,
+                lastName: command.LastName,
+                phoneNumber: command.PhoneNumber,
+                email: command.Email
             );
 
             if (user.Id == null)

@@ -51,7 +51,7 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
         public async Task<IActionResult> Create([FromBody] CreateOrUpdateEventDto dto)
         {
             var command = new AddOrUpdateEventCommand(
-                id: new EventId(dto.Id),
+                id: null,
                 userId: new UserId(dto.UserId),
                 name: dto.Name,
                 expertType: dto.ExpertType,

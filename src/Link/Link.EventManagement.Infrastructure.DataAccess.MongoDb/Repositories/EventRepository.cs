@@ -46,7 +46,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
         public void Update(EventId id, Event ev)
         {
             EventStorageDto dto = EventStorageDto.FromDomain(ev);
-            _events.ReplaceOneAsync(even => even.Id == id.Id, dto);
+            _events.ReplaceOneAsync(even => even.Id.ToString() == id.Id, dto);
         }
 
         public void Remove(EventId eventId)

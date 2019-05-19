@@ -6,6 +6,7 @@ using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Repositories
 {
@@ -28,7 +29,7 @@ namespace Link.UserManagement.Infrastrusture.DataAccess.MongoDb.Repositories
 
         public async Task<User> Get(UserId id)
         {
-            IAsyncCursor<UserStorageDto> userCursor = await _users.FindAsync(u => u.Id.ToString() == id.Id);
+            IAsyncCursor<UserStorageDto> userCursor = await _users.FindAsync(u => u.Id == ObjectId.Parse(id.Id));
             UserStorageDto dto = userCursor.SingleOrDefault();
 
             return dto?.ToDomain();

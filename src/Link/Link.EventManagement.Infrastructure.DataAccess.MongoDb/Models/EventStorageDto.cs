@@ -3,6 +3,7 @@ using Link.EventManagement.Domain.Model.Enums;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
+using MongoDB.Bson;
 
 namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
 {
@@ -11,7 +12,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
         //TO Do Add getting experts from Link.ExpertManagement by using HTTP calls
         [BsonElement("id")]
         [BsonId]
-        public string Id { get; set; }
+        public ObjectId Id { get; set; }
 
         [BsonElement("userId")]
         public string UserId { get; set; }
@@ -52,7 +53,9 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
 
             return new EventStorageDto
             {
-                Id = ev.Id.Id,
+                Id = ev.Id == null
+                    ? new ObjectId()
+                    : new ObjectId(ev.Id.Id),
                 UserId = ev.UserId.Id,
                 Name = ev.Name,
                 ExpertType = ev.ExpertType,
@@ -65,7 +68,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
         public Event ToDomain()
         {
             return new Event(
-                id: new EventId(Id),
+                id: new EventId(Id.ToString()),
                 userId: new UserId(UserId),
                 name: Name,
                 expertType: ExpertType,
