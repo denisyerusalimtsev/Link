@@ -6,6 +6,7 @@ using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
 {
@@ -29,7 +30,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
 
         public async Task<Event> Get(EventId id)
         {
-            IAsyncCursor<EventStorageDto> eventCursor = await _events.FindAsync(e => e.Id.ToString() == id.Id);
+            IAsyncCursor<EventStorageDto> eventCursor = await _events.FindAsync(e => e.Id == ObjectId.Parse(id.Id));
             EventStorageDto dto = eventCursor.SingleOrDefault();
 
             return dto?.ToDomain();

@@ -6,6 +6,7 @@ using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
 {
@@ -29,7 +30,7 @@ namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
 
         public async Task<Expert> Get(ExpertId id)
         {
-            IAsyncCursor<ExpertStorageDto> expertCursor = await _experts.FindAsync(e => e.Id.ToString() == id.Id);
+            IAsyncCursor<ExpertStorageDto> expertCursor = await _experts.FindAsync(e => e.Id == ObjectId.Parse(id.Id));
             ExpertStorageDto dto = expertCursor.SingleOrDefault();
 
             return dto?.ToDomain();
