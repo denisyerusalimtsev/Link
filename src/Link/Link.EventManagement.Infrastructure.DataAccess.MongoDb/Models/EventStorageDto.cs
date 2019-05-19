@@ -60,6 +60,10 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
                 Name = ev.Name,
                 ExpertType = ev.ExpertType,
                 Status = ev.Status,
+                Latitude = ev.Latitude,
+                Longitude = ev.Longitude,
+                StartTime = ev.StartTime,
+                EndTime = ev.EndTime,
                 CountOfNeededExperts = ev.CountOfNeededExperts,
                 Experts = new List<ExpertStorageDto>()
             };

@@ -52,7 +52,7 @@ export class DialogEventComponent implements OnInit {
 
     this.eventService.getEvents()
       .subscribe(data => {
-        this.events = data;
+        this.events = data.events;
         console.log(this.events);
       });
   }

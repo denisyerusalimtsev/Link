@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Link.EventManagement.Domain.Model.Entities;
+using Link.EventManagement.Infrastructure.Messaging.Models;
 
 namespace Link.EventManagement.Infrastructure.Web.Models
 {

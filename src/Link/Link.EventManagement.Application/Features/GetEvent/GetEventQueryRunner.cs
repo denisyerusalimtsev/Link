@@ -1,9 +1,11 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Services.Interfaces;
+using Link.EventManagement.Infrastructure.Messaging.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Link.EventManagement.Infrastructure.Messaging.Models;
 
 namespace Link.EventManagement.Application.Features.GetEvent
 {
@@ -31,9 +33,9 @@ namespace Link.EventManagement.Application.Features.GetEvent
                 var eventInfo = new List<EventInfo>();
                 foreach (var ev in events)
                 {
-                    var user = await _userService.GetUser(ev.UserId);
+                    var userDto = await _userService.GetUser(ev.UserId);
                     var experts = await _expertService.GetExperts(ev.Experts);
-                    eventInfo.Add(new EventInfo(ev, user, experts));
+                    eventInfo.Add(new EventInfo(ev, userDto.User, experts));
                 }
 
                 return new GetEventQueryResult(eventInfo);

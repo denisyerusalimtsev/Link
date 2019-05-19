@@ -21,5 +21,18 @@ namespace Link.Common.Domain.Framework.Communication
                 return result;
             }
         }
+
+        public async Task<TResult> SynchronousGetRequest<TResult>(string url)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync(new Uri(url));
+
+                string responseContent = await response.Content.ReadAsStringAsync();
+                TResult result = JsonConvert.DeserializeObject<TResult>(responseContent);
+
+                return result;
+            }
+        }
     }
 }

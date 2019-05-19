@@ -3,8 +3,8 @@ import { MatTableDataSource, MatDialog, MatPaginator, MatSort, MatDialogConfig }
 import { DialogEventComponent } from '../dialog-event/dialog-event.component';
 import { EventService } from '../../services/event.service';
 import { NotificationService } from '../../services/notification.service';
-import { EventDto } from '../../interfaces/event-dto';
 import { Event } from '../../models/event';
+import { GetEventsDto } from '../../dto/get-event.dto';
 
 @Component({
   selector: 'app-list-event',
@@ -79,8 +79,8 @@ export class ListEventComponent implements OnInit {
 
   refresh() {
     this.eventService.getEvents()
-      .subscribe((data: EventDto[]) => {
-        this.events = data.map(dto => Event.Create(dto));
+      .subscribe((data: GetEventsDto) => {
+        this.events = data.events.map(dto => Event.Create(dto));
 
         console.log(this.events);
         this.dataSource.data = this.events;

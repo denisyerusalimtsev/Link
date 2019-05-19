@@ -1,6 +1,6 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
-using Link.EventManagement.Domain.Model.Entities;
 using System.Collections.Generic;
+using Link.EventManagement.Infrastructure.Messaging.Models;
 
 namespace Link.EventManagement.Application.Features.GetEvent
 {

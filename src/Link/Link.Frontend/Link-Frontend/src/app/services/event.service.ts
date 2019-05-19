@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { EventDto } from '../interfaces/event-dto';
 import { Event } from '../models/event';
+import { GetEventsDto } from '../dto/get-event.dto';
 
 @Injectable()
 export class EventService {
     constructor(private http: HttpClient) { }
-    baseUrl = 'http://localhost:50001/api/Event/';
+    baseUrl = 'https://localhost:60005/api/events/';
 
     getEvents() {
-        return this.http.get<EventDto[]>(this.baseUrl);
+        return this.http.get<GetEventsDto>(this.baseUrl);
     }
 
     getEventById(id: number) {

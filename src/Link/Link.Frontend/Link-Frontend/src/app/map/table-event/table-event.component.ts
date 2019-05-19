@@ -4,6 +4,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { EventDto } from 'src/app/interfaces/event-dto';
 import { EventService } from '../../services/event.service';
 import { Event } from '../../models/event';
+import { GetEventsDto } from '../../dto/get-event.dto';
 
 @Component({
   selector: 'app-table-event',
@@ -35,8 +36,8 @@ export class TableEventComponent implements OnInit {
 
   refresh() {
     this.eventService.getEvents()
-      .subscribe((data: EventDto[]) => {
-        this.events = data.map(dto => Event.Create(dto));
+      .subscribe((data: GetEventsDto) => {
+        this.events = data.events.map(dto => Event.Create(dto));
 
         console.log(this.events);
         this.dataSource.data = this.events;

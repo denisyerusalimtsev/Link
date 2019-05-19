@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Domain.Model.Entities;
+using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 
 namespace Link.EventManagement.Application.Features.GetEventById
 {
     public sealed class GetEventByIdQueryResult : IQueryResult
     {
-        public GetEventByIdQueryResult(Event ev, List<Expert> experts, User user)
+        public GetEventByIdQueryResult(Event ev, List<Expert> experts, UserStorageDto user)
         {
             Success = true;
             Event = ev;
@@ -26,7 +27,7 @@ namespace Link.EventManagement.Application.Features.GetEventById
 
         public List<Expert> Experts { get; }
 
-        public User User { get; }
+        public UserStorageDto User { get; }
 
         public string ErrorMessage { get; }
     }

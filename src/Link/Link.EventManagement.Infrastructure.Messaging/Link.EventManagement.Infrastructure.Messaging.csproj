@@ -5,14 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Link.EventManagement.Domain.Model\Link.EventManagement.Domain.Model.csproj" />
-    <ProjectReference Include="..\Link.EventManagement.Domain.Services\Link.EventManagement.Domain.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
       <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.configuration.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
+    <ProjectReference Include="..\Link.EventManagement.Domain.Model\Link.EventManagement.Domain.Model.csproj" />
+    <ProjectReference Include="..\Link.EventManagement.Infrastructure.Services\Link.EventManagement.Infrastructure.Services.csproj" />
+    <ProjectReference Include="..\Link.UserManagement.Infrastructure.Web\Link.UserManagement.Infrastructure.Web.csproj" />
   </ItemGroup>
 
 </Project>

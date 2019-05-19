@@ -8,6 +8,8 @@
     <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
     <ProjectReference Include="..\Link.EventManagement.Domain.Model\Link.EventManagement.Domain.Model.csproj" />
     <ProjectReference Include="..\Link.EventManagement.Domain.Services\Link.EventManagement.Domain.Services.csproj" />
+    <ProjectReference Include="..\Link.EventManagement.Infrastructure.Messaging\Link.EventManagement.Infrastructure.Messaging.csproj" />
+    <ProjectReference Include="..\Link.EventManagement.Infrastructure.Services\Link.EventManagement.Infrastructure.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>

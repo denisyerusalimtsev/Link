@@ -1,6 +1,4 @@
 import { Expert } from './expert';
-import { ExpertType } from './expert-type';
-import { Status } from './status';
 import { EventDto } from '../interfaces/event-dto';
 
 export class Event {
@@ -8,8 +6,8 @@ export class Event {
         public id: string,
         public userId: string,
         public name: string,
-        public expertType: ExpertType,
-        public status: Status,
+        public expertType: string,
+        public status: string,
         public latitude: number,
         public longitude: number,
         public startTime: Date,
@@ -32,8 +30,8 @@ export class Event {
             dto.id,
             dto.userId,
             dto.name,
-            ExpertType[dto.expertType],
-            Status[dto.status],
+            dto.expertType,
+            dto.status,
             dto.latitude,
             dto.longitude,
             dto.startTime,

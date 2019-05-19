@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Link.EventManagement.Infrastructure.Web.Controllers
 {
-    [Route("events")]
+    [Route("api/events")]
     [ApiController]
     public class EventController : ControllerBase
     {
