@@ -36,7 +36,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
         public DateTime StartTime { get; set; }
 
         [BsonElement("endTime")]
-        public DateTime EndTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
         [BsonElement("countOfNeededExperts")]
         public int CountOfNeededExperts { get; set; }

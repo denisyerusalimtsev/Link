@@ -23,7 +23,7 @@ namespace Link.EventManagement.Infrastructure.Web.Models
 
         public DateTime StartTime { get; set; }
 
-        public DateTime EndTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
         public int CountOfNeededExperts { get; set; }
 

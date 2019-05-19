@@ -42,7 +42,7 @@ namespace Link.EventManagement.Infrastructure.Messaging.Models
 
         public DateTime StartTime { get; }
 
-        public DateTime EndTime { get; }
+        public DateTime? EndTime { get; }
 
         public int CountOfNeededExperts { get; }
 

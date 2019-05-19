@@ -17,7 +17,7 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
             double latitude,
             double longitude,
             DateTime startTime, 
-            DateTime endTime,
+            DateTime? endTime,
             int countOfNeededExperts, 
             List<ExpertId> experts)
         {
@@ -60,7 +60,7 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
 
         public DateTime StartTime { get; }
 
-        public DateTime EndTime { get; }
+        public DateTime? EndTime { get; }
 
         public int CountOfNeededExperts { get; }
 

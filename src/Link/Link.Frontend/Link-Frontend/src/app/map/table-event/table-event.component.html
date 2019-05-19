@@ -18,7 +18,7 @@
     </ng-container> 
     <ng-container matColumnDef="startTime">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Start time</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.startTime}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.startTime | date }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="countOfNeededExpert">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Count of experts</mat-header-cell>

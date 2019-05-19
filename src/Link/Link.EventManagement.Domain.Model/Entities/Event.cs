@@ -12,9 +12,13 @@ namespace Link.EventManagement.Domain.Model.Entities
             UserId userId,
             string name, 
             ExpertType expertType,
-            ExpertStatus status, 
-            int countOfNeededExperts, 
-            List<ExpertId> experts, double latitude, double longitude, DateTime startTime, DateTime endTime)
+            ExpertStatus status,
+            double latitude, 
+            double longitude,
+            int countOfNeededExperts,
+            DateTime startTime, 
+            DateTime? endTime,
+            List<ExpertId> experts)
         {
             Id = id;
             UserId = userId;
@@ -43,7 +47,7 @@ namespace Link.EventManagement.Domain.Model.Entities
 
         public DateTime StartTime { get; }
 
-        public DateTime EndTime { get; }
+        public DateTime? EndTime { get; }
 
         public int CountOfNeededExperts { get; }
 

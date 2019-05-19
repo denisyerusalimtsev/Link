@@ -7,11 +7,18 @@
 </mat-toolbar>
 
 <form [formGroup]="eventForm" class="normal-form" (submit)="onSubmit()">
-  <mat-grid-list class="event-list" cols="1" rowHeight="550px">
+  <mat-grid-list class="event-list" cols="1" rowHeight="650px">
     <mat-grid-tile>
       <div class="controles-container">
         <input type="hidden" formControlName="id">
-        <input type="hidden" formControlName="userId">
+        <mat-form-field>
+          <mat-select formControlName="userId" matInput placeholder="Please select user*">
+            <mat-option *ngFor="let user of users" [value]="user.id">
+              {{user.firstName}} {{user.lastName}}
+            </mat-option>
+          </mat-select>
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
         <mat-form-field>
           <input formControlName="name" matInput placeholder="Name*">
           <mat-error>This field is mandatory.</mat-error>
@@ -44,7 +51,7 @@
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput [matDatepicker]="startDate" placeholder="Choose a date">
+          <input formControlName="startDate" matInput [matDatepicker]="startDate" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
           <mat-datepicker #startDate></mat-datepicker>
         </mat-form-field>
@@ -57,7 +64,8 @@
     <mat-grid-tile>
       <div class="controles-container">
         <div class="button-row">
-          <button mat-raised-button class="submit-btn" color="primary" type="submit" [disabled]="eventForm.invalid">Submit</button>
+          <button mat-raised-button class="submit-btn" color="primary" type="submit"
+            [disabled]="eventForm.invalid">Submit</button>
           <button mat-raised-button class="clear-btn" color="warn" (click)="onClear()">Clear</button>
         </div>
       </div>
