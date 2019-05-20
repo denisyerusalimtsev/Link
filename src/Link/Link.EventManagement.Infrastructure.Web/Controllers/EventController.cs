@@ -8,6 +8,7 @@ using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Link.EventManagement.Infrastructure.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Link.EventManagement.Application.Features.AssignExpertToEvent;
 
 namespace Link.EventManagement.Infrastructure.Web.Controllers
 {
@@ -68,6 +69,19 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
             return Ok(new CreateOrUpdateEventResponseDto
             {
                 EventId = reply.Id.Id
+            });
+        }
+
+        [HttpPost("assign")]
+        public async Task<IActionResult> Assign([FromBody] AssignExpertsToEventDto dto)
+        {
+            var command = new AssignExpertToEventCommand(dto.EventId, dto.Experts);
+
+            AssignExpertToEventCommand.Reply reply = await _app.HandleCommand(command);
+
+            return Ok(new CreateOrUpdateEventResponseDto
+            {
+                EventId = reply.EventId.ToString()
             });
         }
 

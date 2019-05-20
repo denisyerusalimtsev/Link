@@ -1,0 +1,35 @@
+<mat-toolbar>
+  <span>Assign experts</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+
+<form [formGroup]="assignForm" class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list class="assign-list" cols="1" rowHeight="50px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <mat-label>Select experts*</mat-label>
+          <mat-select formControlName="selectedExperts" multiple>
+            <mat-option *ngFor="let expert of experts" [value]="expert.Id">
+              {{expert.firstName}} {{expert.lastName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="button-row">
+          <button mat-raised-button class="submit-btn" color="primary" type="submit"
+            [disabled]="assignForm.invalid">Submit</button>
+          <button mat-raised-button class="clear-btn" color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

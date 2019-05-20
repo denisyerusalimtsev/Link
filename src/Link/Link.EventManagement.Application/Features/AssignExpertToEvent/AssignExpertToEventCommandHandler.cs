@@ -20,9 +20,12 @@ namespace Link.EventManagement.Application.Features.AssignExpertToEvent
         protected override async Task<AssignExpertToEventCommand.Reply> Handle(AssignExpertToEventCommand command)
         {
             var existedEvent = await _events.Get(command.EventId);
-            existedEvent.Experts.Add(command.ExpertId);
+            foreach (var expertId in command.ExpertsId)
+            {
+                existedEvent.Experts.Add(expertId);
+            }
 
-            return new AssignExpertToEventCommand.Reply(command.EventId, command.ExpertId);
+            return new AssignExpertToEventCommand.Reply(command.EventId, existedEvent.Experts);
         }
     }
 }

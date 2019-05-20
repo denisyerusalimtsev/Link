@@ -20,6 +20,7 @@ import { GoogleMapComponent } from './map/google-map/google-map.component';
 import { TableEventComponent } from './map/table-event/table-event.component';
 import { MapEventComponent } from './map/map-event/map-event.component';
 import { StateService } from './services/state.service';
+import { DialogAssignExpertsComponent } from './map/dialog-assign-experts/dialog-assign-experts.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { StateService } from './services/state.service';
     DialogExpertComponent,
     MapEventComponent,
     GoogleMapComponent,
-    TableEventComponent
+    TableEventComponent,
+    DialogAssignExpertsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { StateService } from './services/state.service';
   entryComponents: [
     DialogUserComponent,
     DialogExpertComponent,
-    DialogEventComponent
+    DialogEventComponent,
+    DialogAssignExpertsComponent
   ],
   providers: [
     UserService,
