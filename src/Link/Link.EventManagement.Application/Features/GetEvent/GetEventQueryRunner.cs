@@ -1,5 +1,4 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
-using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Services.Interfaces;
 using Link.EventManagement.Infrastructure.Messaging.Interfaces;
 using System;
@@ -42,7 +41,7 @@ namespace Link.EventManagement.Application.Features.GetEvent
             }
             catch (Exception message)
             {
-                return  new GetEventQueryResult(message.Message);
+                return new GetEventQueryResult(message.Message);
             }
         }
     }

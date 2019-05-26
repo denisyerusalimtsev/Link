@@ -1,5 +1,6 @@
 ﻿using Link.EventManagement.Application;
 using Link.EventManagement.Application.Features.AddOrUpdateEvent;
+using Link.EventManagement.Application.Features.AssignExpertToEvent;
 using Link.EventManagement.Application.Features.DeleteEvent;
 using Link.EventManagement.Application.Features.GetEvent;
 using Link.EventManagement.Application.Features.GetEventById;
@@ -8,7 +9,6 @@ using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Link.EventManagement.Infrastructure.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Link.EventManagement.Application.Features.AssignExpertToEvent;
 
 namespace Link.EventManagement.Infrastructure.Web.Controllers
 {
@@ -75,14 +75,11 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
         [HttpPost("assign")]
         public async Task<IActionResult> Assign([FromBody] AssignExpertsToEventDto dto)
         {
-            var command = new AssignExpertToEventCommand(dto.EventId, dto.Experts);
+            var query = new AssignExpertToEventQuery(dto.EventId, dto.Experts);
 
-            AssignExpertToEventCommand.Reply reply = await _app.HandleCommand(command);
+            AssignExpertToEventQueryResult result = await _app.RunQuery(query);
 
-            return Ok(new CreateOrUpdateEventResponseDto
-            {
-                EventId = reply.EventId.ToString()
-            });
+            return Ok("Sent request to Email management");
         }
 
         [HttpPut]
