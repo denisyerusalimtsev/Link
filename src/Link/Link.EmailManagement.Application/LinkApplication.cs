@@ -1,4 +1,5 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace Link.EmailManagement.Application
 
             try
             {
-                dynamic commandHandler = _provider.GetService(type);
+                dynamic commandHandler = _provider.GetServices(type).First();
                 return await commandHandler.Handle(command);
             }
             catch (Exception ex)

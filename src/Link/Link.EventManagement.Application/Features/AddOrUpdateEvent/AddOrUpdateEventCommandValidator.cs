@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Link.Common.Domain.Framework.Frameworks;
+﻿using Link.Common.Domain.Framework.Frameworks;
+using System.Collections.Generic;
 
 namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
 {
