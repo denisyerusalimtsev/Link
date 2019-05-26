@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Link.ReportManagement.Infrastructure.Web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/report")]
     [ApiController]
     public class ReportController : ControllerBase
     {

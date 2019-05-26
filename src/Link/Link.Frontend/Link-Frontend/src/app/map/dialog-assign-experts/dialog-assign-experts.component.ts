@@ -3,6 +3,8 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Expert } from 'src/app/models/expert';
 import { ExpertService } from 'src/app/services/expert.service';
 import { GetExpertsDto } from 'src/app/dto/get-expert.dto';
+import { MatDialogRef } from '@angular/material';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-dialog-assign-experts',
@@ -14,7 +16,9 @@ export class DialogAssignExpertsComponent implements OnInit {
   assignForm: FormGroup;
   experts: Expert[];
   constructor(
-    private expertService: ExpertService
+    private expertService: ExpertService,
+    private eventService: EventService,
+    public dialogRef: MatDialogRef<DialogAssignExpertsComponent>
   ) { }
 
   ngOnInit() {
@@ -30,5 +34,17 @@ export class DialogAssignExpertsComponent implements OnInit {
         this.experts = data.experts.map(dto => Expert.Create(dto));
         console.log(this.experts);
       });
+  }
+
+  onSubmit() {
+  }
+
+  onClear() {
+    this.assignForm.reset();
+  }
+
+  onClose() {
+    this.assignForm.reset();
+    this.dialogRef.close();
   }
 }

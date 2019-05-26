@@ -8,22 +8,30 @@ namespace Link.EventManagement.Application.Features.AssignExpertToEvent
         : CommandHandler<AssignExpertToEventCommand, AssignExpertToEventCommand.Reply>
     {
         private readonly IEventRepository _events;
+        private readonly IExpertService _expertService;
 
         public AssignExpertToEventCommandHandler(
             ICommandValidator<AssignExpertToEventCommand, 
-            AssignExpertToEventCommand.Reply> validator, IEventRepository events) 
+            AssignExpertToEventCommand.Reply> validator, 
+            IEventRepository events, IExpertService expertService) 
             : base(validator)
         {
             _events = events;
+            _expertService = expertService;
         }
 
         protected override async Task<AssignExpertToEventCommand.Reply> Handle(AssignExpertToEventCommand command)
         {
             var existedEvent = await _events.Get(command.EventId);
-            foreach (var expertId in command.ExpertsId)
+            var experts = await _expertService.GetExperts(command.ExpertsId);
+
+            var assignEventModel = new
             {
-                existedEvent.Experts.Add(expertId);
-            }
+                Event = existedEvent,
+                Experts = experts
+            };
+
+            await _expertService.SendNotificationsToExperts(experts, existedEvent);
 
             return new AssignExpertToEventCommand.Reply(command.EventId, existedEvent.Experts);
         }

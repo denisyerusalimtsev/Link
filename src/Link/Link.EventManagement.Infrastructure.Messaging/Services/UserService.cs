@@ -30,7 +30,7 @@ namespace Link.EventManagement.Infrastructure.Messaging.Services
         public async Task<List<User>> GetUsers(IEnumerable<UserId> usersId)
         {
             return await _communicationChannel
-                    .SynchronousRequest<IEnumerable<UserId>, IEnumerable<User>>(
+                    .SynchronousPostRequest<IEnumerable<UserId>, IEnumerable<User>>(
                         _configurations.UserManagementUrl, usersId)
                 as List<User>;
         }

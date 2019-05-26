@@ -2,6 +2,7 @@
 using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Services.Interfaces;
 using Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions;
+using Link.EventManagement.Infrastructure.Messaging.Models;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -22,16 +23,23 @@ namespace Link.EventManagement.Infrastructure.Messaging.Services
         public async Task<Expert> GetExpert(ExpertId expertId)
         {
             return await _communicationChannel
-                .SynchronousRequest<ExpertId, Expert>(
+                .SynchronousPostRequest<ExpertId, Expert>(
                     _configurations.ExpertManagementUrl, expertId);
         }
 
         public async Task<List<Expert>> GetExperts(IEnumerable<ExpertId> expertsId)
         {
             return await _communicationChannel
-                .SynchronousRequest<IEnumerable<ExpertId>, IEnumerable<Expert>>(
+                .SynchronousPostRequest<IEnumerable<ExpertId>, IEnumerable<Expert>>(
                         _configurations.ExpertManagementUrl, expertsId) 
                 as List<Expert>;
+        }
+
+        public async Task SendNotificationsToExperts(List<Expert> experts, Event ev)
+        {
+            var assignEventModel = new AssignEventModel(ev, experts);
+            await _communicationChannel.SynchronousPostRequestAsync(
+                _configurations.EmailManagementUrl, assignEventModel);
         }
     }
 }

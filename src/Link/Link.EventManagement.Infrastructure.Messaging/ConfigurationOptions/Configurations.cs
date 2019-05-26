@@ -8,10 +8,13 @@ namespace Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions
         {
             ExpertManagementUrl = config.GetSection("ExpertManagementUrl").Value;
             UserManagementUrl = config.GetSection("UserManagementUrl").Value;
+            EmailManagementUrl = config.GetSection("EmailManagementUrl").Value;
         }
 
         public string ExpertManagementUrl { get; set; }
 
         public string UserManagementUrl { get; set; }
+
+        public string EmailManagementUrl { get; set; }
     }
 }

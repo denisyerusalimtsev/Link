@@ -9,5 +9,7 @@ namespace Link.EventManagement.Domain.Services.Interfaces
         Task<Expert> GetExpert(ExpertId expertsId);
 
         Task<List<Expert>> GetExperts(IEnumerable<ExpertId> expertsId);
+
+        Task SendNotificationsToExperts(List<Expert> experts, Event ev);
     }
 }

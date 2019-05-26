@@ -7,7 +7,7 @@ namespace Link.Common.Domain.Framework.Communication
 {
     public sealed class CommunicationChannel : ICommunicationChannel
     {
-        public async Task<TResult> SynchronousRequest<TPayload, TResult>(string url, TPayload payload)
+        public async Task<TResult> SynchronousPostRequest<TPayload, TResult>(string url, TPayload payload)
         {
             string json = JsonConvert.SerializeObject(payload);
 
@@ -19,6 +19,16 @@ namespace Link.Common.Domain.Framework.Communication
                 TResult result = JsonConvert.DeserializeObject<TResult>(responseContent);
 
                 return result;
+            }
+        }
+
+        public async Task SynchronousPostRequestAsync<TPayload>(string url, TPayload payload)
+        {
+            string json = JsonConvert.SerializeObject(payload);
+
+            using (HttpClient client = new HttpClient())
+            {
+                await client.PostAsync(new Uri(url), new StringContent(json));
             }
         }
 

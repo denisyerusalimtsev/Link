@@ -17,6 +17,16 @@ namespace Link.EmailManagement.Domain.Model.Entities
             Attachment = attachment;
         }
 
+        public Email(
+            string emailTo,
+            string subject,
+            string body)
+        {
+            EmailTo = emailTo;
+            Subject = subject;
+            Body = body;
+        }
+
         public string EmailTo { get; }
 
         public string Subject { get; }
