@@ -6,13 +6,20 @@ namespace Link.EventManagement.Domain.Model.Entities
 {
     public class Expert : Entity<Expert>
     {
-        public Expert(string id, string firstName, string lastName, string type, string status)
+        public Expert(
+            string id,
+            string firstName,
+            string lastName,
+            string type,
+            string status,
+            ExpertContactInfo contactInfo)
         {
             Id = id;
             FirstName = firstName;
             LastName = lastName;
             ExpertType = Enum.Parse<ExpertType>(type);
             Status = Enum.Parse<ExpertStatus>(status);
+            ContactInfo = contactInfo;
         }
 
         public string Id { get; }
@@ -24,5 +31,7 @@ namespace Link.EventManagement.Domain.Model.Entities
         public ExpertType ExpertType { get; }
 
         public ExpertStatus Status { get; }
+
+        public ExpertContactInfo ContactInfo { get; }
     }
 }

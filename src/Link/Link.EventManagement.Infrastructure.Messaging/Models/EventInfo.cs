@@ -11,7 +11,7 @@ namespace Link.EventManagement.Infrastructure.Messaging.Models
         public EventInfo( 
             Event ev,
             UserStorageDto user,
-            List<Expert> experts)
+            List<ExpertStorageDto> experts)
         {
             Id = ev.Id.Id;
             User = user;
@@ -46,6 +46,6 @@ namespace Link.EventManagement.Infrastructure.Messaging.Models
 
         public int CountOfNeededExperts { get; }
 
-        public List<Expert> Experts { get; }
+        public List<ExpertStorageDto> Experts { get; }
     }
 }

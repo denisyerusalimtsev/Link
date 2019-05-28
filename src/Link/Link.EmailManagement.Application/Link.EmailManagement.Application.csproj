@@ -8,6 +8,7 @@
     <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
     <ProjectReference Include="..\Link.EmailManagement.Domain.Model\Link.EmailManagement.Domain.Model.csproj" />
     <ProjectReference Include="..\Link.EmailManagement.Domain.Services\Link.EmailManagement.Domain.Services.csproj" />
+    <ProjectReference Include="..\Link.EmailManagement.Infrastructure.Models\Link.EmailManagement.Infrastructure.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>

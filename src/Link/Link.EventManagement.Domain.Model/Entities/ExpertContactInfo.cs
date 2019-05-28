@@ -1,6 +1,6 @@
 ﻿using Link.Common.Domain.Framework.Models;
 
-namespace Link.ExpertManagement.Domain.Model.Entities
+namespace Link.EventManagement.Domain.Model.Entities
 {
     public class ExpertContactInfo : Entity<ExpertContactInfo>
     {

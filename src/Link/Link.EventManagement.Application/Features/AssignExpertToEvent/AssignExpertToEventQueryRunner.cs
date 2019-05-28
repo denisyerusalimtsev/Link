@@ -1,6 +1,8 @@
-﻿using System;
-using Link.Common.Domain.Framework.Frameworks;
+﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Domain.Services.Interfaces;
+using Link.EventManagement.Infrastructure.Messaging.Interfaces;
+using Link.EventManagement.Infrastructure.Messaging.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace Link.EventManagement.Application.Features.AssignExpertToEvent
@@ -24,9 +26,10 @@ namespace Link.EventManagement.Application.Features.AssignExpertToEvent
             try
             {
                 var existedEvent = await _events.Get(query.EventId);
+                var eventDto = new EventTransfer(existedEvent);
                 var experts = await _expertService.GetExperts(query.ExpertsId);
 
-                await _expertService.SendNotificationsToExperts(experts, existedEvent);
+                await _expertService.SendNotificationsToExperts(experts.Experts, eventDto);
 
                 return new AssignExpertToEventQueryResult();
             }

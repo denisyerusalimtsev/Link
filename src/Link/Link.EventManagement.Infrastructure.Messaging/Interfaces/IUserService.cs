@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Link.EventManagement.Domain.Model.Entities;
+﻿using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Infrastructure.Messaging.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Link.EventManagement.Infrastructure.Messaging.Interfaces
 {

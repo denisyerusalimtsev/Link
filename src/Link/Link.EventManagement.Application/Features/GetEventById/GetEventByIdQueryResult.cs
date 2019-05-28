@@ -7,7 +7,7 @@ namespace Link.EventManagement.Application.Features.GetEventById
 {
     public sealed class GetEventByIdQueryResult : IQueryResult
     {
-        public GetEventByIdQueryResult(Event ev, List<Expert> experts, UserStorageDto user)
+        public GetEventByIdQueryResult(Event ev, List<ExpertStorageDto> experts, UserStorageDto user)
         {
             Success = true;
             Event = ev;
@@ -25,7 +25,7 @@ namespace Link.EventManagement.Application.Features.GetEventById
 
         public Event Event { get; }
 
-        public List<Expert> Experts { get; }
+        public List<ExpertStorageDto> Experts { get; }
 
         public UserStorageDto User { get; }
 

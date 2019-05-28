@@ -1,12 +1,12 @@
-﻿using Link.EmailManagement.Domain.Model.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Link.EmailManagement.Infrastructure.Models.Models;
 
 namespace Link.EmailManagement.Infrastructure.Web.Models
 {
     public class InviteParameters
     {
-        public Event Event { get; set; }
+        public EventDto Event { get; set; }
 
-        public List<Expert> Experts { get; set; }
+        public List<ExpertDto> Experts { get; set; }
     }
 }

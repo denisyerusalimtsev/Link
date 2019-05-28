@@ -13,7 +13,9 @@ namespace Link.EmailManagement.Domain.Model.Entities
             ExpertType expertType,
             ExpertStatus status, 
             int countOfNeededExperts, 
-            List<ExpertId> experts, double latitude, double longitude)
+            double latitude, 
+            double longitude,
+            List<ExpertId> experts)
         {
             Id = id;
             UserId = userId;

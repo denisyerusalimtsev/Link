@@ -1,7 +1,8 @@
 ﻿using Link.Common.Domain.Framework.Communication;
 using Link.EventManagement.Domain.Model.Entities;
-using Link.EventManagement.Domain.Services.Interfaces;
+using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions;
+using Link.EventManagement.Infrastructure.Messaging.Interfaces;
 using Link.EventManagement.Infrastructure.Messaging.Models;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
@@ -27,15 +28,14 @@ namespace Link.EventManagement.Infrastructure.Messaging.Services
                     _configurations.ExpertManagementUrl, expertId);
         }
 
-        public async Task<List<Expert>> GetExperts(IEnumerable<ExpertId> expertsId)
+        public async Task<GetExpertsDto> GetExperts(IEnumerable<ExpertId> expertsId)
         {
             return await _communicationChannel
-                .SynchronousPostRequest<IEnumerable<ExpertId>, IEnumerable<Expert>>(
-                        _configurations.ExpertManagementUrl, expertsId) 
-                as List<Expert>;
+                .SynchronousPostRequest<IEnumerable<ExpertId>, GetExpertsDto>(
+                        _configurations.ExpertManagementUrl, expertsId);
         }
 
-        public async Task SendNotificationsToExperts(List<Expert> experts, Event ev)
+        public async Task SendNotificationsToExperts(List<ExpertStorageDto> experts, EventTransfer ev)
         {
             var assignEventModel = new AssignEventModel(ev, experts);
             await _communicationChannel.SynchronousPostRequestAsync(

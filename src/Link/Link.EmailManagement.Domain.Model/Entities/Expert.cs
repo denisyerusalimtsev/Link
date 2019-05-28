@@ -6,7 +6,13 @@ namespace Link.EmailManagement.Domain.Model.Entities
 {
     public class Expert : Entity<Expert>
     {
-        public Expert(string id, string firstName, string lastName, string type, string status, ExpertContactInfo contactInfo)
+        public Expert(
+            string id,
+            string firstName,
+            string lastName,
+            string type, 
+            string status,
+            ExpertContactInfo contactInfo)
         {
             Id = id;
             FirstName = firstName;

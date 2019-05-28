@@ -33,7 +33,11 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
                 expertDto.FirstName,
                 expertDto.LastName,
                 expertDto.Type,
-                expertDto.Status
+                expertDto.Status,
+                new ExpertContactInfo(
+                    expertDto.Email,
+                    expertDto.PhoneNumber,
+                    expertDto.LinkedInUrl)
             );
         }
 
@@ -46,5 +50,11 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
         public string Type { get; set; }
 
         public string Status { get; set; }
+
+        public string Email { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public string LinkedInUrl { get; set; }
     }
 }

@@ -34,7 +34,7 @@ export class EventService {
         return this.http.delete(this.baseUrl + '/' + id);
     }
 
-    assignExperts(assignedExperts: AssignedExpertsDto) {
+    assignExperts(assignedExperts: AssignExpertsModel) {
 
     }
 }

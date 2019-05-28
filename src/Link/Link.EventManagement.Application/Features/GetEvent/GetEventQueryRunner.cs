@@ -34,7 +34,7 @@ namespace Link.EventManagement.Application.Features.GetEvent
                 {
                     var userDto = await _userService.GetUser(ev.UserId);
                     var experts = await _expertService.GetExperts(ev.Experts);
-                    eventInfo.Add(new EventInfo(ev, userDto.User, experts));
+                    eventInfo.Add(new EventInfo(ev, userDto.User, experts.Experts));
                 }
 
                 return new GetEventQueryResult(eventInfo);

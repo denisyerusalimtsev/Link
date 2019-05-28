@@ -67,15 +67,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Link.EmailManagement", "Lin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EventManagement.Infrastructure.Messaging", "Link.EventManagement.Infrastructure.Messaging\Link.EventManagement.Infrastructure.Messaging.csproj", "{63EC003A-3403-4238-8292-0CBE3DC212A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EmailManagement.Application", "Link.EmailManagement.Application\Link.EmailManagement.Application.csproj", "{F0441A1D-7843-4874-A6EE-43608996EC5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EmailManagement.Application", "Link.EmailManagement.Application\Link.EmailManagement.Application.csproj", "{F0441A1D-7843-4874-A6EE-43608996EC5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EmailManagement.Domain.Model", "Link.EmailManagement.Domain.Model\Link.EmailManagement.Domain.Model.csproj", "{6956C066-C85F-4027-A381-8AE3F1463215}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EmailManagement.Domain.Model", "Link.EmailManagement.Domain.Model\Link.EmailManagement.Domain.Model.csproj", "{6956C066-C85F-4027-A381-8AE3F1463215}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EmailManagement.Domain.Services", "Link.EmailManagement.Domain.Services\Link.EmailManagement.Domain.Services.csproj", "{18225877-9400-4B2A-9843-04F9DB08A224}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EmailManagement.Domain.Services", "Link.EmailManagement.Domain.Services\Link.EmailManagement.Domain.Services.csproj", "{18225877-9400-4B2A-9843-04F9DB08A224}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EmailManagement.Infrastructure.Services", "Link.EmailManagement.Infrastructure.Services\Link.EmailManagement.Infrastructure.Services.csproj", "{2438038C-C354-457B-96BC-47C0C932F7F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EmailManagement.Infrastructure.Services", "Link.EmailManagement.Infrastructure.Services\Link.EmailManagement.Infrastructure.Services.csproj", "{2438038C-C354-457B-96BC-47C0C932F7F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EmailManagement.Infrastructure.Web", "Link.EmailManagement.Infrastructure.Web\Link.EmailManagement.Infrastructure.Web.csproj", "{50988D17-D7CC-4522-9B36-68E06D58FC08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EmailManagement.Infrastructure.Web", "Link.EmailManagement.Infrastructure.Web\Link.EmailManagement.Infrastructure.Web.csproj", "{50988D17-D7CC-4522-9B36-68E06D58FC08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EmailManagement.Infrastructure.Models", "Link.EmailManagement.Infrastructure.Models\Link.EmailManagement.Infrastructure.Models.csproj", "{39E88AD1-17F2-410B-A6CE-13733BDB50B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -207,6 +209,10 @@ Global
 		{50988D17-D7CC-4522-9B36-68E06D58FC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50988D17-D7CC-4522-9B36-68E06D58FC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50988D17-D7CC-4522-9B36-68E06D58FC08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39E88AD1-17F2-410B-A6CE-13733BDB50B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39E88AD1-17F2-410B-A6CE-13733BDB50B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39E88AD1-17F2-410B-A6CE-13733BDB50B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39E88AD1-17F2-410B-A6CE-13733BDB50B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -243,6 +249,7 @@ Global
 		{18225877-9400-4B2A-9843-04F9DB08A224} = {9477D003-F089-45F7-B2AD-4CF0F41A7C79}
 		{2438038C-C354-457B-96BC-47C0C932F7F6} = {9477D003-F089-45F7-B2AD-4CF0F41A7C79}
 		{50988D17-D7CC-4522-9B36-68E06D58FC08} = {9477D003-F089-45F7-B2AD-4CF0F41A7C79}
+		{39E88AD1-17F2-410B-A6CE-13733BDB50B9} = {9477D003-F089-45F7-B2AD-4CF0F41A7C79}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {124537DD-B23A-4EAA-9504-3948783294CC}

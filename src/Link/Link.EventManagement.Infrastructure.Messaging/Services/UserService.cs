@@ -1,12 +1,11 @@
 ﻿using Link.Common.Domain.Framework.Communication;
 using Link.EventManagement.Domain.Model.Entities;
-using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions;
+using Link.EventManagement.Infrastructure.Messaging.Interfaces;
+using Link.EventManagement.Infrastructure.Messaging.Models;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Link.EventManagement.Infrastructure.Messaging.Interfaces;
-using Link.EventManagement.Infrastructure.Messaging.Models;
 
 namespace Link.EventManagement.Infrastructure.Messaging.Services
 {

@@ -1,15 +1,14 @@
 ﻿using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Model.Enums;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
-using MongoDB.Bson;
 
 namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
 {
     public class EventStorageDto
     {
-        //TO Do Add getting experts from Link.ExpertManagement by using HTTP calls
         [BsonElement("id")]
         [BsonId]
         public ObjectId Id { get; set; }

@@ -27,9 +27,9 @@ namespace Link.EventManagement.Application.Features.GetEventById
             try
             {
                 var ev = await _eventRepository.Get(query.Id);
-                var experts = await _expertService.GetExperts(ev.Experts);
-                var user = await _userService.GetUser(ev.UserId);
-                return new GetEventByIdQueryResult(ev, experts, user.User);
+                var expertDto = await _expertService.GetExperts(ev.Experts);
+                var userDto = await _userService.GetUser(ev.UserId);
+                return new GetEventByIdQueryResult(ev, expertDto.Experts, userDto.User);
             }
             catch (Exception message)
             {
