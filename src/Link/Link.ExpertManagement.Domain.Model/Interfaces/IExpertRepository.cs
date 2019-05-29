@@ -10,7 +10,7 @@ namespace Link.ExpertManagement.Domain.Model.Interfaces
 
         Task<Expert> Get(ExpertId id);
 
-        List<Expert> Get(List<ExpertId> ids);
+        Task<List<Expert>> Get(List<ExpertId> ids);
 
         Task<Expert> Create(Expert expert);
 

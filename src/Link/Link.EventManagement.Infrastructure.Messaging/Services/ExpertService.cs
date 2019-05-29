@@ -30,9 +30,10 @@ namespace Link.EventManagement.Infrastructure.Messaging.Services
 
         public async Task<GetExpertsDto> GetExperts(IEnumerable<ExpertId> expertsId)
         {
+            var uri = string.Concat(_configurations.ExpertManagementUrl, "experts");
             return await _communicationChannel
                 .SynchronousPostRequest<IEnumerable<ExpertId>, GetExpertsDto>(
-                        _configurations.ExpertManagementUrl, expertsId);
+                    uri, expertsId);
         }
 
         public async Task SendNotificationsToExperts(List<ExpertStorageDto> experts, EventTransfer ev)

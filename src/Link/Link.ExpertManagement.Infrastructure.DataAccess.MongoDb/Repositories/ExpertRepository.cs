@@ -36,10 +36,14 @@ namespace Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.Repositories
             return dto?.ToDomain();
         }
 
-        public List<Expert> Get(List<ExpertId> ids)
+        public async Task<List<Expert>> Get(List<ExpertId> ids)
         {
             List<Expert> experts = new List<Expert>();
-            ids.ForEach(async id => experts.Add(await Get(id)));
+
+            foreach (var id in ids)
+            {
+                experts.Add(await Get(id));
+            }
 
             return experts;
         }

@@ -49,7 +49,7 @@ namespace Link.ExpertManagement.Infrastructure.Web.Controllers
             });
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("experts")]
         public async Task<IActionResult> Get([FromBody] List<ExpertId> expertIds)
         {
