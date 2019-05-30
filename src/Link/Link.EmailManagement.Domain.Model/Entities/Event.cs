@@ -14,8 +14,7 @@ namespace Link.EmailManagement.Domain.Model.Entities
             ExpertStatus status, 
             int countOfNeededExperts, 
             double latitude, 
-            double longitude,
-            List<ExpertId> experts)
+            double longitude)
         {
             Id = id;
             UserId = userId;
@@ -25,7 +24,6 @@ namespace Link.EmailManagement.Domain.Model.Entities
             Latitude = latitude;
             Longitude = longitude;
             CountOfNeededExperts = countOfNeededExperts;          
-            Experts = new HashSet<ExpertId>(experts);
         }
 
         public UserId UserId { get; }
@@ -41,7 +39,5 @@ namespace Link.EmailManagement.Domain.Model.Entities
         public double Longitude { get; }
 
         public int CountOfNeededExperts { get; }
-
-        public HashSet<ExpertId> Experts { get; }
     }
 }

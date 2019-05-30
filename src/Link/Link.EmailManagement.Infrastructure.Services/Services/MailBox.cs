@@ -16,7 +16,11 @@ namespace Link.EmailManagement.Infrastructure.Services.Services
             {
                 message.Subject = mail.Subject;
                 message.Body = mail.Body;
-                message.Attachments.Add(mail.Attachment);
+                if (mail.Attachment != null)
+                {
+                    message.Attachments.Add(mail.Attachment);
+                }
+
                 try
                 {
                     await smtpClient.SendMailAsync(message);

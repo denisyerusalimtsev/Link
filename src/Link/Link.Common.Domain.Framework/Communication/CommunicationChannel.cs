@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Link.Common.Domain.Framework.Communication
@@ -13,8 +14,9 @@ namespace Link.Common.Domain.Framework.Communication
 
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.PostAsync(new Uri(url), new StringContent(json));
-
+                HttpResponseMessage response = await client.PostAsync(
+                    new Uri(url), 
+                    new StringContent(json, Encoding.UTF8, "application/json"));
                 string responseContent = await response.Content.ReadAsStringAsync();
                 TResult result = JsonConvert.DeserializeObject<TResult>(responseContent);
 
@@ -28,7 +30,7 @@ namespace Link.Common.Domain.Framework.Communication
 
             using (HttpClient client = new HttpClient())
             {
-                await client.PostAsync(new Uri(url), new StringContent(json));
+                await client.PostAsync(new Uri(url), new StringContent(json, Encoding.UTF8, "application/json"));
             }
         }
 

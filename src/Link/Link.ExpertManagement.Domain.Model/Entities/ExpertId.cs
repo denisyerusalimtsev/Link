@@ -1,5 +1,5 @@
-﻿using System;
-using Link.Common.Domain.Framework.Models;
+﻿using Link.Common.Domain.Framework.Models;
+using System;
 
 namespace Link.ExpertManagement.Domain.Model.Entities
 {

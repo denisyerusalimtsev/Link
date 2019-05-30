@@ -34,8 +34,7 @@ namespace Link.EmailManagement.Application.Features.SendInviteEmail
                     Enum.Parse<ExpertStatus>(query.Event.Status),
                     query.Event.CountOfNeededExperts,
                     query.Event.Latitude,
-                    query.Event.Longitude,
-                    null);
+                    query.Event.Longitude);
 
                 var experts = new List<Expert>();
                 query.Experts.ForEach(action: e =>
