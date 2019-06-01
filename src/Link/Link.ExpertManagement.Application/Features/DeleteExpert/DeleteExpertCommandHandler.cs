@@ -16,7 +16,7 @@ namespace Link.ExpertManagement.Application.Features.DeleteExpert
             _experts = experts;
         }
 
-        protected override Task<DeleteExpertCommand.Reply> Handle(DeleteExpertCommand command)
+        protected override Task<DeleteExpertCommand.Reply> HandleAsync(DeleteExpertCommand command)
         {
             _experts.Remove(command.Id);
 

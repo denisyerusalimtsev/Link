@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Link.EventManagement.Domain.Model.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Link.EventManagement.Domain.Model.Entities;
 
 namespace Link.EventManagement.Domain.Services.Interfaces
 {
@@ -11,6 +11,8 @@ namespace Link.EventManagement.Domain.Services.Interfaces
         Task<Event> Get(EventId id);
 
         Task<Event> Create(Event ev);
+
+        Task Assign(EventId eventId, ExpertId expertId);
 
         void Update(EventId id, Event ev);
 

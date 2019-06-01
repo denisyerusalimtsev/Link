@@ -1,12 +1,12 @@
-﻿using Link.Common.Domain.Framework.Frameworks;
+﻿using System.Collections.Generic;
+using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Domain.Model.Entities;
-using System.Collections.Generic;
 
-namespace Link.EventManagement.Application.Features.AssignExpertToEvent
+namespace Link.EventManagement.Application.Features.InviteExpertToEvent
 {
-    public sealed class AssignExpertToEventQuery : IQuery<AssignExpertToEventQueryResult>
+    public sealed class InviteExpertToEventQuery : IQuery<InviteExpertToEventQueryResult>
     {
-        public AssignExpertToEventQuery(EventId eventId, List<ExpertId> expertsId)
+        public InviteExpertToEventQuery(EventId eventId, List<ExpertId> expertsId)
         {
             EventId = eventId;
             ExpertsId = expertsId;

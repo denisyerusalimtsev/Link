@@ -5,15 +5,15 @@ using Link.EventManagement.Infrastructure.Messaging.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace Link.EventManagement.Application.Features.AssignExpertToEvent
+namespace Link.EventManagement.Application.Features.InviteExpertToEvent
 {
-    public sealed class AssignExpertToEventQueryRunner : 
-        QueryRunner<AssignExpertToEventQuery, AssignExpertToEventQueryResult>
+    public sealed class InviteExpertToEventQueryRunner : 
+        QueryRunner<InviteExpertToEventQuery, InviteExpertToEventQueryResult>
     {
         private readonly IEventRepository _events;
         private readonly IExpertService _expertService;
 
-        public AssignExpertToEventQueryRunner(
+        public InviteExpertToEventQueryRunner(
             IEventRepository events,
             IExpertService expertService)
         {
@@ -21,7 +21,7 @@ namespace Link.EventManagement.Application.Features.AssignExpertToEvent
             _expertService = expertService;
         }
 
-        public override async Task<AssignExpertToEventQueryResult> Run(AssignExpertToEventQuery query)
+        public override async Task<InviteExpertToEventQueryResult> Run(InviteExpertToEventQuery query)
         {
             try
             {
@@ -31,11 +31,11 @@ namespace Link.EventManagement.Application.Features.AssignExpertToEvent
 
                 await _expertService.SendNotificationsToExperts(experts.Experts, eventDto);
 
-                return new AssignExpertToEventQueryResult();
+                return new InviteExpertToEventQueryResult();
             }
             catch (Exception message)
             {
-                return new AssignExpertToEventQueryResult(message.Message);
+                return new InviteExpertToEventQueryResult(message.Message);
             }
         }
     }

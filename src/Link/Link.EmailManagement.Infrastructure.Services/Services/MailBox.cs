@@ -16,6 +16,7 @@ namespace Link.EmailManagement.Infrastructure.Services.Services
             {
                 message.Subject = mail.Subject;
                 message.Body = mail.Body;
+                message.IsBodyHtml = true;
                 if (mail.Attachment != null)
                 {
                     message.Attachments.Add(mail.Attachment);

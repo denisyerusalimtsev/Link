@@ -18,7 +18,7 @@ namespace Link.ExpertManagement.Application.Features.AddOrUpdateExpert
             _experts = experts;
         }
 
-        protected override async Task<AddOrUpdateExpertCommand.Reply> Handle(AddOrUpdateExpertCommand command)
+        protected override async Task<AddOrUpdateExpertCommand.Reply> HandleAsync(AddOrUpdateExpertCommand command)
         {
             Expert expert = new Expert(
                 id: command.Id,

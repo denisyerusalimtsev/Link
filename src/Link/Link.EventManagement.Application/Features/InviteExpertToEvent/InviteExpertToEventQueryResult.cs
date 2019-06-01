@@ -1,16 +1,16 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
 
-namespace Link.EventManagement.Application.Features.AssignExpertToEvent
+namespace Link.EventManagement.Application.Features.InviteExpertToEvent
 {
-    public class AssignExpertToEventQueryResult
+    public class InviteExpertToEventQueryResult
         : IQueryResult
     {
-        public AssignExpertToEventQueryResult()
+        public InviteExpertToEventQueryResult()
         {
             Success = true;
         }
 
-        public AssignExpertToEventQueryResult(string errorMessage)
+        public InviteExpertToEventQueryResult(string errorMessage)
         {
             Success = false;
             ErrorMessage = errorMessage;

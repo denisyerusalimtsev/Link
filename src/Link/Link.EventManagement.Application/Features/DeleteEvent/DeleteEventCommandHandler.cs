@@ -16,7 +16,7 @@ namespace Link.EventManagement.Application.Features.DeleteEvent
             _events = events;
         }
 
-        protected override Task<DeleteEventCommand.Reply> Handle(DeleteEventCommand command)
+        protected override Task<DeleteEventCommand.Reply> HandleAsync(DeleteEventCommand command)
         {
             _events.Remove(command.Id);
 

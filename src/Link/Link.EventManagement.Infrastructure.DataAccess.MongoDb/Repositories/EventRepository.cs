@@ -2,11 +2,11 @@
 using Link.EventManagement.Domain.Services.Interfaces;
 using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Microsoft.Extensions.Configuration;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MongoDB.Bson;
 
 namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
 {
@@ -42,6 +42,12 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
             await _events.InsertOneAsync(dto);
 
             return dto.ToDomain();
+        }
+
+        public async Task Assign(EventId eventId, ExpertId expertId)
+        {
+            Event ev = await Get(eventId);
+            ev.Experts.Add(expertId);
         }
 
         public void Update(EventId id, Event ev)
