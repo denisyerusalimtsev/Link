@@ -18,7 +18,7 @@ namespace Link.UserManagement.Application.Features.AddOrUpdateUser
             _users = users;
         }
 
-        protected override async Task<AddOrUpdateUserCommand.Reply> HandleAsync(AddOrUpdateUserCommand command)
+        protected override async Task<AddOrUpdateUserCommand.Reply> Handle(AddOrUpdateUserCommand command)
         {
             var user = new User(
                 id: command.Id,

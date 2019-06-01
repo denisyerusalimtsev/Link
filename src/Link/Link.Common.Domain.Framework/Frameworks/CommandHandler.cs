@@ -23,12 +23,12 @@ namespace Link.Common.Domain.Framework.Frameworks
             T typedCommand = command as T;
             _validator.Validate(typedCommand);
 
-            var result = await HandleAsync(typedCommand);
+            var result = await Handle(typedCommand);
 
             return result as TR;
         }
 
-        protected abstract Task<TReply> HandleAsync(T command);
+        protected abstract Task<TReply> Handle(T command);
 
         protected void RaiseEvent(IDomainEvent @event)
         {
