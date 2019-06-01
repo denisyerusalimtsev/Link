@@ -84,7 +84,7 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
         }
 
         [HttpGet("assign")]
-        public async Task<IActionResult> Assign([FromQuery] EventId eventId, ExpertId expertId)
+        public async Task<IActionResult> Assign([FromQuery] string eventId, [FromQuery] string expertId)
         {
             var command = new AssignExpertToEventCommand(eventId, expertId);
 

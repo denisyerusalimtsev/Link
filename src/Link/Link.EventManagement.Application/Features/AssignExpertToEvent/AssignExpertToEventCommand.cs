@@ -1,11 +1,10 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
-using Link.EventManagement.Domain.Model.Entities;
 
 namespace Link.EventManagement.Application.Features.AssignExpertToEvent
 {
     public sealed class AssignExpertToEventCommand : ICommand<AssignExpertToEventCommand.Reply>
     {
-        public AssignExpertToEventCommand(EventId eventId, ExpertId expertId)
+        public AssignExpertToEventCommand(string eventId, string expertId)
         {
             EventId = eventId;
             ExpertId = expertId;
@@ -13,16 +12,16 @@ namespace Link.EventManagement.Application.Features.AssignExpertToEvent
 
         public sealed class Reply : ICommandReply
         {
-            public Reply(EventId id)
+            public Reply(string id)
             {
                 Id = id;
             }
 
-            public EventId Id { get; }
+            public string Id { get; }
         }
 
-        public EventId EventId { get; }
+        public string EventId { get; }
 
-        public ExpertId ExpertId { get; }
+        public string ExpertId { get; }
     }
 }

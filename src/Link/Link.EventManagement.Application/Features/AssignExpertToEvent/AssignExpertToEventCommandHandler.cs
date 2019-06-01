@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Link.Common.Domain.Framework.Frameworks;
+using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Services.Interfaces;
 
 namespace Link.EventManagement.Application.Features.AssignExpertToEvent
@@ -17,9 +18,12 @@ namespace Link.EventManagement.Application.Features.AssignExpertToEvent
             _events = events;
         }
 
-        protected override async Task<AssignExpertToEventCommand.Reply> HandleAsync(AssignExpertToEventCommand command)
+        protected override async Task<AssignExpertToEventCommand.Reply> Handle(AssignExpertToEventCommand command)
         {
-            await _events.Assign(command.EventId, command.ExpertId);
+            var eventId = new EventId(command.EventId);
+            var expertId = new ExpertId(command.ExpertId);
+
+            await _events.Assign(eventId, expertId);
 
             return new AssignExpertToEventCommand.Reply(command.EventId);
         }

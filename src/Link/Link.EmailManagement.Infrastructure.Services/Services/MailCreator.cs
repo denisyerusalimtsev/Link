@@ -15,7 +15,7 @@ namespace Link.EmailManagement.Infrastructure.Services.Services
 
         public string AddBody(Event ev, Expert expert)
         {
-            var uri = new Uri("");
+            var uri = new Uri($"https://localhost:60005/api/events/assign?eventId={ev.Id.Id}&expertId={expert.Id}");
             return $"Dear {expert.FullName}, \n would you like to join new event {ev.Name} in {ev.ExpertType.ToString()} profile, which is " +
                    $"you major specification. We need {ev.CountOfNeededExperts} experts, so join this event and help the world!" +
                    $"\n  {uri}"+
