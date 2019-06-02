@@ -36,7 +36,6 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
         public async Task<IActionResult> Get([FromQuery] string id)
         {
             var query = new GetEventByIdQuery(new EventId(id));

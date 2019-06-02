@@ -21,4 +21,10 @@
     <ProjectReference Include="..\Link.ExpertManagement.Infrastructure.DataAccess.MongoDb\Link.ExpertManagement.Infrastructure.DataAccess.MongoDb.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Autofac.Extensions.DependencyInjection">
+      <HintPath>C:\Users\Denis.Yerusalimtsev\.nuget\packages\autofac.extensions.dependencyinjection\4.4.0\lib\netstandard2.0\Autofac.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

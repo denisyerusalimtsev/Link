@@ -1,4 +1,7 @@
-﻿using Link.Common.Domain.Framework.Communication;
+﻿using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Autofac.Integration.WebApi;
+using Link.Common.Domain.Framework.Communication;
 using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Application;
 using Link.EventManagement.Domain.Services.Interfaces;
@@ -11,20 +14,35 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.Reflection;
+using Link.Common.Domain.Framework.Frameworks.Events;
 
 namespace Link.EventManagement.Infrastructure.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration,
+            IHostingEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
+
+
+           // var dependencyResolver = new AutofacWebApiDependencyResolver(Container);
+            
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
 
+        public IContainer Container { get; private set; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -35,28 +53,42 @@ namespace Link.EventManagement.Infrastructure.Web
 
             services.AddCors();
 
-            services.AddTransient<IEventRepository, EventRepository>();
-            services.AddTransient<IExpertService, ExpertService>();
-            services.AddTransient<IUserService, UserService>();
-            services.AddTransient<ICommunicationChannel, CommunicationChannel>();
+            Assembly[] assemblies =
+            {
+                typeof(Startup).Assembly,
+                typeof(LinkApplication).Assembly
+            };
 
-            services.Scan(scan => scan
-                .FromAssemblyOf<LinkApplication>()
-                .AddClasses(classes => classes.AssignableTo<IApplication>())
-                .AsSelfWithInterfaces()
-                .WithSingletonLifetime());
+            var builder = new ContainerBuilder();
 
-            services.Scan(scan => scan
-                .FromAssemblyOf<LinkApplication>()
-                .AddClasses(classes => classes.AssignableTo<ICommandHandler>())
-                .AsSelfWithInterfaces()
-                .FromAssemblyOf<LinkApplication>()
-                .AddClasses(classes => classes.AssignableTo<ICommunicationChannel>())
-                .AsSelfWithInterfaces()
-                .AddClasses(classes => classes.AssignableTo(typeof(ICommandValidator<,>)))
-                .AsSelfWithInterfaces()
-                .AddClasses(classes => classes.AssignableTo(typeof(IQueryRunner<>)))
-                .AsSelfWithInterfaces());
+            builder.RegisterAssemblyTypes(assemblies).AsImplementedInterfaces();
+
+            builder.RegisterAssemblyTypes(assemblies)
+                .AssignableTo<IApplication>()
+                .AsImplementedInterfaces()
+                .AsSelf()
+                .SingleInstance();
+
+            builder.RegisterAssemblyTypes(assemblies)
+                .AsClosedTypesOf(typeof(CommandHandler<,>));
+
+            builder.RegisterAssemblyTypes(assemblies)
+                .AsClosedTypesOf(typeof(QueryRunner<,>));
+
+            builder.RegisterAssemblyTypes(assemblies)
+                .AsClosedTypesOf(typeof(ICommandValidator<,>));
+
+            builder.RegisterType<EventRepository>().As<IEventRepository>();
+            builder.RegisterType<ExpertService>().As<IExpertService>();
+            builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<CommunicationChannel>().As<ICommunicationChannel>();
+
+            builder.Populate(services);
+
+            Container = builder.Build();
+
+            // Create the IServiceProvider based on the container.
+            return new AutofacServiceProvider(Container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

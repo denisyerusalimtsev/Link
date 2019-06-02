@@ -18,12 +18,12 @@ namespace Link.EmailManagement.Infrastructure.Services.Services
             var uri = new Uri($"https://localhost:60005/api/events/assign?eventId={ev.Id.Id}&expertId={expert.Id}");
             return $"Dear {expert.FullName}, \n would you like to join new event {ev.Name} in {ev.ExpertType.ToString()} profile, which is " +
                    $"you major specification. We need {ev.CountOfNeededExperts} experts, so join this event and help the world!" +
-                   $"\n If you are not agree to join this event, just skip this mail." +
-                   $"\n" +
+                   "\n If you are not agree to join this event, just skip this mail." +
+                   "\n" +
                    $"\n Link to connect to event {uri}" +
-                   $"\n" +
-                   $"\n" +
-                   $"\n Regards, Link Team";
+                   "\n" +
+                   "\n" +
+                   "\n Regards, Link Team";
         }
 
         public string AddSubject()

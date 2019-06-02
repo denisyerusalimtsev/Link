@@ -23,7 +23,7 @@ namespace Link.EventManagement.Infrastructure.Messaging.Services
         {
             return await _communicationChannel
                 .SynchronousGetRequest<GetUserDto>(
-                    $"{_configurations.UserManagementUrl}/{userId.Id}");
+                    $"{_configurations.UserManagementUrl}{userId.Id}");
         }
 
         public async Task<List<User>> GetUsers(IEnumerable<UserId> usersId)

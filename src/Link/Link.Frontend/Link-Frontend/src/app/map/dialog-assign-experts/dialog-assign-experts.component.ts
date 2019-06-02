@@ -36,10 +36,6 @@ export class DialogAssignExpertsComponent implements OnInit {
       });
   }
 
-  onSubmit() {
-    this.eventService.
-  }
-
   onClear() {
     this.assignForm.reset();
   }

@@ -16,6 +16,9 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
         [BsonElement("userId")]
         public string UserId { get; set; }
 
+        [BsonElement("user")]
+        public UserStorageDto User { get; set; }
+
         [BsonElement("name")]
         public string Name { get; set; }
 

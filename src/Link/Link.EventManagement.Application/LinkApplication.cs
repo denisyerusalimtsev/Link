@@ -1,5 +1,5 @@
-﻿using Link.Common.Domain.Framework.Frameworks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Autofac;
+using Link.Common.Domain.Framework.Frameworks;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,20 +9,24 @@ namespace Link.EventManagement.Application
     public sealed class LinkApplication : IApplication
     {
         private readonly IServiceProvider _provider;
+        private readonly IComponentContext _componentContext;
 
-        public LinkApplication(IServiceProvider provider)
+        public LinkApplication(
+            IServiceProvider provider, 
+            IComponentContext componentContext)
         {
             _provider = provider;
+            _componentContext = componentContext;
         }
 
         public async Task<TReply> HandleCommand<TReply>(ICommand<TReply> command)
             where TReply : class, ICommandReply
         {
-            var type = typeof(CommandHandler<,>).MakeGenericType(command.GetType(), typeof(TReply)).GetInterfaces().First();
+            var type = typeof(CommandHandler<,>).MakeGenericType(command.GetType(), typeof(TReply));
 
             try
             {
-                dynamic commandHandler = _provider.GetServices(type).First();
+                dynamic commandHandler = _componentContext.Resolve(type);
                 return await commandHandler.Handle(command);
             }
             catch (Exception ex)
@@ -34,12 +38,9 @@ namespace Link.EventManagement.Application
         public async Task<TResult> RunQuery<TResult>(IQuery<TResult> query)
             where TResult : IQueryResult
         {
-            var t = typeof(QueryRunner<,>).MakeGenericType(query.GetType(), typeof(TResult));
-            var i = t.GetInterfaces().First();
+            var type = typeof(QueryRunner<,>).MakeGenericType(query.GetType(), typeof(TResult));
 
-            var type = typeof(QueryRunner<,>).MakeGenericType(query.GetType(), typeof(TResult)).GetInterfaces().First();
-
-            dynamic queryRunner = _provider.GetService(type);
+            dynamic queryRunner = _componentContext.Resolve(type);
             return await queryRunner.Run(query);
         }
     }

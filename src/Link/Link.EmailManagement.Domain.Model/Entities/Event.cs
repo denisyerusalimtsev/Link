@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Link.Common.Domain.Framework.Models;
+﻿using Link.Common.Domain.Framework.Models;
 using Link.EmailManagement.Domain.Model.Enums;
 
 namespace Link.EmailManagement.Domain.Model.Entities
