@@ -1,7 +1,6 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Domain.Services.Interfaces;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
@@ -32,7 +31,8 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
                 startTime: command.StartTime,
                 endTime:command.EndTime,
                 countOfNeededExperts: command.CountOfNeededExperts,
-                experts: new List<ExpertId>()
+                expertIds: command.ExpertIds,
+                experts: command.Experts
             );
 
             if (ev.Id == null)

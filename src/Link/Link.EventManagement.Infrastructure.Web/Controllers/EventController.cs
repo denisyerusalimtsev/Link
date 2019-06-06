@@ -36,6 +36,7 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
         }
 
         [HttpGet]
+        [Route("{id}")]
         public async Task<IActionResult> Get([FromQuery] string id)
         {
             var query = new GetEventByIdQuery(new EventId(id));
@@ -62,7 +63,8 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
                 startTime: dto.StartTime,
                 endTime: dto.EndTime,
                 countOfNeededExperts: dto.CountOfNeededExperts,
-                experts: dto.Experts);
+                expertIds: null,
+                experts: null);
 
             AddOrUpdateEventCommand.Reply reply = await _app.HandleCommand(command);
 
@@ -93,8 +95,7 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
         }
 
         [HttpPut]
-        [Route("{id}")]
-        public async Task<IActionResult> Update(string id, [FromBody] CreateOrUpdateEventDto dto)
+        public async Task<IActionResult> Update([FromQuery]string id, [FromBody] CreateOrUpdateEventDto dto)
         {
             var command = new AddOrUpdateEventCommand(
                 id: new EventId(dto.Id),
@@ -107,6 +108,7 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
                 startTime: dto.StartTime,
                 endTime: dto.EndTime,
                 countOfNeededExperts: dto.CountOfNeededExperts,
+                expertIds: dto.ExpertIds,
                 experts: dto.Experts);
 
             AddOrUpdateEventCommand.Reply reply = await _app.HandleCommand(command);
@@ -117,9 +119,8 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
             });
         }
 
-        [HttpDelete]
-        [Route("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        [HttpDelete("delete")]
+        public async Task<IActionResult> Delete([FromQuery] string id)
         {
             var command = new DeleteEventCommand(id: new EventId(id));
 

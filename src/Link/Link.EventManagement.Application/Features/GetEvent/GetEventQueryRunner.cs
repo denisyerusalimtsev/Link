@@ -33,7 +33,7 @@ namespace Link.EventManagement.Application.Features.GetEvent
                 foreach (var ev in events)
                 {
                     var userDto = await _userService.GetUser(ev.UserId);
-                    var experts = await _expertService.GetExperts(ev.Experts);
+                    var experts = await _expertService.GetExperts(ev.ExpertIds);
                     eventInfo.Add(new EventInfo(ev, userDto.User, experts.Experts));
                 }
 

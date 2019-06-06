@@ -27,6 +27,8 @@ namespace Link.EventManagement.Infrastructure.Web.Models
 
         public int CountOfNeededExperts { get; set; }
 
-        public List<ExpertId> Experts { get; set; }
+        public List<ExpertId> ExpertIds { get; set; }
+
+        public List<Expert> Experts { get; set; }
     }
 }

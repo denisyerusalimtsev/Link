@@ -19,7 +19,8 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
             DateTime startTime, 
             DateTime? endTime,
             int countOfNeededExperts, 
-            List<ExpertId> experts)
+            List<ExpertId> expertIds,
+            List<Expert> experts)
         {
             Id = id;
             UserId = userId;
@@ -31,6 +32,7 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
             StartTime = startTime;
             EndTime = endTime;
             CountOfNeededExperts = countOfNeededExperts;
+            ExpertIds = expertIds;
             Experts = experts;      
         }
 
@@ -64,6 +66,8 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
 
         public int CountOfNeededExperts { get; }
 
-        public List<ExpertId> Experts { get; }
+        public List<ExpertId> ExpertIds { get; }
+
+        public List<Expert> Experts { get; }
     }
 }

@@ -47,7 +47,7 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
         public async Task Assign(EventId eventId, ExpertId expertId)
         {
             Event ev = await Get(eventId);
-            ev.Experts.Add(expertId);
+            ev.ExpertIds.Add(expertId);
         }
 
         public void Update(EventId id, Event ev)

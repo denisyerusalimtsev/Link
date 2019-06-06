@@ -43,6 +43,9 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
         [BsonElement("countOfNeededExperts")]
         public int CountOfNeededExperts { get; set; }
 
+        [BsonElement("expertIds")]
+        public List<ExpertId> ExpertIds { get; set; }
+
         [BsonElement("experts")]
         public List<ExpertStorageDto> Experts { get; set; }
 
@@ -51,6 +54,31 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
             if (ev == null)
             {
                 throw new ArgumentException("Event is null.");
+            }
+
+            if (ev.Experts == null || ev.ExpertIds == null)
+                return new EventStorageDto
+                {
+                    Id = ev.Id == null
+                        ? new ObjectId()
+                        : new ObjectId(ev.Id.Id),
+                    UserId = ev.UserId.Id,
+                    Name = ev.Name,
+                    ExpertType = ev.ExpertType,
+                    Status = ev.Status,
+                    Latitude = ev.Latitude,
+                    Longitude = ev.Longitude,
+                    StartTime = ev.StartTime,
+                    EndTime = ev.EndTime,
+                    CountOfNeededExperts = ev.CountOfNeededExperts,
+                    ExpertIds = new List<ExpertId>(),
+                    Experts = new List<ExpertStorageDto>()
+                };
+
+            var experts = new List<ExpertStorageDto>();
+            foreach (var expert in ev.Experts)
+            {
+                experts.Add(ExpertStorageDto.FromDomain(expert));
             }
 
             return new EventStorageDto
@@ -67,12 +95,19 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
                 StartTime = ev.StartTime,
                 EndTime = ev.EndTime,
                 CountOfNeededExperts = ev.CountOfNeededExperts,
-                Experts = new List<ExpertStorageDto>()
+                ExpertIds = new List<ExpertId>(ev.ExpertIds),
+                Experts = experts
             };
         }
 
         public Event ToDomain()
         {
+            var experts = new List<Expert>();
+            foreach (var expert in Experts)
+            {
+                experts.Add(ExpertStorageDto.ToDomain(expert));
+            }
+
             return new Event(
                 id: new EventId(Id.ToString()),
                 userId: new UserId(UserId),
@@ -84,7 +119,8 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models
                 startTime: StartTime,
                 endTime: EndTime,
                 countOfNeededExperts: CountOfNeededExperts,
-                experts: new List<ExpertId>());
+                expertIds: ExpertIds,
+                experts: experts);
         }
     }
 }

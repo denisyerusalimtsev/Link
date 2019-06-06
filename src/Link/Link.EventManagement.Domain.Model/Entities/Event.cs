@@ -18,7 +18,8 @@ namespace Link.EventManagement.Domain.Model.Entities
             int countOfNeededExperts,
             DateTime startTime, 
             DateTime? endTime,
-            List<ExpertId> experts)
+            List<ExpertId> expertIds,
+            List<Expert> experts)
         {
             Id = id;
             UserId = userId;
@@ -29,8 +30,9 @@ namespace Link.EventManagement.Domain.Model.Entities
             Longitude = longitude;
             StartTime = startTime;
             EndTime = endTime;
-            CountOfNeededExperts = countOfNeededExperts;          
-            Experts = new HashSet<ExpertId>(experts);
+            CountOfNeededExperts = countOfNeededExperts;
+            ExpertIds = expertIds;
+            Experts = experts;
         }
 
         public UserId UserId { get; }
@@ -51,6 +53,8 @@ namespace Link.EventManagement.Domain.Model.Entities
 
         public int CountOfNeededExperts { get; }
 
-        public HashSet<ExpertId> Experts { get; }
+        public List<ExpertId> ExpertIds { get; }
+
+        public List<Expert> Experts { get; }
     }
 }
