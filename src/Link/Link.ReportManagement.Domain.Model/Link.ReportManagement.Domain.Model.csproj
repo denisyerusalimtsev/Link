@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
+    <ProjectReference Include="..\Link.ReportManagement.Infrastructure.Models\Link.ReportManagement.Infrastructure.Models.csproj" />
   </ItemGroup>
 
 </Project>

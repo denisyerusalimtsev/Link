@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using Link.ReportManagement.Infrastructure.Models.Models;
 
 namespace Link.ReportManagement.Domain.Model.Entities
 {
     public class ReportParameters
     {
-        public User User { get; set; }
+        public UserDto User { get; set; }
 
-        public Event Event { get; set; }
+        public EventDto Event { get; set; }
 
-        public List<Expert> Experts { get; set; }
+        public List<ExpertDto> Experts { get; set; }
     }
 }

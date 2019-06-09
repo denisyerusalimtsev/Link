@@ -50,7 +50,7 @@ namespace Link.ReportManagement.Infrastructure.Services.Report
                 new Cell()
                     .Add(new Paragraph(_parameters.Event.Name)),
                 new Cell()
-                    .Add(new Paragraph(_parameters.Event.EndTime.ToString("dddd, dd MMMM yyyy",
+                    .Add(new Paragraph(_parameters.Event.EndTime?.ToString("dddd, dd MMMM yyyy",
                         CultureInfo.InvariantCulture))),
                 new Cell()
                     .Add(new Paragraph(_parameters.Event.CountOfNeededExperts.ToString(CultureInfo.InvariantCulture)))

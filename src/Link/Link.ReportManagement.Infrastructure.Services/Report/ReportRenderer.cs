@@ -1,9 +1,9 @@
-﻿using Link.ReportManagement.Domain.Model.Entities;
-using Link.ReportManagement.Domain.Services.Interfaces;
-using System.IO;
-using iText.Kernel.Geom;
+﻿using iText.Kernel.Geom;
 using iText.Kernel.Pdf;
 using iText.Layout;
+using Link.ReportManagement.Domain.Model.Entities;
+using Link.ReportManagement.Domain.Services.Interfaces;
+using System.IO;
 
 namespace Link.ReportManagement.Infrastructure.Services.Report
 {
@@ -25,7 +25,8 @@ namespace Link.ReportManagement.Infrastructure.Services.Report
                 writer.SetCloseStream(false);
                 SetDocumentInfo(pdf.GetDocumentInfo());
                 document.Add(new HeaderSection(parameters).Render())
-                    .Add(new ReportParagraph(parameters).Render());
+                    .Add(new ReportParagraph(parameters).Render())
+                    .Add(new ExpertsSection(parameters).Render());
 
             }
             var bytes = stream.ToArray();

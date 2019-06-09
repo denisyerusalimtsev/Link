@@ -37,8 +37,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Infrastructure.Services", "Link.ReportManagement.Infrastructure.Services\Link.ReportManagement.Infrastructure.Services.csproj", "{EA25BF35-CB19-4550-B8F7-E07D984966B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Infrastructure.DataAccess.MongoDb", "Link.ReportManagement.Infrastructure.DataAccess.MongoDb\Link.ReportManagement.Infrastructure.DataAccess.MongoDb.csproj", "{ABD139BB-999B-41FB-9BE4-4192FC13C45A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Domain.Services", "Link.ReportManagement.Domain.Services\Link.ReportManagement.Domain.Services.csproj", "{38BD0B6C-77F4-4E98-A9E0-D4E75C901D39}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Domain.Model", "Link.ReportManagement.Domain.Model\Link.ReportManagement.Domain.Model.csproj", "{13179ECB-5605-4B28-993D-A339AFEF4D1D}"
@@ -77,7 +75,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EmailManagement.Infras
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EmailManagement.Infrastructure.Web", "Link.EmailManagement.Infrastructure.Web\Link.EmailManagement.Infrastructure.Web.csproj", "{50988D17-D7CC-4522-9B36-68E06D58FC08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EmailManagement.Infrastructure.Models", "Link.EmailManagement.Infrastructure.Models\Link.EmailManagement.Infrastructure.Models.csproj", "{39E88AD1-17F2-410B-A6CE-13733BDB50B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EmailManagement.Infrastructure.Models", "Link.EmailManagement.Infrastructure.Models\Link.EmailManagement.Infrastructure.Models.csproj", "{39E88AD1-17F2-410B-A6CE-13733BDB50B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ReportManagement.Infrastructure.Models", "Link.ReportManagement.Infrastructure.Models\Link.ReportManagement.Infrastructure.Models.csproj", "{C114FE8A-B858-420A-BFB0-850A316B4D45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,10 +137,6 @@ Global
 		{EA25BF35-CB19-4550-B8F7-E07D984966B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA25BF35-CB19-4550-B8F7-E07D984966B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA25BF35-CB19-4550-B8F7-E07D984966B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ABD139BB-999B-41FB-9BE4-4192FC13C45A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABD139BB-999B-41FB-9BE4-4192FC13C45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABD139BB-999B-41FB-9BE4-4192FC13C45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABD139BB-999B-41FB-9BE4-4192FC13C45A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{38BD0B6C-77F4-4E98-A9E0-D4E75C901D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{38BD0B6C-77F4-4E98-A9E0-D4E75C901D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38BD0B6C-77F4-4E98-A9E0-D4E75C901D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -213,6 +209,10 @@ Global
 		{39E88AD1-17F2-410B-A6CE-13733BDB50B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39E88AD1-17F2-410B-A6CE-13733BDB50B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39E88AD1-17F2-410B-A6CE-13733BDB50B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C114FE8A-B858-420A-BFB0-850A316B4D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C114FE8A-B858-420A-BFB0-850A316B4D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C114FE8A-B858-420A-BFB0-850A316B4D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C114FE8A-B858-420A-BFB0-850A316B4D45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -231,7 +231,6 @@ Global
 		{F56FA110-31AC-40A0-A8B4-CDF54678A414} = {E4598CFB-409F-4475-B4A7-9875DD7EE5BC}
 		{85028DDB-4177-40A9-AFA6-426A96AAAE39} = {A9347401-1493-478C-820D-2803CCD876D5}
 		{EA25BF35-CB19-4550-B8F7-E07D984966B2} = {A9347401-1493-478C-820D-2803CCD876D5}
-		{ABD139BB-999B-41FB-9BE4-4192FC13C45A} = {A9347401-1493-478C-820D-2803CCD876D5}
 		{38BD0B6C-77F4-4E98-A9E0-D4E75C901D39} = {A9347401-1493-478C-820D-2803CCD876D5}
 		{13179ECB-5605-4B28-993D-A339AFEF4D1D} = {A9347401-1493-478C-820D-2803CCD876D5}
 		{C157DA81-8736-49C6-8833-70AD70823324} = {A9347401-1493-478C-820D-2803CCD876D5}
@@ -250,6 +249,7 @@ Global
 		{2438038C-C354-457B-96BC-47C0C932F7F6} = {9477D003-F089-45F7-B2AD-4CF0F41A7C79}
 		{50988D17-D7CC-4522-9B36-68E06D58FC08} = {9477D003-F089-45F7-B2AD-4CF0F41A7C79}
 		{39E88AD1-17F2-410B-A6CE-13733BDB50B9} = {9477D003-F089-45F7-B2AD-4CF0F41A7C79}
+		{C114FE8A-B858-420A-BFB0-850A316B4D45} = {A9347401-1493-478C-820D-2803CCD876D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {124537DD-B23A-4EAA-9504-3948783294CC}

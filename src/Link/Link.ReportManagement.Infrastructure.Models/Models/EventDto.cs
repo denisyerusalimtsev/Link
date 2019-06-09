@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Link.EmailManagement.Infrastructure.Models.Models
+namespace Link.ReportManagement.Infrastructure.Models.Models
 {
     public class EventDto
     {
