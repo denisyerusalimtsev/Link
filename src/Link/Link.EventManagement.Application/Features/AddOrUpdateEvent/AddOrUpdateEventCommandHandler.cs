@@ -18,7 +18,7 @@ namespace Link.EventManagement.Application.Features.AddOrUpdateEvent
             _events = events;
         }
 
-        protected override async Task<AddOrUpdateEventCommand.Reply> Handle(AddOrUpdateEventCommand command)
+        protected override async Task<AddOrUpdateEventCommand.Reply> HandleAsync(AddOrUpdateEventCommand command)
         {
             var ev = new Event(
                 id: command.Id,

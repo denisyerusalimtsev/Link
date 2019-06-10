@@ -17,5 +17,7 @@ namespace Link.EventManagement.Domain.Services.Interfaces
         void Update(EventId id, Event ev);
 
         void Remove(EventId eventId);
+
+        Task Finish(EventId eventId);
     }
 }

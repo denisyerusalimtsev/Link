@@ -16,7 +16,7 @@ namespace Link.UserManagement.Application.Features.DeleteUser
             _users = users;
         }
 
-        protected override Task<DeleteUserCommand.Reply> Handle(DeleteUserCommand command)
+        protected override Task<DeleteUserCommand.Reply> HandleAsync(DeleteUserCommand command)
         {
             _users.Remove(command.Id);
 

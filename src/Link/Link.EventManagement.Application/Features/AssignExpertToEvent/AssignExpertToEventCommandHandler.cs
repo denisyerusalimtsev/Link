@@ -18,7 +18,7 @@ namespace Link.EventManagement.Application.Features.AssignExpertToEvent
             _events = events;
         }
 
-        protected override async Task<AssignExpertToEventCommand.Reply> Handle(AssignExpertToEventCommand command)
+        protected override async Task<AssignExpertToEventCommand.Reply> HandleAsync(AssignExpertToEventCommand command)
         {
             var eventId = new EventId(command.EventId);
             var expertId = new ExpertId(command.ExpertId);

@@ -7,6 +7,7 @@ using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Link.EventManagement.Domain.Model.Enums;
 
 namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
 {
@@ -59,6 +60,15 @@ namespace Link.EventManagement.Infrastructure.DataAccess.MongoDb.Repositories
         public void Remove(EventId eventId)
         {
             _events.DeleteOneAsync(ev => ev.Id == ObjectId.Parse(eventId.Id));
+        }
+
+        public async Task Finish(EventId eventId)
+        {
+            var ev = await Get(eventId);
+            EventStorageDto dto = EventStorageDto.FromDomain(ev);
+            dto.Status = ExpertStatus.Unavailable;
+
+            Update(eventId, dto.ToDomain());
         }
     }
 }
