@@ -1,15 +1,16 @@
 ﻿using Link.EventManagement.Application;
 using Link.EventManagement.Application.Features.AddOrUpdateEvent;
+using Link.EventManagement.Application.Features.AssignExpertToEvent;
 using Link.EventManagement.Application.Features.DeleteEvent;
 using Link.EventManagement.Application.Features.GetEvent;
 using Link.EventManagement.Application.Features.GetEventById;
+using Link.EventManagement.Application.Features.InviteExpertToEvent;
 using Link.EventManagement.Domain.Model.Entities;
 using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Link.EventManagement.Infrastructure.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Link.EventManagement.Application.Features.AssignExpertToEvent;
-using Link.EventManagement.Application.Features.InviteExpertToEvent;
+using Link.EventManagement.Application.Features.SendFinishReport;
 
 namespace Link.EventManagement.Infrastructure.Web.Controllers
 {
@@ -130,6 +131,16 @@ namespace Link.EventManagement.Infrastructure.Web.Controllers
             {
                 Id = reply.Id.Id
             });
+        }
+
+        [HttpPost("finish")]
+        public async Task<IActionResult> Finish([FromQuery] string id)
+        {
+            var query = new SendFinishReportQuery(new EventId(id));
+
+            SendFinishReportQueryResult result = await _app.RunQuery(query);
+
+            return Ok("Sent data for generating report");
         }
     }
 }

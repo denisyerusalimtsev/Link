@@ -9,6 +9,7 @@ namespace Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions
             ExpertManagementUrl = config.GetSection("ExpertManagementUrl").Value;
             UserManagementUrl = config.GetSection("UserManagementUrl").Value;
             EmailManagementUrl = config.GetSection("EmailManagementUrl").Value;
+            ReportManagementUrl = config.GetSection("ReportManagementUrl").Value;
         }
 
         public string ExpertManagementUrl { get; set; }
@@ -16,5 +17,7 @@ namespace Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions
         public string UserManagementUrl { get; set; }
 
         public string EmailManagementUrl { get; set; }
+
+        public string ReportManagementUrl { get; set; }
     }
 }

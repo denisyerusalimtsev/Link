@@ -1,11 +1,10 @@
 ﻿using Link.Common.Domain.Framework.Communication;
-using Link.EventManagement.Infrastructure.DataAccess.MongoDb.Models;
 using Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions;
 using Link.EventManagement.Infrastructure.Messaging.Interfaces;
 using Link.EventManagement.Infrastructure.Messaging.Models;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace Link.EventManagement.Infrastructure.Messaging.Services
 {
@@ -15,18 +14,18 @@ namespace Link.EventManagement.Infrastructure.Messaging.Services
         private readonly ICommunicationChannel _communicationChannel;
 
         public ReportService(
-            Configurations configurations, 
+            IConfiguration config,
             ICommunicationChannel communicationChannel)
         {
-            _configurations = configurations;
+            _configurations = new Configurations(config);
             _communicationChannel = communicationChannel;
         }
 
-        public async Task<MemoryStream> GetReportAsync(ReportParameters parameters)
+        public async Task<GenerateReportDto> GetReportAsync(ReportParameters parameters)
         {
             return await _communicationChannel
-                .SynchronousPostRequest<ReportParameters, MemoryStream>(
-                    _configurations.ExpertManagementUrl, parameters);
+                .SynchronousPostRequest<ReportParameters, GenerateReportDto>(
+                    _configurations.ReportManagementUrl, parameters);
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Autofac.Integration.WebApi;
 using Link.Common.Domain.Framework.Communication;
 using Link.Common.Domain.Framework.Frameworks;
 using Link.EventManagement.Application;
@@ -16,7 +15,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Reflection;
-using Link.Common.Domain.Framework.Frameworks.Events;
 
 namespace Link.EventManagement.Infrastructure.Web
 {
@@ -30,9 +28,6 @@ namespace Link.EventManagement.Infrastructure.Web
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
-
-
-           // var dependencyResolver = new AutofacWebApiDependencyResolver(Container);
             
             Configuration = builder.Build();
         }
@@ -81,6 +76,7 @@ namespace Link.EventManagement.Infrastructure.Web
             builder.RegisterType<EventRepository>().As<IEventRepository>();
             builder.RegisterType<ExpertService>().As<IExpertService>();
             builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<ReportService>().As<IReportService>();
             builder.RegisterType<CommunicationChannel>().As<ICommunicationChannel>();
 
             builder.Populate(services);

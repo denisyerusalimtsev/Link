@@ -10,16 +10,6 @@ namespace Link.EventManagement.Application.Features.SendFinishReport
             EventId = eventId;
         }
 
-        public sealed class Reply : ICommandReply
-        {
-            public Reply(EventId eventId)
-            {
-                EventId = eventId;
-            }
-
-            public EventId EventId { get; }
-        }
-
         public EventId EventId { get; }
     }
 }

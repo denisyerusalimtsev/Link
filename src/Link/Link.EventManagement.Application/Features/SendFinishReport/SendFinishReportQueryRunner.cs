@@ -39,7 +39,10 @@ namespace Link.EventManagement.Application.Features.SendFinishReport
                 var expertsDto = await _expertService.GetExperts(ev.ExpertIds);
 
                 var parameters = new ReportParameters(userDto.User, eventDto, expertsDto.Experts);
-                await _reportService.GetReportAsync(parameters);
+                var report = await _reportService.GetReportAsync(parameters);
+                var finishReportDto = new FinishEventDto(userDto.User, report.Report);
+
+                await _userService.SendFinishEventEmail(finishReportDto);
 
                 return new SendFinishReportQueryResult();
             }

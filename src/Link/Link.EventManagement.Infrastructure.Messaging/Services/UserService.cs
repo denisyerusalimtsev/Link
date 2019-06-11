@@ -33,5 +33,11 @@ namespace Link.EventManagement.Infrastructure.Messaging.Services
                         _configurations.UserManagementUrl, usersId)
                 as List<User>;
         }
+
+        public async Task SendFinishEventEmail(FinishEventDto dto)
+        {
+            await _communicationChannel.SynchronousPostRequestAsync(
+               string.Concat(_configurations.EmailManagementUrl, "report") , dto);
+        }
     }
 }

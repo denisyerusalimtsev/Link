@@ -17,8 +17,8 @@ namespace Link.EventManagement.Infrastructure.Messaging.Services
 
         public ExpertService(IConfiguration config, ICommunicationChannel communicationChannel)
         {
-            _communicationChannel = communicationChannel;
             _configurations = new Configurations(config);
+            _communicationChannel = communicationChannel;
         }
 
         public async Task<Expert> GetExpert(ExpertId expertId)
