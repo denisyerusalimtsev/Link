@@ -8,10 +8,14 @@ namespace Link.ReportManagement.Application.Features.GenerateReport
     public sealed class GenerateReportQueryRunner : QueryRunner<GenerateReportQuery, GenerateReportQueryResult>
     {
         private readonly IReportRenderer _renderer;
+        private readonly IReportUploader _reportUploader;
 
-        public GenerateReportQueryRunner(IReportRenderer renderer)
+        public GenerateReportQueryRunner(
+            IReportRenderer renderer,
+            IReportUploader reportUploader)
         {
             _renderer = renderer;
+            _reportUploader = reportUploader;
         }
 
         public override async Task<GenerateReportQueryResult> Run(GenerateReportQuery query)
@@ -19,6 +23,7 @@ namespace Link.ReportManagement.Application.Features.GenerateReport
             try
             {
                 var report = await Task.Run(() => _renderer.Render(query.Parameters));
+                await _reportUploader.UploadToBlodAsync("LinkReport", report.ToArray(), "application/pdf");
                 return new GenerateReportQueryResult(report);
             }
             catch (Exception message)
