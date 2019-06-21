@@ -34,13 +34,14 @@ namespace Link.EventManagement.Application.Features.SendFinishReport
             {
                 var ev = await _events.Get(query.EventId);
 
-                var eventDto = EventStorageDto.FromDomain(ev);
-                var userDto = await _userService.GetUser(ev.UserId);
-                var expertsDto = await _expertService.GetExperts(ev.ExpertIds);
+                EventStorageDto eventDto = EventStorageDto.FromDomain(ev);
+                GetUserDto userDto = await _userService.GetUser(ev.UserId);
+                GetExpertsDto expertsDto = await _expertService.GetExperts(ev.ExpertIds);
 
-                var parameters = new ReportParameters(userDto.User, eventDto, expertsDto.Experts);
-                var report = await _reportService.GetReportAsync(parameters);
-                var finishReportDto = new FinishEventDto(userDto.User, report.Report);
+                ReportParameters parameters = new ReportParameters(userDto.User, eventDto, expertsDto.Experts);
+                GenerateReportDto reportFileDto = await _reportService.GetReportAsync(parameters);
+                var report = await _reportService.UploadFromBlob(reportFileDto.FileName);
+                var finishReportDto = new FinishEventDto(userDto.User, report);
 
                 await _userService.SendFinishEventEmail(finishReportDto);
 

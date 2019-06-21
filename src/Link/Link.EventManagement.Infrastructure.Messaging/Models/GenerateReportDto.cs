@@ -1,9 +1,9 @@
-﻿using System.IO;
-
-namespace Link.EventManagement.Infrastructure.Messaging.Models
+﻿namespace Link.EventManagement.Infrastructure.Messaging.Models
 {
     public class GenerateReportDto
     {
-        public MemoryStream Report { get; set; }
+        public string FileName { get; set; }
+
+        public string ContainerName { get; set; }
     }
 }

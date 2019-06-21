@@ -37,7 +37,7 @@ namespace Link.ReportManagement.Infrastructure.Services
                 CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
                 cloudBlockBlob.Properties.ContentType = fileMimeType;
                 await cloudBlockBlob.UploadFromByteArrayAsync(fileData, 0, fileData.Length);
-                return cloudBlockBlob.Uri.AbsoluteUri;
+                return fullFileName;
             }
             catch (Exception e)
             {
@@ -48,11 +48,7 @@ namespace Link.ReportManagement.Infrastructure.Services
 
         private string GenerateFileName(string fileName)
         {
-            string[] splittedName = fileName.Split('.');
-            return DateTime.Now.ToUniversalTime().ToString("yyyy-MM-dd") + "/" +
-                           DateTime.Now.ToUniversalTime().ToString("yyyyMMdd\\THHmmssfff") + "." +
-                   splittedName[splittedName.Length - 1];
+            return $"{Guid.NewGuid()}_{fileName}";
         }
-
     }
 }

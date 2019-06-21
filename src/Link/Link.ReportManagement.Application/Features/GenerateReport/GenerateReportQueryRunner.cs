@@ -23,8 +23,8 @@ namespace Link.ReportManagement.Application.Features.GenerateReport
             try
             {
                 var report = await Task.Run(() => _renderer.Render(query.Parameters));
-                await _reportUploader.UploadToBlodAsync("LinkReport", report.ToArray(), "application/pdf");
-                return new GenerateReportQueryResult(report);
+                string fileName = await _reportUploader.UploadToBlodAsync("LinkReport.pdf", report.ToArray(), "application/pdf");
+                return new GenerateReportQueryResult(fileName, "linkblob");
             }
             catch (Exception message)
             {

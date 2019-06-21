@@ -4,6 +4,6 @@ namespace Link.ReportManagement.Infrastructure.Web.Models
 {
     public class GenerateReportDto
     {
-        public MemoryStream Report { get; set; }
+        public string Url { get; set; }
     }
 }

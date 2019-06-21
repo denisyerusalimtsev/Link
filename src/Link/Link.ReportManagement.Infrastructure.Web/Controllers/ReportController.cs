@@ -26,7 +26,7 @@ namespace Link.ReportManagement.Infrastructure.Web.Controllers
 
             return Ok(new GenerateReportDto()
             {
-                Report = result.Report
+                Url = result.Url
             });
         }
     }

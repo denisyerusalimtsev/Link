@@ -1,13 +1,13 @@
-﻿using System.IO;
-using Link.Common.Domain.Framework.Frameworks;
+﻿using Link.Common.Domain.Framework.Frameworks;
 
 namespace Link.ReportManagement.Application.Features.GenerateReport
 {
     public sealed class GenerateReportQueryResult : IQueryResult
     {
-        public GenerateReportQueryResult(MemoryStream report)
+        public GenerateReportQueryResult(string fileName, string containerName)
         {
-            Report = report;
+            FileName = fileName;
+            ContainerName = containerName;
             Success = true;
         }
 
@@ -17,7 +17,9 @@ namespace Link.ReportManagement.Application.Features.GenerateReport
             ErrorMessage = errorMessage;
         }
 
-        public MemoryStream Report { get; }
+        public string FileName { get; }
+
+        public string ContainerName { get; }
 
         public bool Success { get; }
 

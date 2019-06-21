@@ -2,6 +2,7 @@
 using Link.Common.Domain.Framework.Frameworks;
 using Link.ReportManagement.Application;
 using Link.ReportManagement.Domain.Services.Interfaces;
+using Link.ReportManagement.Infrastructure.Services;
 using Link.ReportManagement.Infrastructure.Services.Report;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +35,7 @@ namespace Link.ReportManagement.Infrastructure.Web
             services.AddCors();
 
             services.AddTransient<IReportRenderer, ReportRenderer>();
+            services.AddTransient<IReportUploader, ReportUploader>();
 
             services.Scan(scan => scan
                 .FromAssemblyOf<LinkApplication>()
