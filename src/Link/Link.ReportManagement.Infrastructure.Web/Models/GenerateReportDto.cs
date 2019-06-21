@@ -4,6 +4,6 @@ namespace Link.ReportManagement.Infrastructure.Web.Models
 {
     public class GenerateReportDto
     {
-        public string Url { get; set; }
+        public string FileName { get; set; }
     }
 }
