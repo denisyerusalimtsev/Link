@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Link.EmailManagement.Domain.Model.Entities;
+using Link.EmailManagement.Domain.Model.Enums;
+using System;
 
 namespace Link.EmailManagement.Infrastructure.Models.Models
 {
@@ -23,5 +25,20 @@ namespace Link.EmailManagement.Infrastructure.Models.Models
         public DateTime? EndTime { get; set; }
 
         public int CountOfNeededExperts { get; set; }
+
+        public Event ToDomain()
+        {
+            return new Event(
+                id: new EventId(Id),
+                userId: new UserId(UserId),
+                name: Name,
+                expertType: Enum.Parse<ExpertType>(ExpertType),
+                status: Enum.Parse<ExpertStatus>(Status),
+                latitude: Latitude,
+                longitude: Longitude,
+                startTime: StartTime,
+                endTime: EndTime,
+                countOfNeededExperts: CountOfNeededExperts);
+        }
     }
 }

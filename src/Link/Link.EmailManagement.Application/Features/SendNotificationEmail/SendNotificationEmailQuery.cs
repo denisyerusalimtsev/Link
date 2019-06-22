@@ -1,23 +1,21 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using Link.Common.Domain.Framework.Frameworks;
-using Link.EmailManagement.Domain.Model.Entities;
+﻿using Link.Common.Domain.Framework.Frameworks;
+using Link.EmailManagement.Infrastructure.Models.Models;
 
 namespace Link.EmailManagement.Application.Features.SendNotificationEmail
 {
     public sealed class SendNotificationEmailQuery : IQuery<SendNotificationEmailQueryResult>
     {
-        public SendNotificationEmailQuery(List<Expert> experts, Event ev, Stream attachments)
+        public SendNotificationEmailQuery(string fileName, UserDto user, EventDto ev)
         {
-            Experts = experts;
+            FileName = fileName;
+            User = user;
             Event = ev;
-            Attachments = attachments;
         }
 
-        public List<Expert> Experts { get; set; }
+        public string FileName { get; }
 
-        public Event Event { get; set; }
+        public UserDto User { get; }
 
-        public Stream Attachments { get; set; }
+        public EventDto Event { get; }
     }
 }

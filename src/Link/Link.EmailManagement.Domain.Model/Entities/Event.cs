@@ -1,5 +1,6 @@
 ﻿using Link.Common.Domain.Framework.Models;
 using Link.EmailManagement.Domain.Model.Enums;
+using System;
 
 namespace Link.EmailManagement.Domain.Model.Entities
 {
@@ -11,9 +12,11 @@ namespace Link.EmailManagement.Domain.Model.Entities
             string name, 
             ExpertType expertType,
             ExpertStatus status, 
-            int countOfNeededExperts, 
             double latitude, 
-            double longitude)
+            double longitude,
+            DateTime startTime,
+            DateTime? endTime,
+            int countOfNeededExperts)
         {
             Id = id;
             UserId = userId;
@@ -22,6 +25,8 @@ namespace Link.EmailManagement.Domain.Model.Entities
             Status = status;
             Latitude = latitude;
             Longitude = longitude;
+            StartTime = startTime;
+            EndTime = endTime;
             CountOfNeededExperts = countOfNeededExperts;          
         }
 
@@ -36,6 +41,10 @@ namespace Link.EmailManagement.Domain.Model.Entities
         public double Latitude { get; }
 
         public double Longitude { get; }
+
+        public DateTime StartTime { get; }
+
+        public DateTime? EndTime { get; }
 
         public int CountOfNeededExperts { get; }
     }

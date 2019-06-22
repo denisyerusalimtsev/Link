@@ -1,15 +1,11 @@
-﻿using Link.EmailManagement.Domain.Model.Entities;
-using System.Collections.Generic;
-using System.IO;
+﻿using Link.EmailManagement.Infrastructure.Models.Models;
 
 namespace Link.EmailManagement.Infrastructure.Web.Models
 {
     public class EmailParameters
     {
-        public List<Expert> Experts { get; set; }
+        public UserDto User { get; set; }
 
-        public Event Event { get; set; }
-
-        public Stream Attachments { get; set; }
+        public EventDto Event { get; set; }
     }
 }

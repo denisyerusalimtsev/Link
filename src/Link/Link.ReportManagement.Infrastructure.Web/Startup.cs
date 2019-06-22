@@ -2,6 +2,8 @@
 using Link.Common.Domain.Framework.Frameworks;
 using Link.ReportManagement.Application;
 using Link.ReportManagement.Domain.Services.Interfaces;
+using Link.ReportManagement.Infrastructure.Messaging.Interfaces;
+using Link.ReportManagement.Infrastructure.Messaging.Services;
 using Link.ReportManagement.Infrastructure.Services;
 using Link.ReportManagement.Infrastructure.Services.Report;
 using Microsoft.AspNetCore.Builder;
@@ -36,6 +38,8 @@ namespace Link.ReportManagement.Infrastructure.Web
 
             services.AddTransient<IReportRenderer, ReportRenderer>();
             services.AddTransient<IReportUploader, ReportUploader>();
+            services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<ICommunicationChannel, CommunicationChannel>();
 
             services.Scan(scan => scan
                 .FromAssemblyOf<LinkApplication>()

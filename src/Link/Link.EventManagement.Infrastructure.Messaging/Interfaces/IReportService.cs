@@ -7,7 +7,5 @@ namespace Link.EventManagement.Infrastructure.Messaging.Interfaces
     public interface IReportService
     {
         Task<GenerateReportDto> GetReportAsync(ReportParameters parameters);
-
-        Task<MemoryStream> UploadFromBlob(string fileName);
     }
 }

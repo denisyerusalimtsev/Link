@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Link.ReportManagement.Application\Link.ReportManagement.Application.csproj" />
+    <ProjectReference Include="..\Link.ReportManagement.Infrastructure.Messaging\Link.ReportManagement.Infrastructure.Messaging.csproj" />
     <ProjectReference Include="..\Link.ReportManagement.Infrastructure.Services\Link.ReportManagement.Infrastructure.Services.csproj" />
   </ItemGroup>
 

@@ -35,6 +35,7 @@ namespace Link.EmailManagement.Infrastructure.Web
 
             services.AddTransient<IMailBox, MailBox>();
             services.AddTransient<IMailCreator, MailCreator>();
+            services.AddTransient<IAzureBlobClient, AzureBlobClient>();
 
             services.Scan(scan => scan
                 .FromAssemblyOf<LinkApplication>()

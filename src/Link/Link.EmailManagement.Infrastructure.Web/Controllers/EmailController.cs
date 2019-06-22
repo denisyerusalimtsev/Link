@@ -19,14 +19,12 @@ namespace Link.EmailManagement.Infrastructure.Web.Controllers
         }
 
         [HttpPost]
-        [Route("report")]
-        public async Task<IActionResult> SendReport([FromBody] EmailParameters parameters)
+        [Route("report/{fileName}")]
+        public async Task<IActionResult> SendReport([FromRoute] string fileName, [FromBody] EmailParameters parameters)
         {
             SendNotificationEmailQueryResult result = 
-                await _app.RunQuery(new SendNotificationEmailQuery(
-                    parameters.Experts,
-                    parameters.Event, 
-                    parameters.Attachments));
+                await _app.RunQuery(
+                    new SendNotificationEmailQuery(fileName, parameters.User, parameters.Event));
 
             return Ok("Email was sent");
         }

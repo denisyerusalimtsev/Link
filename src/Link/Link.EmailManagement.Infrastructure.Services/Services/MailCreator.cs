@@ -8,9 +8,9 @@ namespace Link.EmailManagement.Infrastructure.Services.Services
 {
     public class MailCreator : IMailCreator
     {
-        public string AddBody()
+        public string AddBody(Event ev)
         {
-            return "Thank you for using Link system, here is your cheque. Have a nice day. \n Regards, Link Team";
+            return $"Hi, event {ev.Name}, that you have been created is complete. \n Thank you for using Link system, here is your report. Have a nice day. \n Regards, Link Team";
         }
 
         public string AddBody(Event ev, Expert expert)

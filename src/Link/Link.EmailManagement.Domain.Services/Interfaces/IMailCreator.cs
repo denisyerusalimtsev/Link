@@ -6,7 +6,7 @@ namespace Link.EmailManagement.Domain.Services.Interfaces
 {
     public interface IMailCreator
     {
-        string AddBody();
+        string AddBody(Event ev);
 
         string AddBody(Event ev, Expert expert);
 

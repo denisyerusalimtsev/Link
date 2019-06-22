@@ -8,6 +8,7 @@
     <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
     <ProjectReference Include="..\Link.ReportManagement.Domain.Model\Link.ReportManagement.Domain.Model.csproj" />
     <ProjectReference Include="..\Link.ReportManagement.Domain.Services\Link.ReportManagement.Domain.Services.csproj" />
+    <ProjectReference Include="..\Link.ReportManagement.Infrastructure.Messaging\Link.ReportManagement.Infrastructure.Messaging.csproj" />
   </ItemGroup>
 
   <ItemGroup>

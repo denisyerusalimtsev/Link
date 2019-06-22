@@ -39,12 +39,8 @@ namespace Link.EventManagement.Application.Features.SendFinishReport
                 GetExpertsDto expertsDto = await _expertService.GetExperts(ev.ExpertIds);
 
                 ReportParameters parameters = new ReportParameters(userDto.User, eventDto, expertsDto.Experts);
-                GenerateReportDto reportFileDto = await _reportService.GetReportAsync(parameters);
-                var report = await _reportService.UploadFromBlob(reportFileDto.FileName);
-                var finishReportDto = new FinishEventDto(userDto.User, report);
-
-                await _userService.SendFinishEventEmail(finishReportDto);
-
+                await _reportService.GetReportAsync(parameters);
+              
                 return new SendFinishReportQueryResult();
             }
             catch (Exception e)

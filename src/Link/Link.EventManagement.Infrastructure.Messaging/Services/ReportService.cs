@@ -3,9 +3,6 @@ using Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions;
 using Link.EventManagement.Infrastructure.Messaging.Interfaces;
 using Link.EventManagement.Infrastructure.Messaging.Models;
 using Microsoft.Extensions.Configuration;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace Link.EventManagement.Infrastructure.Messaging.Services
@@ -28,21 +25,6 @@ namespace Link.EventManagement.Infrastructure.Messaging.Services
             return await _communicationChannel
                 .SynchronousPostRequest<ReportParameters, GenerateReportDto>(
                     _configurations.ReportManagementUrl, parameters);
-        }
-
-        public async Task<MemoryStream> UploadFromBlob(string fileName)
-        {
-            CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse(_configurations.AzureCloudStorageAccount);
-            CloudBlobClient blobClient = cloudStorageAccount.CreateCloudBlobClient();
-
-            CloudBlobContainer cloudBlobContainer = blobClient.GetContainerReference("linkblob");
-            CloudBlockBlob blockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
-
-            MemoryStream report = new MemoryStream();
-
-            await blockBlob.DownloadToStreamAsync(report);
-
-            return report;
         }
     }
 }

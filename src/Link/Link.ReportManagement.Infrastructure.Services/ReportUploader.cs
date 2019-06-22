@@ -34,7 +34,7 @@ namespace Link.ReportManagement.Infrastructure.Services
                 if (fullFileName == null || fileData == null)
                     return string.Empty;
 
-                CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
+                CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(fullFileName);
                 cloudBlockBlob.Properties.ContentType = fileMimeType;
                 await cloudBlockBlob.UploadFromByteArrayAsync(fileData, 0, fileData.Length);
                 return fullFileName;

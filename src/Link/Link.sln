@@ -79,6 +79,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EmailManagement.Infras
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Infrastructure.Models", "Link.ReportManagement.Infrastructure.Models\Link.ReportManagement.Infrastructure.Models.csproj", "{C114FE8A-B858-420A-BFB0-850A316B4D45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ReportManagement.Infrastructure.Messaging", "Link.ReportManagement.Infrastructure.Messaging\Link.ReportManagement.Infrastructure.Messaging.csproj", "{D318CF75-90C8-47A7-8B9D-974E26583484}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -213,6 +215,10 @@ Global
 		{C114FE8A-B858-420A-BFB0-850A316B4D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C114FE8A-B858-420A-BFB0-850A316B4D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C114FE8A-B858-420A-BFB0-850A316B4D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D318CF75-90C8-47A7-8B9D-974E26583484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D318CF75-90C8-47A7-8B9D-974E26583484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D318CF75-90C8-47A7-8B9D-974E26583484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D318CF75-90C8-47A7-8B9D-974E26583484}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -250,6 +256,7 @@ Global
 		{50988D17-D7CC-4522-9B36-68E06D58FC08} = {9477D003-F089-45F7-B2AD-4CF0F41A7C79}
 		{39E88AD1-17F2-410B-A6CE-13733BDB50B9} = {9477D003-F089-45F7-B2AD-4CF0F41A7C79}
 		{C114FE8A-B858-420A-BFB0-850A316B4D45} = {A9347401-1493-478C-820D-2803CCD876D5}
+		{D318CF75-90C8-47A7-8B9D-974E26583484} = {A9347401-1493-478C-820D-2803CCD876D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {124537DD-B23A-4EAA-9504-3948783294CC}
