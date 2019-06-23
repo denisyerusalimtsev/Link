@@ -4,22 +4,20 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <UserSecretsId>40fac55f-54a7-4faf-86f5-99ea6563d517</UserSecretsId>
+    <UserSecretsId>79487b40-9b13-4b47-8245-82708865228e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.10" />
-    <PackageReference Include="Scrutor" Version="3.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
-    <ProjectReference Include="..\Link.EmailManagement.Application\Link.EmailManagement.Application.csproj" />
-    <ProjectReference Include="..\Link.EmailManagement.Infrastructure.Models\Link.EmailManagement.Infrastructure.Models.csproj" />
-    <ProjectReference Include="..\Link.EmailManagement.Infrastructure.Services\Link.EmailManagement.Infrastructure.Services.csproj" />
+    <ProjectReference Include="..\Link.IoT.Application\Link.IoT.Application.csproj" />
   </ItemGroup>
 
 </Project>

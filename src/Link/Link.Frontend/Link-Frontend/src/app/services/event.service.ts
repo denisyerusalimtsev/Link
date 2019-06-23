@@ -3,6 +3,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { EventDto } from '../interfaces/event-dto';
 import { Event } from '../models/event';
 import { GetEventsDto } from '../dto/get-event.dto';
+import { AssignExpertsModel } from '../models/assign-expert.model';
 
 @Injectable()
 export class EventService {

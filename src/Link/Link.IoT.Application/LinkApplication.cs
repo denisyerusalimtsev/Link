@@ -3,14 +3,18 @@ using Link.Common.Domain.Framework.Frameworks;
 using System;
 using System.Threading.Tasks;
 
-namespace Link.EventManagement.Application
+namespace Link.IoT.Application
 {
     public sealed class LinkApplication : IApplication
     {
+        private readonly IServiceProvider _provider;
         private readonly IComponentContext _componentContext;
 
-        public LinkApplication(IComponentContext componentContext)
+        public LinkApplication(
+            IServiceProvider provider, 
+            IComponentContext componentContext)
         {
+            _provider = provider;
             _componentContext = componentContext;
         }
 

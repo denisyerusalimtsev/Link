@@ -79,7 +79,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.EmailManagement.Infras
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Infrastructure.Models", "Link.ReportManagement.Infrastructure.Models\Link.ReportManagement.Infrastructure.Models.csproj", "{C114FE8A-B858-420A-BFB0-850A316B4D45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ReportManagement.Infrastructure.Messaging", "Link.ReportManagement.Infrastructure.Messaging\Link.ReportManagement.Infrastructure.Messaging.csproj", "{D318CF75-90C8-47A7-8B9D-974E26583484}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Link.ReportManagement.Infrastructure.Messaging", "Link.ReportManagement.Infrastructure.Messaging\Link.ReportManagement.Infrastructure.Messaging.csproj", "{D318CF75-90C8-47A7-8B9D-974E26583484}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Link.IoT", "Link.IoT", "{4A194BEA-D084-4A37-AD3A-18A791D1D9F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.IoT.Hub.Cloud.Azure", "Link.IoT.Hub.Cloud.Azure\Link.IoT.Hub.Cloud.Azure.csproj", "{370B6175-A352-4869-8A8C-FED9BD859FD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.IoT.Infrastructure.Web", "Link.IoT.Infrastructure.Web\Link.IoT.Infrastructure.Web.csproj", "{137A8182-C5DA-4F5B-BD97-DE20CB52E458}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.IoT.Infrastructure.Messaging", "Link.IoT.Infrastructure.Messaging\Link.IoT.Infrastructure.Messaging.csproj", "{793787CF-39D6-49C3-B40E-ECF9E6BDB733}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.IoT.Device", "Link.IoT.Device\Link.IoT.Device.csproj", "{3BB2A358-5EE1-445C-A3E6-F13D465CE507}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.IoT.Application", "Link.IoT.Application\Link.IoT.Application.csproj", "{FEE3DC1A-7FCD-4059-A127-4674464C2F94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -219,6 +231,26 @@ Global
 		{D318CF75-90C8-47A7-8B9D-974E26583484}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D318CF75-90C8-47A7-8B9D-974E26583484}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D318CF75-90C8-47A7-8B9D-974E26583484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{370B6175-A352-4869-8A8C-FED9BD859FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{370B6175-A352-4869-8A8C-FED9BD859FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{370B6175-A352-4869-8A8C-FED9BD859FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{370B6175-A352-4869-8A8C-FED9BD859FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{137A8182-C5DA-4F5B-BD97-DE20CB52E458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{137A8182-C5DA-4F5B-BD97-DE20CB52E458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{137A8182-C5DA-4F5B-BD97-DE20CB52E458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{137A8182-C5DA-4F5B-BD97-DE20CB52E458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{793787CF-39D6-49C3-B40E-ECF9E6BDB733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{793787CF-39D6-49C3-B40E-ECF9E6BDB733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{793787CF-39D6-49C3-B40E-ECF9E6BDB733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{793787CF-39D6-49C3-B40E-ECF9E6BDB733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB2A358-5EE1-445C-A3E6-F13D465CE507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB2A358-5EE1-445C-A3E6-F13D465CE507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB2A358-5EE1-445C-A3E6-F13D465CE507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB2A358-5EE1-445C-A3E6-F13D465CE507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEE3DC1A-7FCD-4059-A127-4674464C2F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE3DC1A-7FCD-4059-A127-4674464C2F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE3DC1A-7FCD-4059-A127-4674464C2F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE3DC1A-7FCD-4059-A127-4674464C2F94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -257,6 +289,11 @@ Global
 		{39E88AD1-17F2-410B-A6CE-13733BDB50B9} = {9477D003-F089-45F7-B2AD-4CF0F41A7C79}
 		{C114FE8A-B858-420A-BFB0-850A316B4D45} = {A9347401-1493-478C-820D-2803CCD876D5}
 		{D318CF75-90C8-47A7-8B9D-974E26583484} = {A9347401-1493-478C-820D-2803CCD876D5}
+		{370B6175-A352-4869-8A8C-FED9BD859FD7} = {4A194BEA-D084-4A37-AD3A-18A791D1D9F2}
+		{137A8182-C5DA-4F5B-BD97-DE20CB52E458} = {4A194BEA-D084-4A37-AD3A-18A791D1D9F2}
+		{793787CF-39D6-49C3-B40E-ECF9E6BDB733} = {4A194BEA-D084-4A37-AD3A-18A791D1D9F2}
+		{3BB2A358-5EE1-445C-A3E6-F13D465CE507} = {4A194BEA-D084-4A37-AD3A-18A791D1D9F2}
+		{FEE3DC1A-7FCD-4059-A127-4674464C2F94} = {4A194BEA-D084-4A37-AD3A-18A791D1D9F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {124537DD-B23A-4EAA-9504-3948783294CC}
