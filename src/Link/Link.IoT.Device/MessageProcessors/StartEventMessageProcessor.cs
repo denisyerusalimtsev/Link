@@ -1,4 +1,5 @@
-﻿using Link.IoT.Device.Models;
+﻿using System;
+using Link.IoT.Device.Models;
 using System.Threading.Tasks;
 
 namespace Link.IoT.Device.MessageProcessors
@@ -7,7 +8,10 @@ namespace Link.IoT.Device.MessageProcessors
     {
         public Task Process(StartEventMessage message)
         {
-            throw new System.NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Event has started, Expert is unavailable.");
+
+            return Task.CompletedTask;
         }
     }
 }

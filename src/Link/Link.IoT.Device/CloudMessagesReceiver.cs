@@ -40,13 +40,13 @@ namespace Link.IoT.Device
                     var payload = Encoding.ASCII.GetString(message.GetBytes());
                     switch (oper)
                     {
-                        case Operation.Unavalable:
+                        case Operation.Available:
                             var finishProcessor = new FinishEventMessageProcessor();
                             var bookedMessageDto = JsonConvert.DeserializeObject<FinishEventMessage>(payload);
                             await finishProcessor.Process(bookedMessageDto);
                             break;
 
-                        case Operation.Available:
+                        case Operation.Unavalable:
                             var startProcessor = new StartEventMessageProcessor();
                             var startMessageDto = JsonConvert.DeserializeObject<StartEventMessage>(payload);
                             await startProcessor.Process(startMessageDto);

@@ -34,6 +34,14 @@ namespace Link.Common.Domain.Framework.Communication
             }
         }
 
+        public async Task SynchronousPostRequestAsync(string url)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                await client.PostAsync(new Uri(url), null);
+            }
+        }
+
         public async Task<TResult> SynchronousGetRequest<TResult>(string url)
         {
             using (HttpClient client = new HttpClient())

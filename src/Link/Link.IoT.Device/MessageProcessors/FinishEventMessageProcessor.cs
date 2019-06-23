@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Link.IoT.Device.Models;
 
 namespace Link.IoT.Device.MessageProcessors
@@ -7,7 +8,10 @@ namespace Link.IoT.Device.MessageProcessors
     {
         public Task Process(FinishEventMessage message)
         {
-            throw new System.NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Event has finished, expert is free");
+
+            return Task.CompletedTask;
         }
     }
 }

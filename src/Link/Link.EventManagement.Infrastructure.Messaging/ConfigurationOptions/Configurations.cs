@@ -10,6 +10,7 @@ namespace Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions
             UserManagementUrl = config.GetSection("UserManagementUrl").Value;
             EmailManagementUrl = config.GetSection("EmailManagementUrl").Value;
             ReportManagementUrl = config.GetSection("ReportManagementUrl").Value;
+            IoTUrl = config.GetSection("IoTUrl").Value;
             AzureCloudStorageAccount = config.GetSection("AzureCloudStorageAccount").Value;
         }
 
@@ -20,6 +21,8 @@ namespace Link.EventManagement.Infrastructure.Messaging.ConfigurationOptions
         public string EmailManagementUrl { get; set; }
 
         public string ReportManagementUrl { get; set; }
+
+        public string IoTUrl { get; set; }
 
         public string AzureCloudStorageAccount { get; set; }
     }

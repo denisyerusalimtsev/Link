@@ -8,6 +8,8 @@ namespace Link.Common.Domain.Framework.Communication
 
         Task SynchronousPostRequestAsync<TPayload>(string url, TPayload payload);
 
+        Task SynchronousPostRequestAsync(string url);
+
         Task<TResult> SynchronousGetRequest<TResult>(string url);
     }
 }

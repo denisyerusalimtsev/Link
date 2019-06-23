@@ -40,11 +40,11 @@ namespace Link.IoT.Infrastructure.Web
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "Link.EventManagement.API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "Link.IoT.API", Version = "v1" });
             });
 
             services.AddTransient<IIoTHub>(provider =>
-                new AzureIoTHub(Configuration.GetConnectionString("IoTHub")));
+                new AzureIoTHub(Configuration.GetSection("IoTHub").Value));
 
             services.AddCors();
 
@@ -95,6 +95,18 @@ namespace Link.IoT.Infrastructure.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Link.IoT.API V1");
+            });
+
+            app.UseCors(builder =>
+                builder.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
 
             app.UseHttpsRedirection();
             app.UseMvc();

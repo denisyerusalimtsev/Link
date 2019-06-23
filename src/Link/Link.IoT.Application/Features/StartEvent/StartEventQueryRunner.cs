@@ -1,15 +1,15 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
-using System;
-using System.Threading.Tasks;
 using Link.IoT.Hub.Cloud.Azure;
+using Link.IoT.Hub.Cloud.Azure.Interfaces;
+using System.Threading.Tasks;
 
 namespace Link.IoT.Application.Features.StartEvent
 {
     public sealed class StartEventQueryRunner : QueryRunner<StartEventQuery, StartEventQueryResult>
     {
-        private readonly AzureIoTHub _hub;
+        private readonly IIoTHub _hub;
 
-        public StartEventQueryRunner(AzureIoTHub hub)
+        public StartEventQueryRunner(IIoTHub hub)
         {
             _hub = hub;
         }

@@ -77,6 +77,7 @@ namespace Link.EventManagement.Infrastructure.Web
             builder.RegisterType<ExpertService>().As<IExpertService>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<ReportService>().As<IReportService>();
+            builder.RegisterType<IoTService>().As<IIoTService>();
             builder.RegisterType<CommunicationChannel>().As<ICommunicationChannel>();
 
             builder.Populate(services);

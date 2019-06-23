@@ -1,14 +1,15 @@
 ﻿using Link.Common.Domain.Framework.Frameworks;
 using Link.IoT.Hub.Cloud.Azure;
+using Link.IoT.Hub.Cloud.Azure.Interfaces;
 using System.Threading.Tasks;
 
 namespace Link.IoT.Application.Features.StopEvent
 {
     public sealed class StopEventQueryRunner : QueryRunner<StopEventQuery, StopEventQueryResult>
     {
-        private readonly AzureIoTHub _hub;
+        private readonly IIoTHub _hub;
 
-        public StopEventQueryRunner(AzureIoTHub hub)
+        public StopEventQueryRunner(IIoTHub hub)
         {
             _hub = hub;
         }

@@ -24,7 +24,7 @@ namespace Link.IoT.Hub.Cloud.Azure
             var message = new Message(Encoding.ASCII.GetBytes(json));
             message.Properties.Add("Operation", dto.Operation.ToString());
 
-            await _serviceClient.SendAsync(expertId, message);
+            await _serviceClient.SendAsync("LinkNotifyDevice", message);
         }
 
         public async Task FinishProjectWithExpertAsync(string expertId)
@@ -35,7 +35,7 @@ namespace Link.IoT.Hub.Cloud.Azure
             var message = new Message(Encoding.ASCII.GetBytes(json));
             message.Properties.Add("Operation", dto.Operation.ToString());
 
-            await _serviceClient.SendAsync(expertId, message);
+            await _serviceClient.SendAsync("LinkNotifyDevice", message);
         }
     }
 }
