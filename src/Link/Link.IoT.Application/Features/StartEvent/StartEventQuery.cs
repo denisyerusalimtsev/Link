@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Link.Common.Domain.Framework.Frameworks;
 
 namespace Link.IoT.Application.Features.StartEvent
 {
-    class StartEventQuery
+    public sealed class StartEventQuery : IQuery<StartEventQueryResult>
     {
+        public StartEventQuery(string expertId)
+        {
+            ExpertId = expertId;
+        }
+
+        public string ExpertId { get; }
     }
 }

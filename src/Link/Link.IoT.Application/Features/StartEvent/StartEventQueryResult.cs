@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Link.Common.Domain.Framework.Frameworks;
 
 namespace Link.IoT.Application.Features.StartEvent
 {
-    class StartEventQueryResult
+    public sealed class StartEventQueryResult : IQueryResult
     {
     }
 }

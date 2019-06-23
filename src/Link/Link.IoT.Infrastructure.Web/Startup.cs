@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Reflection;
+using Link.IoT.Hub.Cloud.Azure;
+using Link.IoT.Hub.Cloud.Azure.Interfaces;
 
 namespace Link.IoT.Infrastructure.Web
 {
@@ -40,6 +42,9 @@ namespace Link.IoT.Infrastructure.Web
             {
                 c.SwaggerDoc("v1", new Info { Title = "Link.EventManagement.API", Version = "v1" });
             });
+
+            services.AddTransient<IIoTHub>(provider =>
+                new AzureIoTHub(Configuration.GetConnectionString("IoTHub")));
 
             services.AddCors();
 

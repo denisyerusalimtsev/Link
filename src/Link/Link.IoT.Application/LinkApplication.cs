@@ -30,7 +30,7 @@ namespace Link.IoT.Application
             }
             catch (Exception ex)
             {
-                throw new InvalidOperationException($"Command handler is not registered for given command. Command ExpertType: [{command.GetType()}] ", ex);
+                throw new InvalidOperationException($"Command handler is not registered for given command. Command : [{command.GetType()}] ", ex);
             }
         }
 

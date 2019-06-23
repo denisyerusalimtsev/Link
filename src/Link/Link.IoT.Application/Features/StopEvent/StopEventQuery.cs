@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Link.Common.Domain.Framework.Frameworks;
 
 namespace Link.IoT.Application.Features.StopEvent
 {
-    class StopEventQuery
+    public sealed class StopEventQuery : IQuery<StopEventQueryResult>
     {
+        public StopEventQuery(string expertId)
+        {
+            ExpertId = expertId;
+        }
+
+        public string ExpertId { get; }
     }
 }

@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Link.Common.Domain.Framework\Link.Common.Domain.Framework.csproj" />
     <ProjectReference Include="..\Link.IoT.Application\Link.IoT.Application.csproj" />
+    <ProjectReference Include="..\Link.IoT.Hub.Cloud.Azure\Link.IoT.Hub.Cloud.Azure.csproj" />
   </ItemGroup>
 
 </Project>
