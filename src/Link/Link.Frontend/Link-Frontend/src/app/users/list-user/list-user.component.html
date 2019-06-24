@@ -16,19 +16,19 @@
       <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="firstName">
-      <mat-header-cell *matHeaderCellDef  mat-sort-header>First name</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef  mat-sort-header>{{'TABLE_FIRST_NAME' | translate}}</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.firstName}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="lastName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{'TABLE_LAST_NAME' | translate}}</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.lastName}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="phoneNumber">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Phone number</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{'TABLE_PHONE_NUMBER' | translate}}</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.phoneNumber}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{'TABLE_EMAIL' | translate}}</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
     </ng-container>
 

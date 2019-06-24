@@ -20,7 +20,7 @@
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input formControlName="name" matInput placeholder="Name*">
+          <input formControlName="name" matInput placeholder="{{'TABLE_FIRST_NAME' | translate}}*">
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
         <mat-form-field>
@@ -43,11 +43,11 @@
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input formControlName="latitude" matInput placeholder="Latitude*">
+          <input formControlName="latitude" matInput placeholder="{{'TABLE_FIRST_LATITUDE' | translate}}*">
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input formControlName="longitude" matInput placeholder="Longitude*">
+          <input formControlName="longitude" matInput placeholder="{{'TABLE_FIRST_LONGITUDE' | translate}}*">
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
         <mat-form-field>
@@ -56,7 +56,7 @@
           <mat-datepicker #startDate></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
-          <input formControlName="countOfNeededExperts" matInput placeholder="Count of needed experts*">
+          <input formControlName="countOfNeededExperts" matInput placeholder="{{'TABLE_FIRST_COUNT_OF_EXPERTS' | translate}}*">
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
       </div>
@@ -66,7 +66,7 @@
         <div class="button-row">
           <button mat-raised-button class="submit-btn" color="primary" type="submit"
             [disabled]="eventForm.invalid">Submit</button>
-          <button mat-raised-button class="clear-btn" color="warn" (click)="onClear()">Clear</button>
+          <button mat-raised-button class="clear-btn" color="warn" (click)="onClear()">{{'BTN_CLEAR' | translate}}</button>
         </div>
       </div>
     </mat-grid-tile>

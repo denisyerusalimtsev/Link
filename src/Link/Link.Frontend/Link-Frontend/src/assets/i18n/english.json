@@ -16,7 +16,7 @@
     "TABLE_LONGITUDE": "Longitude",
     "TABLE_FIRST_NAME": "First name",
     "TABLE_LAST_NAME": "Last name",
-    "TABLE_PHONENUMBER": "Phone number",
+    "TABLE_PHONE_NUMBER": "Phone number",
     "TABLE_EMAIL": "Email",
 
     "BTN_SUBMIT": "Submit",

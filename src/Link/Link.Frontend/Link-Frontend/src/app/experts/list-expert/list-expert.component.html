@@ -16,19 +16,19 @@
       <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="firstName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>First name</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{'TABLE_FIRST_NAME' | translate}}</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.firstName}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="lastName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{'TABLE_LAST_NAME' | translate}}</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.lastName}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="expertType">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Type</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{'TABLE_TYPE' | translate}}</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.expertType}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="expertStatus">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{'TABLE_STATUS' | translate}}</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.expertStatus}}</mat-cell>
     </ng-container>
 

@@ -16,7 +16,7 @@
     "TABLE_LONGITUDE": "Довгота",
     "TABLE_FIRST_NAME": "Ім'я",
     "TABLE_LAST_NAME": "Прізвище",
-    "TABLE_PHONENUMBER": "Номер телефону",
+    "TABLE_PHONE_NUMBER": "Номер телефону",
     "TABLE_EMAIL": "Електронна адреса",
 
     "BTN_SUBMIT": "Прийняти",
