@@ -1,3 +1,25 @@
 {
-    
+    "MENU_MAP": "Map",
+    "MENU_STATISTIC": "Statistic",
+    "MENU_EVENTS": "Events",
+    "MENU_DASHBOARD": "Dashboard",
+    "MENU_USERS": "Users",
+    "MENU_EXPERTS": "Experts",
+
+    "TABLE_NAME": "Name",
+    "TABLE_TYPE": "Type",
+    "TABLE_STATUS": "Status",
+    "TABLE_START_TIME": "Start time",
+    "TABLE_END_TIME": "End time",
+    "TABLE_COUNT_OF_EXPERTS": "Count of experts",
+    "TABLE_LATITUDE": "Latitude",
+    "TABLE_LONGITUDE": "Longitude",
+    "TABLE_FIRST_NAME": "First name",
+    "TABLE_LAST_NAME": "Last name",
+    "TABLE_PHONENUMBER": "Phone number",
+    "TABLE_EMAIL": "Email",
+
+    "BTN_SUBMIT": "Submit",
+    "BTN_CANCEL": "Cancel",
+    "BTN_CREATE": "Create"
 }

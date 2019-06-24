@@ -1,0 +1,25 @@
+{
+    "MENU_MAP": "Мапа",
+    "MENU_STATISTIC": "Статистика",
+    "MENU_EVENTS": "Події",
+    "MENU_DASHBOARD": "Дошка",
+    "MENU_USERS": "Користувачі",
+    "MENU_EXPERTS": "Експерти",
+
+    "TABLE_NAME": "Назва",
+    "TABLE_TYPE": "Тип",
+    "TABLE_STATUS": "Статус",
+    "TABLE_START_TIME": "Дата початку",
+    "TABLE_END_TIME": "Дата кінця",
+    "TABLE_COUNT_OF_EXPERTS": "Кількість експертів",
+    "TABLE_LATITUDE": "Широта",
+    "TABLE_LONGITUDE": "Довгота",
+    "TABLE_FIRST_NAME": "Ім'я",
+    "TABLE_LAST_NAME": "Прізвище",
+    "TABLE_PHONENUMBER": "Номер телефону",
+    "TABLE_EMAIL": "Електронна адреса",
+
+    "BTN_SUBMIT": "Прийняти",
+    "BTN_CANCEL": "Відмінити",
+    "BTN_CREATE": "Створити"
+}

@@ -1,44 +1,52 @@
 <mat-sidenav-container class="container">
   <mat-sidenav #sidenav mode="side">
-        <mat-nav-list>
-          <a mat-list-item routerLink="map">
-              <mat-icon color='primary'>place</mat-icon>
-              Map
-          </a>
-          <a mat-list-item routerLink="statistic">
-            <mat-icon color='primary'>donut_large</mat-icon>
-            Statistic
-          </a>
-          <a mat-list-item routerLink="events">
-           <mat-icon color='primary'>center_focus_weak</mat-icon>
-            Events
-          </a>
-          <a mat-list-item routerLink="dashboard">
-            <mat-icon color='primary'>dashboard</mat-icon>
-            Dashboard
-          </a>
-          <a mat-list-item routerLink="users">
-            <mat-icon color='primary'>people</mat-icon>
-            Users
-          </a>
-          <a mat-list-item routerLink="experts">
-            <mat-icon color='primary'>account_circle</mat-icon>
-            Experts
-          </a>
-        </mat-nav-list>
-      </mat-sidenav>
-    
-      <mat-sidenav-content>
-        <mat-toolbar>
-          <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon>
-          </button>
-          <div class="logo">
-              Link
-            </div>
-        </mat-toolbar>
-        <main>
-            <router-outlet></router-outlet>
-        </main>
-    
+    <mat-nav-list>
+      <a mat-list-item routerLink="map">
+        <mat-icon color='primary'>place</mat-icon>
+        {{ 'MENU_MAP' | translate }}
+      </a>
+      <a mat-list-item routerLink="statistic">
+        <mat-icon color='primary'>donut_large</mat-icon>
+        {{ 'MENU_STATISTIC' | translate }}
+      </a>
+      <a mat-list-item routerLink="events">
+        <mat-icon color='primary'>center_focus_weak</mat-icon>
+        {{ 'MENU_EVENTS' | translate }}
+      </a>
+      <a mat-list-item routerLink="dashboard">
+        <mat-icon color='primary'>dashboard</mat-icon>
+        {{ 'MENU_DASHBOARD' | translate }}
+      </a>
+      <a mat-list-item routerLink="users">
+        <mat-icon color='primary'>people</mat-icon>
+        {{ 'MENU_USERS' | translate }}
+      </a>
+      <a mat-list-item routerLink="experts">
+        <mat-icon color='primary'>account_circle</mat-icon>
+        {{ 'MENU_EXPERTS' | translate }}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="logo">
+        Link
+      </div>
+      <mat-form-field class="language">
+        <mat-label>Select language</mat-label>
+        <mat-select [(value)]="selected" (selectionChange)="changeLanguage(selected)">
+          <mat-option value="english">English</mat-option>
+          <mat-option value="ukrainian">Українська</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
