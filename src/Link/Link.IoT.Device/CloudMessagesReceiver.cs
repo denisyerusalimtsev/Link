@@ -1,11 +1,11 @@
-﻿using Link.IoT.Infrastructure.Messaging.Models;
+﻿using Link.IoT.Device.MessageProcessors;
+using Link.IoT.Device.Models;
+using Link.IoT.Infrastructure.Messaging.Models;
 using Microsoft.Azure.Devices.Client;
 using Newtonsoft.Json;
 using System;
 using System.Text;
 using System.Threading.Tasks;
-using Link.IoT.Device.MessageProcessors;
-using Link.IoT.Device.Models;
 
 namespace Link.IoT.Device
 {

@@ -24,6 +24,7 @@ import { TableEventComponent } from './map/table-event/table-event.component';
 import { MapEventComponent } from './map/map-event/map-event.component';
 import { StateService } from './services/state.service';
 import { DialogAssignExpertsComponent } from './map/dialog-assign-experts/dialog-assign-experts.component';
+import { StatisticComponent } from './statistic/statistic/statistic.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -41,7 +42,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MapEventComponent,
     GoogleMapComponent,
     TableEventComponent,
-    DialogAssignExpertsComponent
+    DialogAssignExpertsComponent,
+    StatisticComponent
   ],
   imports: [
     BrowserModule,
